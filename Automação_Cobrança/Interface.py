@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog, scrolledtext, messagebox, ttk
 from openpyxl import load_workbook
+from openpyxl.utils import get_column_letter
 
 def extrair_nomes_e_valores(content):
     nomes = []
@@ -23,37 +24,78 @@ def extrair_nomes_e_valores(content):
                 continue
     return list(zip(nomes, valores))
 
+
 def buscar_nomes_excel(file_path_excel, nomes, aba):
     try:
         wb = load_workbook(filename=file_path_excel, data_only=True)
         ws = wb[aba]
+
+        # Identificar a última coluna com dados e a coluna "CALCULO UNIMED"
+        last_col = ws.max_column
+        calc_unimed_col_index = None
+        for col in range(1, ws.max_column + 1):
+            if ws.cell(row=1, column=col).value == "CALCULO UNIMED":
+                calc_unimed_col_index = col
+                break
+
+        # Verificar se a coluna "Pago?" já existe
+        pago_col_label = "Pago?"
+        pago_col_index = None
+        for col in range(1, last_col + 1):
+            if ws.cell(row=1, column=col).value == pago_col_label:
+                pago_col_index = col
+                break
+        if not pago_col_index:  # Se "Pago?" não existir, adicione-a
+            pago_col_index = last_col + 1
+            ws.cell(row=1, column=pago_col_index).value = pago_col_label
+
+        # Copiar a formatação da coluna "CALCULO UNIMED" para "Pago?"
+        if calc_unimed_col_index:
+            for row in range(1, ws.max_row + 1):
+                source_cell = ws.cell(row=row, column=calc_unimed_col_index)
+                target_cell = ws.cell(row=row, column=pago_col_index)
+                if source_cell.has_style:
+                    target_cell._style = source_cell._style
+
+            # Preparar para aplicar mesclagens sem alterar o conjunto durante a iteração
+            new_merges = []
+            for merge_range in ws.merged_cells.ranges:
+                if merge_range.min_col <= calc_unimed_col_index <= merge_range.max_col:
+                    new_merge_range = f"{get_column_letter(pago_col_index)}{merge_range.min_row}:{get_column_letter(pago_col_index)}{merge_range.max_row}"
+                    new_merges.append(new_merge_range)
+
+            # Aplicar as novas mesclagens coletadas
+            for merge_range in new_merges:
+                ws.merge_cells(merge_range)
+
         nomes_encontrados = []
         valores_associados = []
+
         for nome_procurado in nomes:
             encontrado = False
-            for row in ws.iter_rows(min_row=2, values_only=True):
-                nome_celula = str(row[0]).strip()
-                if nome_procurado == nome_celula:
+            for row in ws.iter_rows(min_row=2, max_col=ws.max_column, values_only=False):
+                if nome_procurado == str(row[0].value).strip():
                     nomes_encontrados.append(nome_procurado)
-                    valor = row[33]
-                    print(f"Valor lido da coluna AH para '{nome_procurado}': {valor}")  # Debugging
-                    if valor is None:
-                        valor_formatado = "Valor não encontrado"
-                    elif isinstance(valor, (int, float)):
-                        valor_formatado = f"{valor:.2f}"
-                    else:
-                        valor_formatado = str(valor)
+                    valor = row[33].value if len(row) > 33 else "Valor não encontrado"
+                    valor_formatado = f"{valor:.2f}" if isinstance(valor, (int, float)) else str(valor) if valor else "Valor não encontrado"
                     valores_associados.append(valor_formatado)
+                    row[pago_col_index - 1].value = "X"
                     encontrado = True
                     break
             if not encontrado:
                 valores_associados.append("Valor não encontrado")
-                print(f"Nome '{nome_procurado}' não encontrado.")
+
+        wb.save(filename=file_path_excel)
         wb.close()
         return nomes_encontrados, valores_associados
+
     except FileNotFoundError:
-        messagebox.showerror("Erro", f"O arquivo Excel '{file_path_excel}' não foi encontrado.")
+        messagebox.showerror("Erro", "O arquivo Excel não foi encontrado.")
         return [], []
+    except Exception as e:
+        messagebox.showerror("Erro Inesperado", f"Um erro ocorreu: {str(e)}")
+        return [], []
+
 
 def processar_arquivos(file_path_txt, file_path_excel, aba):
     try:
