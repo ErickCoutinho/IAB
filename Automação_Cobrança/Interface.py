@@ -56,7 +56,7 @@ def buscar_nomes_excel(file_path_excel, nomes, aba):
             for row in ws.iter_rows(min_row=2, values_only=False):
                 if nome_procurado == str(row[0].value).strip():
                     nomes_encontrados.append(nome_procurado)
-                    valor = row[total_fatura_titular_col_index - 1].value  # Ajustar índice
+                    valor = row[total_fatura_titular_col_index - 1].value
                     valor_formatado = f"{valor:.2f}" if isinstance(valor, (int, float)) else str(valor) if valor else "Valor não encontrado"
                     valores_associados.append(valor_formatado)
                     row[pago_col_index - 1].value = "X"
