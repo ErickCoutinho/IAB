@@ -30,53 +30,33 @@ def buscar_nomes_excel(file_path_excel, nomes, aba):
         wb = load_workbook(filename=file_path_excel, data_only=True)
         ws = wb[aba]
 
-        # Identificar a última coluna com dados e a coluna "CALCULO UNIMED"
-        last_col = ws.max_column
-        calc_unimed_col_index = None
+        # Identificar coluna "Total fatura titular"
+        total_fatura_titular_col_index = None
         for col in range(1, ws.max_column + 1):
-            if ws.cell(row=1, column=col).value == "CALCULO UNIMED":
-                calc_unimed_col_index = col
+            if ws.cell(row=1, column=col).value == "Total fatura titular":
+                total_fatura_titular_col_index = col
                 break
 
         # Verificar se a coluna "Pago?" já existe
         pago_col_label = "Pago?"
         pago_col_index = None
-        for col in range(1, last_col + 1):
+        for col in range(1, ws.max_column + 1):
             if ws.cell(row=1, column=col).value == pago_col_label:
                 pago_col_index = col
                 break
         if not pago_col_index:  # Se "Pago?" não existir, adicione-a
-            pago_col_index = last_col + 1
+            pago_col_index = ws.max_column + 1
             ws.cell(row=1, column=pago_col_index).value = pago_col_label
-
-        # Copiar a formatação da coluna "CALCULO UNIMED" para "Pago?"
-        if calc_unimed_col_index:
-            for row in range(1, ws.max_row + 1):
-                source_cell = ws.cell(row=row, column=calc_unimed_col_index)
-                target_cell = ws.cell(row=row, column=pago_col_index)
-                if source_cell.has_style:
-                    target_cell._style = source_cell._style
-
-            # Preparar para aplicar mesclagens sem alterar o conjunto durante a iteração
-            new_merges = []
-            for merge_range in ws.merged_cells.ranges:
-                if merge_range.min_col <= calc_unimed_col_index <= merge_range.max_col:
-                    new_merge_range = f"{get_column_letter(pago_col_index)}{merge_range.min_row}:{get_column_letter(pago_col_index)}{merge_range.max_row}"
-                    new_merges.append(new_merge_range)
-
-            # Aplicar as novas mesclagens coletadas
-            for merge_range in new_merges:
-                ws.merge_cells(merge_range)
 
         nomes_encontrados = []
         valores_associados = []
 
         for nome_procurado in nomes:
             encontrado = False
-            for row in ws.iter_rows(min_row=2, max_col=ws.max_column, values_only=False):
+            for row in ws.iter_rows(min_row=2, values_only=False):
                 if nome_procurado == str(row[0].value).strip():
                     nomes_encontrados.append(nome_procurado)
-                    valor = row[33].value if len(row) > 33 else "Valor não encontrado"
+                    valor = row[total_fatura_titular_col_index - 1].value  # Ajustar índice
                     valor_formatado = f"{valor:.2f}" if isinstance(valor, (int, float)) else str(valor) if valor else "Valor não encontrado"
                     valores_associados.append(valor_formatado)
                     row[pago_col_index - 1].value = "X"
@@ -134,7 +114,7 @@ def selecionar_arquivo_excel():
             wb.close()
 
             if sheet_names:
-                aba_combo['values'] = sheet_names  # Preenche as opções do combobox com as abas disponíveis
+                aba_combo['values'] = sheet_names
 
         except FileNotFoundError:
             messagebox.showerror("Erro", f"O arquivo Excel '{file_path}' não foi encontrado.")
