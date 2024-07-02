@@ -3,6 +3,8 @@ from tkinter import filedialog, scrolledtext, messagebox, ttk
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 from copy import copy
+from PIL import Image
+import pytesseract
 
 def extrair_nomes_e_valores(content):
     nomes = []
@@ -25,7 +27,21 @@ def extrair_nomes_e_valores(content):
                 continue
     return list(zip(nomes, valores))
 
-def buscar_nomes_excel(file_path_excel, nomes, aba):
+
+def extrair_data_posicao_csv(file_path_txt):
+    with open(file_path_txt, 'r', encoding='utf-8') as file:
+        content = file.readlines()
+    for line in content:
+        if 'POSICAO DO DIA:' in line:
+            try:
+                data = line.split(':')[-1].strip()
+                return data
+            except IndexError:
+                continue
+    return None
+
+
+def buscar_nomes_excel(file_path_excel, nomes, aba, data_posicao):
     wb = load_workbook(filename=file_path_excel, data_only=True)
     ws = wb[aba]
 
@@ -40,16 +56,29 @@ def buscar_nomes_excel(file_path_excel, nomes, aba):
         pago_col_index = ws.max_column + 1
         ws.cell(row=1, column=pago_col_index).value = pago_col_label
 
+    # Verificar se a coluna "DIA PGTO" já existe
+    dia_pgto_col_label = "DIA PGTO"
+    dia_pgto_col_index = None
+    for col in range(1, ws.max_column + 1):
+        if ws.cell(row=1, column=col).value == dia_pgto_col_label:
+            dia_pgto_col_index = col
+            break
+    if not dia_pgto_col_index:  # Se "DIA PGTO" não existir, adicione-a
+        dia_pgto_col_index = ws.max_column + 1
+        ws.cell(row=1, column=dia_pgto_col_index).value = dia_pgto_col_label
+
     source_col_index = pago_col_index - 1  # Copiando a formatação da coluna anterior
     copiar_formatacao_e_mesclagens(ws, source_col_index, pago_col_index)
+    copiar_formatacao_e_mesclagens(ws, source_col_index, dia_pgto_col_index)
 
-    nomes_encontrados, valores_associados = processar_nomes(ws, nomes, pago_col_index)
+    nomes_encontrados, valores_associados = processar_nomes(ws, nomes, pago_col_index, dia_pgto_col_index, data_posicao)
     wb.save(filename=file_path_excel)
     wb.close()
     return nomes_encontrados, valores_associados
 
+
+
 def copiar_formatacao_e_mesclagens(ws, source_col_index, target_col_index):
-    # Primeiro, copiar a formatação
     for row in range(1, ws.max_row + 1):
         source_cell = ws.cell(row=row, column=source_col_index)
         target_cell = ws.cell(row=row, column=target_col_index)
@@ -61,18 +90,18 @@ def copiar_formatacao_e_mesclagens(ws, source_col_index, target_col_index):
             target_cell.protection = copy(source_cell.protection)
             target_cell.alignment = copy(source_cell.alignment)
 
-    # Agora, preparar para mesclar as células sem alterar a coleção durante a iteração
     new_merges = []
     for merge_cell in ws.merged_cells.ranges:
         if merge_cell.min_col <= source_col_index <= merge_cell.max_col:
             new_range = f"{get_column_letter(target_col_index)}{merge_cell.min_row}:{get_column_letter(target_col_index)}{merge_cell.max_row}"
             new_merges.append(new_range)
 
-    # Aplicar as novas mesclagens coletadas
     for merge_range in new_merges:
         ws.merge_cells(merge_range)
 
-def processar_nomes(ws, nomes, pago_col_index):
+
+
+def processar_nomes(ws, nomes, pago_col_index, dia_pgto_col_index, data_posicao):
     total_fatura_titular_col_index = next((i for i, cell in enumerate(ws[1], 1) if cell.value == "Total fatura titular"), None)
     nomes_encontrados = []
     valores_associados = []
@@ -85,18 +114,22 @@ def processar_nomes(ws, nomes, pago_col_index):
                 valor_formatado = f"{valor:.2f}" if isinstance(valor, (int, float)) else str(valor) if valor else "Valor não encontrado"
                 valores_associados.append(valor_formatado)
                 row[pago_col_index - 1].value = "X"
+                row[dia_pgto_col_index - 1].value = data_posicao  # Adicionar a data extraída
                 encontrado = True
                 break
         if not encontrado:
             valores_associados.append("Valor não encontrado")
     return nomes_encontrados, valores_associados
 
+
+
 def processar_arquivos(file_path_txt, file_path_excel, aba):
     with open(file_path_txt, 'r', encoding='utf-8') as file:
         content_txt = file.readlines()
+    data_posicao = extrair_data_posicao_csv(file_path_txt)
     nomes_valores_txt = extrair_nomes_e_valores(content_txt)
     nomes = [nome for nome, _ in nomes_valores_txt]
-    nomes_encontrados, valores_associados = buscar_nomes_excel(file_path_excel, nomes, aba)
+    nomes_encontrados, valores_associados = buscar_nomes_excel(file_path_excel, nomes, aba, data_posicao)
     txt_area.delete('1.0', tk.END)
     txt_area.insert(tk.END, "{:<50} {:<30}\n".format("Nomes encontrados no arquivo TXT", "Valores encontrados no arquivo Excel"))
     txt_area.insert(tk.END, "="*80 + "\n")
@@ -104,6 +137,8 @@ def processar_arquivos(file_path_txt, file_path_excel, aba):
         txt_area.insert(tk.END, "{:<50} {:<30}\n".format(f"{nome} - {valor_txt}", valor_excel))
     quantidade_nomes = len([nome for nome in nomes if nome in nomes_encontrados])
     txt_area.insert(tk.END, f"Quantidade de nomes correspondentes encontrados: {quantidade_nomes}\n")
+
+
 
 def selecionar_arquivo_txt():
     file_path = filedialog.askopenfilename(filetypes=[("Arquivos TXT", "*.txt")])
