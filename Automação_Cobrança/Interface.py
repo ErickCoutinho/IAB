@@ -3,6 +3,7 @@ from tkinter import filedialog, scrolledtext, messagebox, ttk
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 from copy import copy
+from PIL import Image, ImageTk, ImageFont, ImageDraw
 
 
 def extrair_nomes_e_valores(content):
@@ -180,27 +181,54 @@ def processar():
     else:
         messagebox.showerror("Erro", "Selecione um arquivo TXT, um arquivo Excel e uma aba.")
 
+
 # Criar a interface gráfica
 root = tk.Tk()
 root.title("Selecionar Arquivos e Abas de Arquivos Excel")
-frame = tk.Frame(root)
-frame.pack(padx=20, pady=20)
-tk.Label(frame, text="Selecione o arquivo TXT:").grid(row=0, column=0, sticky='w', pady=5)
-txt_path_entry = tk.Entry(frame, width=50)
-txt_path_entry.grid(row=0, column=1, padx=10)
-btn_selecionar_txt = tk.Button(frame, text="Selecionar", command=selecionar_arquivo_txt)
-btn_selecionar_txt.grid(row=0, column=2, padx=10)
-tk.Label(frame, text="Selecione o arquivo Excel:").grid(row=1, column=0, sticky='w', pady=5)
-excel_path_entry = tk.Entry(frame, width=50)
-excel_path_entry.grid(row=1, column=1, padx=10)
-btn_selecionar_excel = tk.Button(frame, text="Selecionar", command=selecionar_arquivo_excel)
-btn_selecionar_excel.grid(row=1, column=2, padx=10)
-tk.Label(frame, text="Selecione a aba do arquivo Excel:").grid(row=2, column=0, sticky='w', pady=5)
-aba_combo = ttk.Combobox(frame, width=47, state='readonly')
-aba_combo.grid(row=2, column=1, padx=10, columnspan=2)
-btn_processar = tk.Button(root, text="Processar Arquivos", command=processar)
-btn_processar.pack(pady=10)
-txt_area = scrolledtext.ScrolledText(root, width=100, height=20)
-txt_area.pack()
-root.mainloop()
+root.configure(bg="black")
 
+# Carregar a logo
+logo_image = Image.open("SELO+IABRS COMPL_BRANCO.png")
+logo_image = logo_image.resize((200, 200), Image.LANCZOS)
+logo_photo = ImageTk.PhotoImage(logo_image)
+
+# Fonte DIN (certifique-se de que o arquivo .ttf está no mesmo diretório ou forneça o caminho completo)
+font_path = "DIN-Regular.ttf"
+din_font = ImageFont.truetype(font_path, 12)
+
+# Frame para a logo
+logo_frame = tk.Frame(root, bg="black")
+logo_frame.pack(pady=10)
+logo_label = tk.Label(logo_frame, image=logo_photo, bg="black")
+logo_label.image = logo_photo  # Keep a reference to avoid garbage collection
+logo_label.pack()
+
+# Configurações do frame principal
+frame = tk.Frame(root, bg="black")
+frame.pack(padx=20, pady=20)
+
+# Labels e entradas
+labels = ["Selecione o arquivo Bancário:", "Selecione o arquivo Excel:", "Selecione a aba do arquivo Excel:"]
+for i, text in enumerate(labels):
+    tk.Label(frame, text=text, fg="white", bg="black", font=("DIN", 12)).grid(row=i, column=0, sticky='w', pady=5)
+
+txt_path_entry = tk.Entry(frame, width=50, font=("DIN", 12))
+txt_path_entry.grid(row=0, column=1, padx=10)
+btn_selecionar_txt = tk.Button(frame, text="Selecionar", command=selecionar_arquivo_txt, font=("DIN", 12))
+btn_selecionar_txt.grid(row=0, column=2, padx=10)
+
+excel_path_entry = tk.Entry(frame, width=50, font=("DIN", 12))
+excel_path_entry.grid(row=1, column=1, padx=10)
+btn_selecionar_excel = tk.Button(frame, text="Selecionar", command=selecionar_arquivo_excel, font=("DIN", 12))
+btn_selecionar_excel.grid(row=1, column=2, padx=10)
+
+aba_combo = ttk.Combobox(frame, width=47, state='readonly', font=("DIN", 12))
+aba_combo.grid(row=2, column=1, padx=10, columnspan=2)
+
+btn_processar = tk.Button(root, text="Processar Arquivos", command=processar, font=("DIN", 12))
+btn_processar.pack(pady=10)
+
+txt_area = scrolledtext.ScrolledText(root, width=100, height=20, font=("DIN", 12), bg="black", fg="white")
+txt_area.pack()
+
+root.mainloop()
