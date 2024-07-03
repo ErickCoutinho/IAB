@@ -3,8 +3,7 @@ from tkinter import filedialog, scrolledtext, messagebox, ttk
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 from copy import copy
-from PIL import Image
-import pytesseract
+
 
 def extrair_nomes_e_valores(content):
     nomes = []
@@ -14,17 +13,31 @@ def extrair_nomes_e_valores(content):
             partes = line.split()
             nome = []
             for parte in partes[3:]:
-                if parte.isdigit():
+                if parte.replace('.', '').replace(',', '').isdigit():
                     break
                 nome.append(parte)
             nomes.append(' '.join(nome).strip())
-        if 'DINHEIRO' in line:
-            try:
-                index_c = line.index('C')
-                valor_titulo = line[index_c + 1:].strip().split()[0].replace(',', '.')
-                valores.append(valor_titulo)
-            except (ValueError, IndexError):
-                continue
+            # Verificar linha seguinte para o valor
+            next_line_index = content.index(line) + 1
+            if next_line_index < len(content):
+                next_line = content[next_line_index]
+                if 'DINHEIRO' in next_line or 'D ' in next_line:
+                    try:
+                        if 'C' in next_line:
+                            index_c = next_line.index('C')
+                            valor_titulo = next_line[index_c + 1:].strip().split()[0].replace(',', '.')
+                        elif 'D ' in next_line:
+                            index_d = next_line.index('D ')
+                            valor_titulo = next_line[index_d + 1:].strip().split()[0].replace(',', '.')
+                        else:
+                            continue
+                        valores.append(valor_titulo)
+                    except (ValueError, IndexError):
+                        valores.append("Valor não encontrado")
+                else:
+                    valores.append("Valor não encontrado")
+            else:
+                valores.append("Valor não encontrado")
     return list(zip(nomes, valores))
 
 
@@ -120,7 +133,6 @@ def processar_nomes(ws, nomes, pago_col_index, dia_pgto_col_index, data_posicao)
         if not encontrado:
             valores_associados.append("Valor não encontrado")
     return nomes_encontrados, valores_associados
-
 
 
 def processar_arquivos(file_path_txt, file_path_excel, aba):
