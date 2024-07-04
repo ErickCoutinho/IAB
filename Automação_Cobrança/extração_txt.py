@@ -1,53 +1,12 @@
+import re
+
+
 # Caminho do arquivo
-file_path = 'arquivos txts\\06_05Resumo_Contabil_20240508 (1).txt'
+file_path = 'arquivos txts\\15_05Resumo_Contabil_20240522.txt'
 
 # Ler o conteúdo do arquivo
 with open(file_path, 'r', encoding='utf-8') as file:
     content_txt = content = file.readlines()
-
-"""# Função para extrair os nomes
-def extrair_nomes(content):
-    nomes = []
-    for line in content:
-        # As linhas com os nomes das pessoas têm um padrão específico,
-        # portanto, vamos verificar se elas contêm '/01' e outros identificadores comuns
-        if '/01' in line and any(char.isalpha() for char in line):
-            partes = line.split()
-            # O nome começa na quarta coluna e pode conter mais de um nome
-            nome = []
-            for parte in partes[3:]:
-                if parte.isdigit():  # Se encontrar um número, pare a extração do nome
-                    break
-                nome.append(parte)
-            nomes.append(' '.join(nome).strip())
-    return nomes
-
-# Extrair os nomes
-nomes = extrair_nomes(content)
-
-# Exibir os nomes
-for nome in nomes:
-    print(nome)
-
-
-def extrair_valores(content):
-    valores = []
-    for line in content:
-        if 'DINHEIRO' in line:
-            try:
-                # Encontre o índice da letra "C" e extraia o valor subsequente
-                index_c = line.index('C')
-                valor_titulo = line[index_c + 1:].strip().split()[0].replace(',', '.')
-                valores.append(valor_titulo)
-            except (ValueError, IndexError):
-                continue
-    return valores
-
-valores = extrair_valores(content)
-print("\nValores dos Títulos:")
-for valor in valores:
-    print(valor)"""
-
 
 # Função para extrair os nomes
 def extrair_nomes_e_valores(content):
@@ -86,7 +45,50 @@ def extrair_nomes_e_valores(content):
     return list(zip(nomes, valores))
 
 nomes_valores = extrair_nomes_e_valores(content_txt)
-for nome, valor in nomes_valores:
+"""for nome, valor in nomes_valores:
     print(f"Nome: {nome}, Valor: {valor}")
-print(len(nomes_valores))
+print(len(nomes_valores))"""
 
+
+def extrair_e_somar_duplas(content):
+    resultados = []
+    i = 0
+    while i < len(content):
+        line = content[i]
+        if '/01' in line and any(char.isalpha() for char in line):
+            partes = line.split()
+            nome = []
+            for parte in partes[3:]:
+                if parte.isdigit() or re.match(r'\d+,\d+', parte):
+                    break
+                nome.append(parte)
+            nome = ' '.join(nome).strip()
+
+            # Procurar valores nas linhas subsequentes
+            valor_41 = valor_07 = 0
+
+            # Procurar o valor após "07"
+            if i + 1 < len(content):
+                proxima_linha = content[i + 1]
+                match_07 = re.search(r'07\s+(\d+,\d+)', proxima_linha)
+                if match_07:
+                    valor_07 = float(match_07.group(1).replace(',', '.'))
+
+            # Procurar o valor após "41"
+            if i + 2 < len(content):
+                proxima_linha = content[i + 2]
+                match_41 = re.search(r'41\s+(\d+,\d+)', proxima_linha)
+                if match_41:
+                    valor_41 = float(match_41.group(1).replace(',', '.'))
+
+            soma = valor_41 + valor_07
+            resultados.append((nome, f"{soma:.2f}"))
+
+        i += 1
+
+    return resultados
+
+
+resultados = extrair_e_somar_duplas(content_txt)
+for nome, soma in resultados:
+    print(f"Nome: {nome}, Soma: {soma}")

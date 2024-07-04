@@ -3,7 +3,8 @@ from tkinter import filedialog, scrolledtext, messagebox, ttk
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 from copy import copy
-from PIL import Image, ImageTk, ImageFont, ImageDraw
+from PIL import Image, ImageTk, ImageFont
+import re
 
 
 def extrair_nomes_e_valores(content):
@@ -55,7 +56,34 @@ def extrair_data_posicao_csv(file_path_txt):
     return None
 
 
-def buscar_nomes_excel(file_path_excel, nomes, aba, data_posicao):
+def extrair_e_somar_duplas(content):
+    taxas = {}
+    for i, line in enumerate(content):
+        if '/01' in line and any(char.isalpha() for char in line):
+            partes = line.split()
+            nome = []
+            for parte in partes[3:]:
+                if parte.replace(',', '').replace('.', '').isdigit():
+                    break
+                nome.append(parte)
+            nome = ' '.join(nome).strip()
+            taxas[nome] = 0  # Inicializa com 0 para garantir que o nome tenha uma entrada
+
+            # Verificar os próximos 2 valores na mesma linha ou linhas subsequentes
+            soma = 0
+            for offset in range(1, 3):
+                if i + offset < len(content):
+                    next_line = content[i + offset]
+                    matches = re.findall(r'(41|07)\s+(\d+,\d+)', next_line)
+                    for match in matches:
+                        _, numero = match
+                        numero = float(numero.replace(',', '.'))
+                        soma += numero
+            taxas[nome] = soma
+    return taxas
+
+
+def buscar_nomes_excel(file_path_excel, nomes, aba, data_posicao, taxas):
     wb = load_workbook(filename=file_path_excel, data_only=True)
     ws = wb[aba]
 
@@ -81,16 +109,26 @@ def buscar_nomes_excel(file_path_excel, nomes, aba, data_posicao):
         dia_pgto_col_index = ws.max_column + 1
         ws.cell(row=1, column=dia_pgto_col_index).value = dia_pgto_col_label
 
+    # Verificar se a coluna "Taxa" já existe
+    taxa_col_label = "Taxa"
+    taxa_col_index = None
+    for col in range(1, ws.max_column + 1):
+        if ws.cell(row=1, column=col).value == taxa_col_label:
+            taxa_col_index = col
+            break
+    if not taxa_col_index:  # Se "Taxa" não existir, adicione-a
+        taxa_col_index = ws.max_column + 1
+        ws.cell(row=1, column=taxa_col_index).value = taxa_col_label
+
     source_col_index = pago_col_index - 1  # Copiando a formatação da coluna anterior
     copiar_formatacao_e_mesclagens(ws, source_col_index, pago_col_index)
     copiar_formatacao_e_mesclagens(ws, source_col_index, dia_pgto_col_index)
+    copiar_formatacao_e_mesclagens(ws, source_col_index, taxa_col_index)
 
-    nomes_encontrados, valores_associados = processar_nomes(ws, nomes, pago_col_index, dia_pgto_col_index, data_posicao)
+    nomes_encontrados, valores_associados = processar_nomes(ws, nomes, pago_col_index, dia_pgto_col_index, taxa_col_index, data_posicao, taxas)
     wb.save(filename=file_path_excel)
     wb.close()
     return nomes_encontrados, valores_associados
-
-
 
 def copiar_formatacao_e_mesclagens(ws, source_col_index, target_col_index):
     for row in range(1, ws.max_row + 1):
@@ -115,7 +153,7 @@ def copiar_formatacao_e_mesclagens(ws, source_col_index, target_col_index):
 
 
 
-def processar_nomes(ws, nomes, pago_col_index, dia_pgto_col_index, data_posicao):
+def processar_nomes(ws, nomes, pago_col_index, dia_pgto_col_index, taxa_col_index, data_posicao, taxas):
     total_fatura_titular_col_index = next((i for i, cell in enumerate(ws[1], 1) if cell.value == "Total fatura titular"), None)
     nomes_encontrados = []
     valores_associados = []
@@ -129,6 +167,7 @@ def processar_nomes(ws, nomes, pago_col_index, dia_pgto_col_index, data_posicao)
                 valores_associados.append(valor_formatado)
                 row[pago_col_index - 1].value = "X"
                 row[dia_pgto_col_index - 1].value = data_posicao  # Adicionar a data extraída
+                row[taxa_col_index - 1].value = f"{taxas.get(nome_procurado, 0):.2f}"  # Adicionar a taxa
                 encontrado = True
                 break
         if not encontrado:
@@ -142,7 +181,11 @@ def processar_arquivos(file_path_txt, file_path_excel, aba):
     data_posicao = extrair_data_posicao_csv(file_path_txt)
     nomes_valores_txt = extrair_nomes_e_valores(content_txt)
     nomes = [nome for nome, _ in nomes_valores_txt]
-    nomes_encontrados, valores_associados = buscar_nomes_excel(file_path_excel, nomes, aba, data_posicao)
+
+    # Extrair e somar duplas (taxas)
+    taxas = extrair_e_somar_duplas(content_txt)
+
+    nomes_encontrados, valores_associados = buscar_nomes_excel(file_path_excel, nomes, aba, data_posicao, taxas)
     txt_area.delete('1.0', tk.END)
     txt_area.insert(tk.END, "{:<50} {:<30}\n".format("Nomes encontrados no arquivo TXT", "Valores encontrados no arquivo Excel"))
     txt_area.insert(tk.END, "="*80 + "\n")
@@ -189,7 +232,7 @@ root.configure(bg="black")
 
 # Carregar a logo
 logo_image = Image.open("SELO+IABRS COMPL_BRANCO.png")
-logo_image = logo_image.resize((200, 200), Image.LANCZOS)
+logo_image = logo_image.resize((200, 150), Image.LANCZOS)
 logo_photo = ImageTk.PhotoImage(logo_image)
 
 # Fonte DIN (certifique-se de que o arquivo .ttf está no mesmo diretório ou forneça o caminho completo)
