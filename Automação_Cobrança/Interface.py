@@ -2,8 +2,10 @@ import tkinter as tk
 from tkinter import filedialog, scrolledtext, messagebox, ttk
 from PIL import Image, ImageTk, ImageFont
 from openpyxl import load_workbook
-from funçoes import processar_arquivos
 import threading
+
+# Funções de processamento
+from funçoes import processar_arquivos, processar_arquivo_ret
 
 def selecionar_arquivo_txt():
     file_path = filedialog.askopenfilename(filetypes=[("Arquivos TXT", "*.txt")])
@@ -24,33 +26,73 @@ def selecionar_arquivo_excel():
         except FileNotFoundError:
             messagebox.showerror("Erro", f"O arquivo Excel '{file_path}' não foi encontrado.")
 
+def selecionar_arquivo_debito():
+    file_path = filedialog.askopenfilename(filetypes=[("Arquivos RET", "*.ret")])
+    if file_path:
+        debito_path_entry.delete(0, tk.END)
+        debito_path_entry.insert(tk.END, file_path)
+
 def mostrar_loading():
     global loading_window
     loading_window = tk.Toplevel(root)
     loading_window.title("Carregando...")
-    loading_window.geometry("300x100")
-    loading_label = tk.Label(loading_window, text="Processando, por favor aguarde...")
-    loading_label.pack(pady=20)
+
+    # Centralizar a janela
+    largura = 300
+    altura = 150
+    largura_tela = loading_window.winfo_screenwidth()
+    altura_tela = loading_window.winfo_screenheight()
+    x = (largura_tela / 2) - (largura / 2)
+    y = (altura_tela / 2) - (altura / 2)
+    loading_window.geometry(f"{largura}x{altura}+{int(x)}+{int(y)}")
+
+    # Adicionar imagem de carregamento
+    loading_image = Image.open("SELO+IABRS COMPL_BRANCO.png")  # Substitua pelo caminho correto da sua imagem
+    loading_image = loading_image.resize((50, 50), Image.LANCZOS)
+    loading_photo = ImageTk.PhotoImage(loading_image)
+    loading_label_image = tk.Label(loading_window, image=loading_photo)
+    loading_label_image.image = loading_photo  # Manter uma referência para evitar coleta de lixo
+    loading_label_image.pack(pady=10)
+
+    loading_label_text = tk.Label(loading_window, text="Processando, por favor aguarde...", font=("Arial", 12))
+    loading_label_text.pack()
+
     progress_bar = ttk.Progressbar(loading_window, mode='indeterminate')
-    progress_bar.pack(expand=True, fill=tk.BOTH, side=tk.BOTTOM)
+    progress_bar.pack(expand=True, fill=tk.BOTH, side=tk.BOTTOM, padx=20, pady=20)
     progress_bar.start()
 
 def esconder_loading():
     loading_window.destroy()
 
 def processar():
-    file_path_txt = txt_path_entry.get()
+    file_path_txt = txt_path_entry.get() if txt_path_entry.get() else None
     file_path_excel = excel_path_entry.get()
     aba = aba_combo.get()
-    if file_path_txt and file_path_excel and aba:
-        threading.Thread(target=executar_processamento, args=(file_path_txt, file_path_excel, aba)).start()
-    else:
-        messagebox.showerror("Erro", "Selecione um arquivo TXT, um arquivo Excel e uma aba.")
+    file_path_debito = debito_path_entry.get() if debito_path_entry.get() else None
 
-def executar_processamento(file_path_txt, file_path_excel, aba):
+    if (file_path_txt or file_path_debito) and file_path_excel and aba:
+        threading.Thread(target=executar_processamento,
+                         args=(file_path_txt, file_path_excel, aba, file_path_debito)).start()
+    else:
+        messagebox.showerror("Erro",
+                             "Selecione um arquivo TXT ou um arquivo de Débito Automático, um arquivo Excel e uma aba.")
+
+
+def executar_processamento(file_path_txt, file_path_excel, aba, file_path_debito):
     root.after(0, mostrar_loading)
-    processar_arquivos(file_path_txt, file_path_excel, aba, txt_area)
-    root.after(0, esconder_loading)
+    try:
+        if file_path_txt:
+            processar_arquivos(file_path_txt, file_path_excel, aba, txt_area, file_path_debito)
+        elif file_path_debito:
+            processar_arquivo_ret(file_path_debito, file_path_excel, aba, txt_area)
+        else:
+            raise ValueError("Nenhum arquivo TXT ou de Débito Automático foi selecionado.")
+    except Exception as e:
+        messagebox.showerror("Erro", str(e))
+    finally:
+        root.after(0, esconder_loading)
+
+
 
 # Criar a interface gráfica
 root = tk.Tk()
@@ -77,8 +119,7 @@ logo_label.pack()
 frame = tk.Frame(root, bg="black")
 frame.pack(padx=20, pady=20)
 
-# Labels e entradas
-labels = ["Selecione o arquivo Bancário:", "Selecione o arquivo Excel:", "Selecione a aba do arquivo Excel:"]
+labels = ["Selecione o arquivo Bancário:", "Selecione o arquivo Excel:", "Selecione a aba do arquivo Excel:", "Selecione o arquivo de Débito Automático:"]
 for i, text in enumerate(labels):
     tk.Label(frame, text=text, fg="white", bg="black", font=("DIN", 12)).grid(row=i, column=0, sticky='w', pady=5)
 
@@ -95,6 +136,11 @@ btn_selecionar_excel.grid(row=1, column=2, padx=10)
 aba_combo = ttk.Combobox(frame, width=47, state='readonly', font=("DIN", 12))
 aba_combo.grid(row=2, column=1, padx=10, columnspan=2)
 
+debito_path_entry = tk.Entry(frame, width=50, font=("DIN", 12))
+debito_path_entry.grid(row=3, column=1, padx=10)
+btn_selecionar_debito = tk.Button(frame, text="Selecionar", command=selecionar_arquivo_debito, font=("DIN", 12))
+btn_selecionar_debito.grid(row=3, column=2, padx=10)
+
 btn_processar = tk.Button(root, text="Processar Arquivos", command=processar, font=("DIN", 12))
 btn_processar.pack(pady=10)
 
@@ -102,4 +148,3 @@ txt_area = scrolledtext.ScrolledText(root, width=100, height=20, font=("DIN", 12
 txt_area.pack()
 
 root.mainloop()
-
