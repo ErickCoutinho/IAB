@@ -47,7 +47,7 @@ def mostrar_loading():
     loading_window.geometry(f"{largura}x{altura}+{int(x)}+{int(y)}")
 
     # Adicionar imagem de carregamento
-    loading_image = Image.open("SELO+IABRS COMPL_BRANCO.png")  # Substitua pelo caminho correto da sua imagem
+    loading_image = Image.open("SELO+IABRS COMPL_BRANCO.png")
     loading_image = loading_image.resize((50, 50), Image.LANCZOS)
     loading_photo = ImageTk.PhotoImage(loading_image)
     loading_label_image = tk.Label(loading_window, image=loading_photo)
@@ -77,7 +77,6 @@ def processar():
         messagebox.showerror("Erro",
                              "Selecione um arquivo TXT ou um arquivo de Débito Automático, um arquivo Excel e uma aba.")
 
-
 def executar_processamento(file_path_txt, file_path_excel, aba, file_path_debito):
     root.after(0, mostrar_loading)
     try:
@@ -91,8 +90,6 @@ def executar_processamento(file_path_txt, file_path_excel, aba, file_path_debito
         messagebox.showerror("Erro", str(e))
     finally:
         root.after(0, esconder_loading)
-
-
 
 # Criar a interface gráfica
 root = tk.Tk()
@@ -119,7 +116,7 @@ logo_label.pack()
 frame = tk.Frame(root, bg="black")
 frame.pack(padx=20, pady=20)
 
-labels = ["Selecione o arquivo Bancário:", "Selecione o arquivo Excel:", "Selecione a aba do arquivo Excel:", "Selecione o arquivo de Débito Automático:"]
+labels = ["Selecione o arquivo Bancário (.txt):", "Selecione o arquivo de Débito Automático (.ret):", "Selecione o arquivo Excel:", "Selecione a aba do arquivo Excel:"]
 for i, text in enumerate(labels):
     tk.Label(frame, text=text, fg="white", bg="black", font=("DIN", 12)).grid(row=i, column=0, sticky='w', pady=5)
 
@@ -128,18 +125,18 @@ txt_path_entry.grid(row=0, column=1, padx=10)
 btn_selecionar_txt = tk.Button(frame, text="Selecionar", command=selecionar_arquivo_txt, font=("DIN", 12))
 btn_selecionar_txt.grid(row=0, column=2, padx=10)
 
+debito_path_entry = tk.Entry(frame, width=50, font=("DIN", 12))
+debito_path_entry.grid(row=1, column=1, padx=10)
+btn_selecionar_debito = tk.Button(frame, text="Selecionar", command=selecionar_arquivo_debito, font=("DIN", 12))
+btn_selecionar_debito.grid(row=1, column=2, padx=10)
+
 excel_path_entry = tk.Entry(frame, width=50, font=("DIN", 12))
-excel_path_entry.grid(row=1, column=1, padx=10)
+excel_path_entry.grid(row=2, column=1, padx=10)
 btn_selecionar_excel = tk.Button(frame, text="Selecionar", command=selecionar_arquivo_excel, font=("DIN", 12))
-btn_selecionar_excel.grid(row=1, column=2, padx=10)
+btn_selecionar_excel.grid(row=2, column=2, padx=10)
 
 aba_combo = ttk.Combobox(frame, width=47, state='readonly', font=("DIN", 12))
-aba_combo.grid(row=2, column=1, padx=10, columnspan=2)
-
-debito_path_entry = tk.Entry(frame, width=50, font=("DIN", 12))
-debito_path_entry.grid(row=3, column=1, padx=10)
-btn_selecionar_debito = tk.Button(frame, text="Selecionar", command=selecionar_arquivo_debito, font=("DIN", 12))
-btn_selecionar_debito.grid(row=3, column=2, padx=10)
+aba_combo.grid(row=3, column=1, padx=10, columnspan=2)
 
 btn_processar = tk.Button(root, text="Processar Arquivos", command=processar, font=("DIN", 12))
 btn_processar.pack(pady=10)
