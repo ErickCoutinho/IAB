@@ -68,6 +68,7 @@ def processar():
     file_path_txt = txt_path_entry.get() if txt_path_entry.get() else None
     file_path_excel = excel_path_entry.get()
     aba = aba_combo.get()
+
     file_path_debito = debito_path_entry.get() if debito_path_entry.get() else None
 
     if (file_path_txt or file_path_debito) and file_path_excel and aba:
