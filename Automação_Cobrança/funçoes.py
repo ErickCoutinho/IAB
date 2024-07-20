@@ -131,7 +131,6 @@ def copiar_formatacao_e_mesclagens(ws, source_col_index, target_col_index):
         ws.merge_cells(merge_range)
 
 # Função para processar arquivo .ret
-# Função para processar arquivo .ret
 def processar_arquivo_ret(file_path_ret, file_path_excel, aba, txt_area):
     # Extraindo nomes do arquivo de débito automático
     nomes_debito_automatico = extrair_nomes_debito_automatico(file_path_ret)
