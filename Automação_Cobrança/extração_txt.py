@@ -2,7 +2,7 @@ import re
 
 
 # Caminho do arquivo
-file_path = 'arquivos txts\\15_05Resumo_Contabil_20240522.txt'
+file_path = 'arquivos txts\\julho\\12_07Resumo_Contabil_20240717.txt'
 
 # Ler o conteúdo do arquivo
 with open(file_path, 'r', encoding='utf-8') as file:

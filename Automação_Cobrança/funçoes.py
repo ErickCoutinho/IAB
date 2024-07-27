@@ -33,6 +33,7 @@ def extrair_nomes_debito_automatico(file_path):
     return nomes
 
 # Função para processar nomes no Excel
+# Função para processar nomes no Excel
 def processar_nomes(ws, nomes, pago_col_index, dia_pgto_col_index, taxa_col_index, data_posicao, taxas, nomes_debito_automatico):
     total_fatura_titular_col_index = next((i for i, cell in enumerate(ws[1], 1) if cell.value == "Total fatura titular"), None)
     nomes_encontrados = []
@@ -40,8 +41,8 @@ def processar_nomes(ws, nomes, pago_col_index, dia_pgto_col_index, taxa_col_inde
 
     for nome_procurado in nomes:
         encontrado = False
-        nome_procurado_limpo = normalize_name(nome_procurado.strip())  # Limpar e normalizar
-        print(f"Procurando por: {nome_procurado_limpo}")  # Depuração
+        nome_procurado_limpo = normalize_name(nome_procurado.strip())
+        print(f"Procurando por: {nome_procurado_limpo}")
         for row in ws.iter_rows(min_row=2, values_only=False):
             nome_excel = normalize_name(str(row[0].value).strip())  # Limpar e normalizar
             if nome_procurado_limpo == nome_excel or nome_procurado_limpo in nomes_debito_automatico:
@@ -62,7 +63,7 @@ def processar_nomes(ws, nomes, pago_col_index, dia_pgto_col_index, taxa_col_inde
 
 # Função para buscar e processar nomes no Excel
 def buscar_nomes_excel(file_path_excel, nomes, aba, data_posicao, taxas, nomes_debito_automatico):
-    wb = load_workbook(filename=file_path_excel, data_only=True)
+    wb = load_workbook(filename=file_path_excel, data_only=False)  # Manter data_only=False para preservar fórmulas
     ws = wb[aba]
 
     # Verificar e criar coluna "Pago?" se necessário
@@ -139,7 +140,7 @@ def processar_arquivo_ret(file_path_ret, file_path_excel, aba, txt_area):
     nomes_debito_automatico = [normalize_name(nome) for nome in nomes_debito_automatico]
 
     # Processando o Excel
-    wb = load_workbook(filename=file_path_excel, data_only=True)
+    wb = load_workbook(filename=file_path_excel, data_only=False)  # Manter data_only=False para preservar fórmulas
     ws = wb[aba]
 
     # Verificar e criar coluna "Pago?" se necessário
@@ -184,6 +185,8 @@ def processar_arquivo_ret(file_path_ret, file_path_excel, aba, txt_area):
 
 
 # Função para processar arquivos TXT e de débito automático juntos
+# Função modificada para processar arquivos TXT e de débito automático juntos
+# Função modificada para processar arquivos TXT e de débito automático juntos
 def processar_arquivos(file_path_txt, file_path_excel, aba, txt_area, file_path_debito_automatico=None):
     with open(file_path_txt, 'r', encoding='utf-8') as file:
         content_txt = file.readlines()
@@ -200,14 +203,17 @@ def processar_arquivos(file_path_txt, file_path_excel, aba, txt_area, file_path_
         nomes_debito_automatico = extrair_nomes_debito_automatico(file_path_debito_automatico)
         nomes.extend(nomes_debito_automatico)  # Adiciona os nomes de débito automático à lista de nomes
 
-    nomes_encontrados, valores_associados = buscar_nomes_excel(file_path_excel, nomes, aba, data_posicao, taxas, nomes_debito_automatico)
+    nomes_encontrados, _ = buscar_nomes_excel(file_path_excel, nomes, aba, data_posicao, taxas, nomes_debito_automatico)
     txt_area.delete('1.0', tk.END)
-    txt_area.insert(tk.END, "{:<50} {:<30}\n".format("Nomes encontrados no arquivo TXT", "Valores encontrados no arquivo Excel"))
+    txt_area.insert(tk.END, "{:<50} {:<30}\n".format("Nomes processados do arquivo TXT", "Status"))
     txt_area.insert(tk.END, "="*80 + "\n")
-    for nome, valor_txt, valor_excel in zip(nomes, [valor for _, valor in nomes_valores_txt], valores_associados):
-        txt_area.insert(tk.END, "{:<50} {:<30}\n".format(f"{nome} - {valor_txt}", valor_excel))
-    quantidade_nomes = len([nome for nome in nomes if nome in nomes_encontrados])
+    for nome in nomes:
+        status = "X" if nome in nomes_encontrados else "Não encontrado"
+        txt_area.insert(tk.END, "{:<50} {:<30}\n".format(nome, status))
+    quantidade_nomes = len(nomes_encontrados)
     txt_area.insert(tk.END, f"Quantidade de nomes correspondentes encontrados: {quantidade_nomes}\n")
+
+
 
 # Função para extrair data de posição do arquivo CSV
 def extrair_data_posicao_csv(file_path_txt):
