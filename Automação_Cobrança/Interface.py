@@ -8,75 +8,95 @@ import threading
 from funçoes import processar_arquivos, processar_arquivo_ret
 
 def selecionar_arquivo_txt():
-    file_path = filedialog.askopenfilename(filetypes=[("Arquivos TXT", "*.txt")])
-    if file_path:
-        txt_path_entry.delete(0, tk.END)
-        txt_path_entry.insert(tk.END, file_path)
+    try:
+        file_path = filedialog.askopenfilename(filetypes=[("Arquivos TXT", "*.txt")])
+        if file_path:
+            txt_path_entry.delete(0, tk.END)
+            txt_path_entry.insert(tk.END, file_path)
+    except Exception as e:
+        messagebox.showerror("Erro", f"Erro ao selecionar arquivo TXT: {str(e)}")
 
 def selecionar_arquivo_excel():
-    file_path = filedialog.askopenfilename(filetypes=[("Arquivos Excel", "*.xlsx;*.xls")])
-    if file_path:
-        excel_path_entry.delete(0, tk.END)
-        excel_path_entry.insert(tk.END, file_path)
-        try:
-            wb = load_workbook(filename=file_path, read_only=True)
-            sheet_names = wb.sheetnames
-            wb.close()
-            aba_combo['values'] = sheet_names  # Atualiza o combobox com as abas disponíveis
-        except FileNotFoundError:
-            messagebox.showerror("Erro", f"O arquivo Excel '{file_path}' não foi encontrado.")
+    try:
+        file_path = filedialog.askopenfilename(filetypes=[("Arquivos Excel", "*.xlsx;*.xls")])
+        if file_path:
+            excel_path_entry.delete(0, tk.END)
+            excel_path_entry.insert(tk.END, file_path)
+            try:
+                wb = load_workbook(filename=file_path, read_only=True)
+                sheet_names = wb.sheetnames
+                wb.close()
+                aba_combo['values'] = sheet_names  # Atualiza o combobox com as abas disponíveis
+            except FileNotFoundError:
+                messagebox.showerror("Erro", f"O arquivo Excel '{file_path}' não foi encontrado.")
+            except Exception as e:
+                messagebox.showerror("Erro", f"Erro ao carregar abas do Excel: {str(e)}")
+    except Exception as e:
+        messagebox.showerror("Erro", f"Erro ao selecionar arquivo Excel: {str(e)}")
 
 def selecionar_arquivo_debito():
-    file_path = filedialog.askopenfilename(filetypes=[("Arquivos RET", "*.ret")])
-    if file_path:
-        debito_path_entry.delete(0, tk.END)
-        debito_path_entry.insert(tk.END, file_path)
+    try:
+        file_path = filedialog.askopenfilename(filetypes=[("Arquivos RET", "*.ret")])
+        if file_path:
+            debito_path_entry.delete(0, tk.END)
+            debito_path_entry.insert(tk.END, file_path)
+    except Exception as e:
+        messagebox.showerror("Erro", f"Erro ao selecionar arquivo de Débito Automático: {str(e)}")
 
 def mostrar_loading():
-    global loading_window
-    loading_window = tk.Toplevel(root)
-    loading_window.title("Carregando...")
+    try:
+        global loading_window
+        loading_window = tk.Toplevel(root)
+        loading_window.title("Carregando...")
 
-    # Centralizar a janela
-    largura = 300
-    altura = 150
-    largura_tela = loading_window.winfo_screenwidth()
-    altura_tela = loading_window.winfo_screenheight()
-    x = (largura_tela / 2) - (largura / 2)
-    y = (altura_tela / 2) - (altura / 2)
-    loading_window.geometry(f"{largura}x{altura}+{int(x)}+{int(y)}")
+        # Centralizar a janela
+        largura = 300
+        altura = 150
+        largura_tela = loading_window.winfo_screenwidth()
+        altura_tela = loading_window.winfo_screenheight()
+        x = (largura_tela / 2) - (largura / 2)
+        y = (altura_tela / 2) - (altura / 2)
+        loading_window.geometry(f"{largura}x{altura}+{int(x)}+{int(y)}")
 
-    # Adicionar imagem de carregamento
-    loading_image = Image.open("SELO+IABRS COMPL_BRANCO.png")
-    loading_image = loading_image.resize((50, 50), Image.LANCZOS)
-    loading_photo = ImageTk.PhotoImage(loading_image)
-    loading_label_image = tk.Label(loading_window, image=loading_photo)
-    loading_label_image.image = loading_photo  # Manter uma referência para evitar coleta de lixo
-    loading_label_image.pack(pady=10)
+        # Adicionar imagem de carregamento
+        loading_image = Image.open("SELO+IABRS COMPL_BRANCO.png")
+        loading_image = loading_image.resize((50, 50), Image.LANCZOS)
+        loading_photo = ImageTk.PhotoImage(loading_image)
+        loading_label_image = tk.Label(loading_window, image=loading_photo)
+        loading_label_image.image = loading_photo  # Manter uma referência para evitar coleta de lixo
+        loading_label_image.pack(pady=10)
 
-    loading_label_text = tk.Label(loading_window, text="Processando, por favor aguarde...", font=("Arial", 12))
-    loading_label_text.pack()
+        loading_label_text = tk.Label(loading_window, text="Processando, por favor aguarde...", font=("Arial", 12))
+        loading_label_text.pack()
 
-    progress_bar = ttk.Progressbar(loading_window, mode='indeterminate')
-    progress_bar.pack(expand=True, fill=tk.BOTH, side=tk.BOTTOM, padx=20, pady=20)
-    progress_bar.start()
+        progress_bar = ttk.Progressbar(loading_window, mode='indeterminate')
+        progress_bar.pack(expand=True, fill=tk.BOTH, side=tk.BOTTOM, padx=20, pady=20)
+        progress_bar.start()
+    except Exception as e:
+        messagebox.showerror("Erro", f"Erro ao mostrar a janela de carregamento: {str(e)}")
 
 def esconder_loading():
-    loading_window.destroy()
+    try:
+        loading_window.destroy()
+    except Exception as e:
+        messagebox.showerror("Erro", f"Erro ao esconder a janela de carregamento: {str(e)}")
 
 def processar():
-    file_path_txt = txt_path_entry.get() if txt_path_entry.get() else None
-    file_path_excel = excel_path_entry.get()
-    aba = aba_combo.get()
+    try:
+        file_path_txt = txt_path_entry.get() if txt_path_entry.get() else None
+        file_path_excel = excel_path_entry.get()
+        aba = aba_combo.get()
 
-    file_path_debito = debito_path_entry.get() if debito_path_entry.get() else None
+        file_path_debito = debito_path_entry.get() if debito_path_entry.get() else None
 
-    if (file_path_txt or file_path_debito) and file_path_excel and aba:
-        threading.Thread(target=executar_processamento,
-                         args=(file_path_txt, file_path_excel, aba, file_path_debito)).start()
-    else:
-        messagebox.showerror("Erro",
-                             "Selecione um arquivo TXT ou um arquivo de Débito Automático, um arquivo Excel e uma aba.")
+        if (file_path_txt or file_path_debito) and file_path_excel and aba:
+            threading.Thread(target=executar_processamento,
+                            args=(file_path_txt, file_path_excel, aba, file_path_debito)).start()
+        else:
+            messagebox.showerror("Erro",
+                                "Selecione um arquivo TXT ou um arquivo de Débito Automático, um arquivo Excel e uma aba.")
+    except Exception as e:
+        messagebox.showerror("Erro", f"Erro ao iniciar o processamento: {str(e)}")
 
 def executar_processamento(file_path_txt, file_path_excel, aba, file_path_debito):
     root.after(0, mostrar_loading)
@@ -98,13 +118,16 @@ root.title("Selecionar Arquivos e Abas de Arquivos Excel")
 root.configure(bg="black")
 
 # Carregar a logo
-logo_image = Image.open("SELO+IABRS COMPL_BRANCO.png")
-logo_image = logo_image.resize((200, 150), Image.LANCZOS)
-logo_photo = ImageTk.PhotoImage(logo_image)
+try:
+    logo_image = Image.open("SELO+IABRS COMPL_BRANCO.png")
+    logo_image = logo_image.resize((200, 150), Image.LANCZOS)
+    logo_photo = ImageTk.PhotoImage(logo_image)
 
-# Fonte DIN (certifique-se de que o arquivo .ttf está no mesmo diretório ou forneça o caminho completo)
-font_path = "DIN-Regular.ttf"
-din_font = ImageFont.truetype(font_path, 12)
+    # Fonte DIN (certifique-se de que o arquivo .ttf está no mesmo diretório ou forneça o caminho completo)
+    font_path = "DIN-Regular.ttf"
+    din_font = ImageFont.truetype(font_path, 12)
+except Exception as e:
+    messagebox.showerror("Erro", f"Erro ao carregar a logo ou a fonte: {str(e)}")
 
 # Frame para a logo
 logo_frame = tk.Frame(root, bg="black")
