@@ -12,14 +12,6 @@ class Coparticipacao_Automacao:
         with open(self.caminho_arquivo, 'r') as file:
             self.linhas = file.readlines()
 
-    def remover_cabecalhos(self):
-        """Remove os cabeçalhos de mudança de página e as linhas subsequentes."""
-        i = 0
-        while i < len(self.linhas):
-            if "DATASUL Saude - FATURAMENTO" in self.linhas[i]:
-                del self.linhas[i:i+13]  # Remove a linha do cabeçalho e as próximas 12 linhas
-            else:
-                i += 1
 
     def buscar_nomes(self):
         """Busca e extrai os nomes dos beneficiários usando uma expressão regular."""
@@ -79,13 +71,10 @@ class Coparticipacao_Automacao:
             print(linha.strip())
 
 # Uso do código
-copart = Coparticipacao_Automacao("documents\\PART 07.LST")
+copart = Coparticipacao_Automacao("unimed___.txt")
 copart.ler_arquivo()
-copart.remover_cabecalhos()
 copart.buscar_nomes()  # Buscar primeiro todos os nomes para garantir a estrutura de dados
 copart.buscar_valores()  # Depois buscar valores associados aos nomes
-copart.exibir_linhas_processadas()
 copart.exibir_valores()
 copart.somar_valores()   # Somar os valores para cada nome
 copart.exibir_somas()    # Exibir as somas calculada
-
