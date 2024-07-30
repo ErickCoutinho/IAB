@@ -12,6 +12,15 @@ class Coparticipacao_Automacao:
         with open(self.caminho_arquivo, 'r') as file:
             self.linhas = file.readlines()
 
+    def remover_cabecalhos(self):
+        """Remove os cabeçalhos de mudança de página e as linhas subsequentes."""
+        i = 0
+        while i < len(self.linhas):
+            if "DATASUL Saude - FATURAMENTO" in self.linhas[i]:
+                del self.linhas[i:i+13]  # Remove a linha do cabeçalho e as próximas 12 linhas
+            else:
+                i += 1
+
     def buscar_nomes(self):
         """Busca e extrai os nomes dos beneficiários usando uma expressão regular."""
         pattern_bloco = re.compile(r'(\d{13}\s+\d{3}\s+([A-Z\s]+))')
@@ -28,7 +37,8 @@ class Coparticipacao_Automacao:
     def buscar_valores(self):
         """Busca os valores da coluna 'Valor Part Cobrado' associados a cada nome encontrado."""
         pattern_bloco = re.compile(r'(\d{13}\s+\d{3}\s+([A-Z\s]+))')
-        pattern_valor = re.compile(r'\d{1,3},\d{2}$')  # Regex para capturar valores que estão no final da linha
+        pattern_valor = re.compile(r'\d{1,3},\d{2}$')
+        # Regex para capturar valores que estão no final da linha
         nome_atual = None
         capturando = False
 
@@ -47,6 +57,11 @@ class Coparticipacao_Automacao:
             if not valor_match and capturando:
                 capturando = False  # Para de capturar valores se uma linha sem valor válido for encontrada
 
+    def exibir_valores(self):
+        """Exibe os valores associados a cada nome antes da soma."""
+        for nome, valores in self.nomes_valores.items():
+            print(f"{nome}: {valores}")
+
     def somar_valores(self):
         """Converte strings de valores para float e soma os valores para cada nome."""
         for nome, valores in self.nomes_valores.items():
@@ -58,11 +73,19 @@ class Coparticipacao_Automacao:
         for nome, soma in self.somas_valores.items():
             print(f"{nome}: {soma:.2f}")
 
+    def exibir_linhas_processadas(self):
+        """Exibe as linhas após processamento para verificar mudanças."""
+        for linha in self.linhas[:10000]:  # Exibe as primeiras 100 linhas para verificação
+            print(linha.strip())
+
 # Uso do código
 copart = Coparticipacao_Automacao("documents\\PART 07.LST")
 copart.ler_arquivo()
+copart.remover_cabecalhos()
 copart.buscar_nomes()  # Buscar primeiro todos os nomes para garantir a estrutura de dados
 copart.buscar_valores()  # Depois buscar valores associados aos nomes
+copart.exibir_linhas_processadas()
+copart.exibir_valores()
 copart.somar_valores()   # Somar os valores para cada nome
-copart.exibir_somas()    # Exibir as somas calculadas
+copart.exibir_somas()    # Exibir as somas calculada
 
