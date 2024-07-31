@@ -1,4 +1,6 @@
 import re
+import pandas as pd
+
 
 class Coparticipacao_Automacao:
     def __init__(self, caminho_arquivo):
@@ -70,6 +72,18 @@ class Coparticipacao_Automacao:
         for linha in self.linhas[:10000]:  # Exibe as primeiras 100 linhas para verificação
             print(linha.strip())
 
+    def gerar_dataframe(self):
+        """Gera um DataFrame com nomes e somas dos valores."""
+        # Criação do DataFrame com valores arredondados para duas casas decimais
+        data = {'Nome': list(self.somas_valores.keys()),
+                'Soma dos Valores': [round(valor, 2) for valor in self.somas_valores.values()]}
+        df = pd.DataFrame(data)
+
+        # Salva o DataFrame como CSV, especificando a codificação e delimitador, se necessário
+        df.to_csv("unimed__padrao.csv", index=False, encoding='utf-8', sep=';')
+
+        return df
+
 # Uso do código
 copart = Coparticipacao_Automacao("unimed___.txt")
 copart.ler_arquivo()
@@ -78,3 +92,9 @@ copart.buscar_valores()  # Depois buscar valores associados aos nomes
 copart.exibir_valores()
 copart.somar_valores()   # Somar os valores para cada nome
 copart.exibir_somas()    # Exibir as somas calculada
+copart.gerar_dataframe()
+
+
+
+
+
