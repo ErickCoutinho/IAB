@@ -9,7 +9,7 @@ class Coparticipacao_Automacao:
 
     def buscar_nomes(self):
         """Busca e extrai os nomes dos beneficiários usando uma expressão regular."""
-        pattern_bloco = re.compile(r'(\d{13}\s+\d{3}\s+([A-Z\s]+))')
+        pattern_bloco = re.compile(r'(\d{13}\s+\d{3}\s+([A-Za-z\s]+))')
         self.nomes = []
 
         for linha in self.linhas:
@@ -22,7 +22,7 @@ class Coparticipacao_Automacao:
 
     def buscar_valores(self):
         """Busca os valores da coluna 'Valor Part Cobrado' associados a cada nome encontrado."""
-        pattern_bloco = re.compile(r'(\d{13}\s+\d{3}\s+([A-Z\s]+))')
+        pattern_bloco = re.compile(r'(\d{13}\s+\d{3}\s+([A-Za-z\s]+))')
         pattern_valor = re.compile(r'\d{1,3},\d{2}$')
         nome_atual = None
         capturando = False
