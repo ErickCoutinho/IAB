@@ -19,11 +19,6 @@ class Normalizador:
                 i += 1
         return linhas
 
-    def exibir_linhas(self, linhas):
-        """Exibe as linhas fornecidas."""
-        for linha in linhas:
-            print(linha.strip())
-
     def processar_arquivo(self):
         if not self.arquivo_entrada:
             raise ValueError("O arquivo de entrada não foi definido.")
@@ -35,9 +30,6 @@ class Normalizador:
         # Remover cabeçalhos
         linhas_sem_cabecalhos = self.remover_cabecalhos(linhas)
 
-        # Exibir linhas (opcional)
-        self.exibir_linhas(linhas_sem_cabecalhos)
-
         # Salvar no "arquivo" de saída em memória
         self.arquivo_saida.write(''.join(linhas_sem_cabecalhos))
 
@@ -45,12 +37,3 @@ class Normalizador:
         """Retorna o conteúdo do arquivo de saída."""
         self.arquivo_saida.seek(0)  # Move para o início do StringIO
         return self.arquivo_saida.read()
-
-# Exemplo de uso
-normalizador = Normalizador()
-# Defina o caminho do arquivo de entrada no momento adequado
-# normalizador.definir_arquivo_entrada("caminho/para/PART07.LST")
-# normalizador.processar_arquivo()
-# conteudo_processado = normalizador.obter_conteudo_saida()
-# print(conteudo_processado)
-

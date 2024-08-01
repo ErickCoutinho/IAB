@@ -92,8 +92,8 @@ copart.buscar_valores()  # Depois buscar valores associados aos nomes
 copart.exibir_valores()
 copart.somar_valores()   # Somar os valores para cada nome
 copart.exibir_somas()    # Exibir as somas calculada
-copart.gerar_dataframe()
-
+"""copart.gerar_dataframe()
+"""
 
 
 
