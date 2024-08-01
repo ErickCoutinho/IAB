@@ -1,6 +1,6 @@
 from tkinter import filedialog, messagebox
 import pandas as pd
-from normalizador import Normalizador
+from normalizador_class import Normalizador
 from leitor_unimed_copart import Coparticipacao_Automacao
 
 # Funções de seleção de arquivos
