@@ -29,7 +29,7 @@ tk.Entry(root, textvariable=entrada_excel, width=50).grid(row=3, column=1, padx=
 tk.Button(root, text="Escolher", command=lambda: escolher_arquivo_excel(entrada_excel)).grid(row=3, column=2, padx=10, pady=5)
 
 tk.Button(root, text="Processar LST para CSV", command=lambda: processar(entrada_txt, saida_csv)).grid(row=4, column=1, padx=10, pady=20)
-tk.Button(root, text="Atualizar Excel", command=lambda: processar_excel(entrada_csv, entrada_excel)).grid(row=5, column=1, padx=10, pady=20)
+tk.Button(root, text="Atualizar Coparticipações", command=lambda: processar_excel(entrada_csv, entrada_excel)).grid(row=5, column=1, padx=10, pady=20)
 
 # Iniciar o loop da interface
 root.mainloop()

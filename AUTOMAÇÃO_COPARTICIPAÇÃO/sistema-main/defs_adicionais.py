@@ -1,7 +1,8 @@
-from tkinter import filedialog, messagebox
-import pandas as pd
+
 from normalizador_class import Normalizador
 from leitor_unimed_copart import Coparticipacao_Automacao
+import pandas as pd
+from tkinter import filedialog, messagebox
 
 # Funções de seleção de arquivos
 def escolher_arquivo(entrada_txt):
@@ -60,7 +61,8 @@ def processar(entrada_txt, saida_csv):
     except Exception as e:
         messagebox.showerror("Erro", str(e))
 
-# Função para atualizar o Excel com os dados do CSV
+
+
 def processar_excel(entrada_csv, entrada_excel):
     try:
         caminho_csv = entrada_csv.get()
@@ -69,21 +71,34 @@ def processar_excel(entrada_csv, entrada_excel):
         if not caminho_csv or not caminho_excel:
             raise ValueError("Os caminhos dos arquivos CSV e Excel devem ser definidos.")
 
-        # Ler arquivos CSV e Excel
+        # Carregar dados do CSV
         df_csv = pd.read_csv(caminho_csv)
-        xls = pd.ExcelFile(caminho_excel)
 
-        # Iterar sobre cada planilha do Excel
+        # Checar se a coluna 'Nome' está presente
+        if 'Nome' not in df_csv.columns:
+            messagebox.showerror("Erro", "A coluna 'Nome' não está presente no arquivo CSV.")
+            return  # Interromper a função se a coluna não estiver presente
+
+        # Carregar o Excel
         with pd.ExcelWriter(caminho_excel, engine='openpyxl', mode='a', if_sheet_exists='overlay') as writer:
+            xls = pd.ExcelFile(caminho_excel, engine='openpyxl')
             for sheet_name in xls.sheet_names:
-                df_excel = pd.read_excel(xls, sheet_name=sheet_name)
-                # Verificar correspondência e atualizar PR_UNITARIO
-                for idx, row in df_csv.iterrows():
-                    dependentes = df_excel[df_excel['DEPENDENTE'] == row['Nome']]
-                    if not dependentes.empty:
-                        df_excel.loc[df_excel['DEPENDENTE'] == row['Nome'], 'PR_UNITARIO'] = row['Soma dos Valores']
-                df_excel.to_excel(writer, sheet_name=sheet_name, index=False)
+                df_excel = pd.read_excel(xls, sheet_name=sheet_name, engine='openpyxl')
+
+                # Atualizar valores usando o merge para garantir a correspondência correta
+                df_merged = pd.merge(df_excel, df_csv, left_on='DEPENDENTE', right_on='Nome', how='left')
+
+                # Atualizar coluna PR_UNITARIO com valores de Soma dos Valores se existir correspondência
+                df_merged['PR_UNITARIO'] = df_merged['Valores'].combine_first(df_merged['PR_UNITARIO'])
+
+                # Remover colunas extras do merge
+                df_final = df_merged[df_excel.columns.tolist()]
+
+                # Escrever de volta para a planilha Excel
+                df_final.to_excel(writer, sheet_name=sheet_name, index=False)
 
         messagebox.showinfo("Sucesso", "Atualização do arquivo Excel concluída com sucesso!")
     except Exception as e:
         messagebox.showerror("Erro", str(e))
+
+

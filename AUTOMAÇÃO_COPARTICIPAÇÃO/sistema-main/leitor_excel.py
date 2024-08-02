@@ -9,7 +9,7 @@ class LeitorExcel:
         """Retorna informações sobre as colunas de cada planilha no arquivo Excel."""
         try:
             # Ler todas as planilhas e armazená-las em um dicionário
-            self.dataframes = pd.read_excel(self.caminho_arquivo, sheet_name=None)
+            self.dataframes = pd.read_excel(self.caminho_arquivo, sheet_name=None, engine='openpyxl')
 
             # Dicionário para armazenar informações sobre colunas
             info_colunas = {}

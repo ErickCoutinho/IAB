@@ -51,7 +51,9 @@ class Coparticipacao_Automacao:
     def gerar_dataframe(self, caminho_saida_csv):
         """Gera um DataFrame com nomes e somas dos valores e salva como CSV."""
         data = {'Nome': list(self.somas_valores.keys()),
-                'Soma dos Valores': [round(valor, 2) for valor in self.somas_valores.values()]}
+                'Valores': [round(valor, 2) for valor in self.somas_valores.values()]}
         df = pd.DataFrame(data)
-        df.to_csv(caminho_saida_csv, index=False, encoding='utf-8', sep=';')
+        df.to_csv(caminho_saida_csv, index=False, encoding='utf-8', sep=',')
         return df
+
+
