@@ -2,7 +2,9 @@
 from normalizador_class import Normalizador
 from leitor_unimed_copart import Coparticipacao_Automacao
 import pandas as pd
+import tkinter as tk
 from tkinter import filedialog, messagebox
+
 
 # Funções de seleção de arquivos
 def escolher_arquivo(entrada_txt):
@@ -32,7 +34,16 @@ def escolher_arquivo_excel(entrada_excel):
         filetypes=[("Arquivos Excel", "*.xlsx"), ("Todos os arquivos", "*.*")]
     )
     if caminho_excel:
+        # Forçar a extensão para .xlsx em minúsculo
+        if not caminho_excel.lower().endswith('.xlsx'):
+            # Remover qualquer extensão atual e adicionar .xlsx em minúsculas
+            caminho_excel = caminho_excel.rsplit('.', 1)[0] + '.xlsx'
+        else:
+            # Garantir que a extensão esteja em minúsculas
+            caminho_excel = caminho_excel[:-4] + caminho_excel[-4:].lower()
+
         entrada_excel.set(caminho_excel)
+
 
 # Função para processar o arquivo LST e gerar CSV
 def processar(entrada_txt, saida_csv):
@@ -62,7 +73,6 @@ def processar(entrada_txt, saida_csv):
         messagebox.showerror("Erro", str(e))
 
 
-
 def processar_excel(entrada_csv, entrada_excel):
     try:
         caminho_csv = entrada_csv.get()
@@ -80,6 +90,9 @@ def processar_excel(entrada_csv, entrada_excel):
             return  # Interromper a função se a coluna não estiver presente
 
         # Carregar o Excel
+        encontrados = []
+        nao_encontrados = []
+
         with pd.ExcelWriter(caminho_excel, engine='openpyxl', mode='a', if_sheet_exists='overlay') as writer:
             xls = pd.ExcelFile(caminho_excel, engine='openpyxl')
             for sheet_name in xls.sheet_names:
@@ -91,6 +104,10 @@ def processar_excel(entrada_csv, entrada_excel):
                 # Atualizar coluna PR_UNITARIO com valores de Soma dos Valores se existir correspondência
                 df_merged['PR_UNITARIO'] = df_merged['Valores'].combine_first(df_merged['PR_UNITARIO'])
 
+                # Verificar quais nomes foram encontrados e quais não foram
+                encontrados.extend(df_csv['Nome'][df_csv['Nome'].isin(df_merged['DEPENDENTE'])])
+                nao_encontrados.extend(df_csv['Nome'][~df_csv['Nome'].isin(df_merged['DEPENDENTE'])])
+
                 # Remover colunas extras do merge
                 df_final = df_merged[df_excel.columns.tolist()]
 
@@ -98,7 +115,28 @@ def processar_excel(entrada_csv, entrada_excel):
                 df_final.to_excel(writer, sheet_name=sheet_name, index=False)
 
         messagebox.showinfo("Sucesso", "Atualização do arquivo Excel concluída com sucesso!")
+
+        # Exibir os resultados
+        exibir_resultados(encontrados, nao_encontrados)
+
     except Exception as e:
         messagebox.showerror("Erro", str(e))
 
+def exibir_resultados(encontrados, nao_encontrados):
+    janela_resultados = tk.Toplevel()
+    janela_resultados.title("Resultados da Atualização")
+
+    tk.Label(janela_resultados, text="Nomes Encontrados", font=("Arial", 12, "bold")).pack(pady=5)
+    texto_encontrados = tk.Text(janela_resultados, height=10, width=50)
+    texto_encontrados.pack(padx=10, pady=5)
+    texto_encontrados.insert(tk.END, "\n".join(encontrados))
+    texto_encontrados.config(state=tk.DISABLED)
+
+    tk.Label(janela_resultados, text="Nomes Não Encontrados", font=("Arial", 12, "bold")).pack(pady=5)
+    texto_nao_encontrados = tk.Text(janela_resultados, height=10, width=50)
+    texto_nao_encontrados.pack(padx=10, pady=5)
+    texto_nao_encontrados.insert(tk.END, "\n".join(nao_encontrados))
+    texto_nao_encontrados.config(state=tk.DISABLED)
+
+    tk.Button(janela_resultados, text="Fechar", command=janela_resultados.destroy).pack(pady=10)
 
