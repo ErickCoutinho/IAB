@@ -1,0 +1,677 @@
+
+BANCO DO ESTADO DO RIO GRANDE DO SUL, S.A.        DATA-HORA: 13/07/2024 01.48.36
+BDL - CARTEIRA LETRAS        **** AVISO DE MOVIMENTACAO DE COBRANCA ****
+AGENCIA: 0839.17 DUQUE DE CAXIAS                      POSICAO DO DIA: 12/07/2024
+CEDENTE: 0839.8542161.55 - INST DE ARQUITETOS DO BRASIL RS
+(M) > 8050 - COBRANCA SIMPLES                                                  <
+--------------------------------------------------------------------------------
+NOSSO NUM. SEU NUMERO    NOME DO SACADO/EMITENTE           COBR DT VENCTO  DT-OP
+     MOEDA                     OP   VALOR DO TITULO TB   COD   DEDUZ/ACRESCE D/C
+--------------------------------------------------------------------------------
+0159224791 0      /01    ADEMIR  ZANETTI                   0010 10/07/2024 10/07
+     DINHEIRO                  C           2.155,62
+0159225038 0      /01    ADRIANA CRAMER                    0001 10/07/2024 10/07
+     DINHEIRO                  C           1.419,27 C    41             1,13  D
+0159225372 0      /01    ADRIANA MISSEL DIDONE             0001 10/07/2024 10/07
+     DINHEIRO                  C           3.011,68 C    41             0,55  D
+0159225453 0      /01    ADRIANE BEDIN                     0748 10/07/2024 10/07
+     DINHEIRO                  C             963,19 C    41             0,55  D
+0159225526 0      /01    ALAN CRISTIAN TABILE FURLAN       0756 10/07/2024 10/07
+     DINHEIRO                  C           1.243,63 C    41             1,13  D
+0159225607 0      /01    ALBA RODRIGUES DIAS               0033 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52 C    41             1,13  D
+0159225798 0      /01    ALBERTO DE MEDINA COELI VILLWOCK  0033 10/07/2024 10/07
+     DINHEIRO                  C             884,81 C    41             0,55  D
+0159225941 0      /01    ALESSANDRA BOCORNY DE AZEVEDO     0010 10/07/2024 10/07
+     DINHEIRO                  C           1.981,98
+0159226026 0      /01    ALESSANDRA FASSINA                0033 10/07/2024 10/07
+     DINHEIRO                  C             668,48 C    41             1,13  D
+0159226298 0      /01    ALESSANDRA MIGLIORI DO AMARAL BR  0237 10/07/2024 10/07
+     DINHEIRO                  C             436,06 C    41             0,55  D
+0159226360 0      /01    ALESSANDRO GEREMIA                0001 10/07/2024 10/07
+     DINHEIRO                  C           1.652,55 C    41             1,13  D
+0159226514 0      /01    ALEXANDRE BATAIOLI DA SILVA       0341 10/07/2024 10/07
+     DINHEIRO                  C             483,35 C    41             0,55  D
+0159226778 0      /01    ALEXANDRE NUNES FIABANE           0001 10/07/2024 10/07
+     DINHEIRO                  C             245,00 C    41             1,13  D
+0159226948 0      /01    ALEXANDRE ROSA BENTO              0001 10/07/2024 10/07
+     DINHEIRO                  C           1.893,22 C    41             1,13  D
+0159227014 0      /01    ALEXANDRE XAVIER DA COSTA         0341 10/07/2024 10/07
+     DINHEIRO                  C           2.489,25 C    41             1,13  D
+0159227197 0      /01    ALICE GUIMARAES BLACHER           0341 10/07/2024 10/07
+     DINHEIRO                  C           1.012,50 C    41             0,55  D
+0159227359 0      /01    ALINE BANDINELLI ROSSO            0341 10/07/2024 10/07
+     DINHEIRO                  C             731,92 C    41             0,55  D
+0159227502 0      /01    ALINE DAL PIZZOL HEIT             0237 10/07/2024 10/07
+     DINHEIRO                  C           1.243,63 C    41             0,55  D
+0159227847 0      /01    ALINE OLIVEIRA MATZENBACHER       0001 10/07/2024 10/07
+     DINHEIRO                  C             599,75 C    41             1,13  D
+0159228002 0      /01    AMANDA MOREY MENDES               0001 10/07/2024 10/07
+     DINHEIRO                  C             731,92 C    41             1,13  D
+0159228266 0      /01    ANA CAROLINA FILIPPON STEIN       0010 10/07/2024 10/07
+     DINHEIRO                  C           1.199,38
+0159228347 0      /01    ANA CAROLINA RODRIGUES PEREIRA K  0104 10/07/2024 10/07
+     DINHEIRO                  C           1.804,82 C    41             1,13  D
+0159228673 0      /01    ANA CAROLINA VICENZI RANZI        0001 10/07/2024 10/07
+     DINHEIRO                  C           1.667,57 C    41             1,13  D
+0159228835 0      /01    ANA FLECK VELASCO                 0001 10/07/2024 10/07
+     DINHEIRO                  C           2.606,48 C    41             1,13  D
+0159229335 0      /01    ANA MARIA DE OLIVEIRA FAGUNDES    0748 10/07/2024 10/07
+     DINHEIRO                  C           2.923,42 C    41             1,13  D
+0159229416 0      /01    ANA MARIA SARAIVA AZZOLIN         0010 10/07/2024 10/07
+     DINHEIRO                  C             710,60
+0159229580 0      /01    ANA MARIA VICENTIM                0033 10/07/2024 10/07
+     DINHEIRO                  C           1.419,27 C    41             1,13  D
+0159229742 0      /01    ANA PAULA CABRAL NUNES            0010 10/07/2024 10/07
+     DINHEIRO                  C             394,50
+0159229904 0      /01    ANA PAULA OSTROWSKI               0001 10/07/2024 10/07
+     DINHEIRO                  C             801,34 C    41             1,13  D
+0159230228 0      /01    ANANDA MACIEL OLIVEIRA            0104 10/07/2024 10/07
+     DINHEIRO                  C             506,37 C    41             1,13  D
+0159230554 0      /01    ANDIARA GOMES LINS PASTL          0509 10/07/2024 10/07
+     DINHEIRO                  C           1.514,93 C    41             0,55  D
+0159230716 0      /01    ANDRE DE VARGAS ALVES             0341 10/07/2024 10/07
+     DINHEIRO                  C           1.514,93 C    41             0,55  D
+0159231135 0      /01    ANDREA BETHGE                     0341 10/07/2024 10/07
+     DINHEIRO                  C           1.650,12 C    41             1,13  D
+0159231623 0      /01    ANDREIA SZARBLEWSKI IENCZAK       0033 10/07/2024 10/07
+     DINHEIRO                  C           1.122,81 C    41             1,13  D
+0159232042 0      /01    ANGELA DE PAULA MAZZOTTI DINIZ    0001 10/07/2024 10/07
+     DINHEIRO                  C             731,92 C    41             0,55  D
+0159232468 0      /01    ANNA LOREA MATZENAUER             0341 10/07/2024 10/07
+     DINHEIRO                  C           1.098,24 C    41             1,13  D
+0159232956 0      /01    ANTONIO AUGUSTO GIANUCA RAUPP     0260 10/07/2024 10/07
+     DINHEIRO                  C           1.533,36 C    41             1,13  D
+0159233030 0      /01    ANTONIO REGIS XAVIER DA COSTA     0341 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52 C    41             1,13  D
+0159233111 0      /01    ASTA RIESE - UNIMED PAGA POR LUI  0010 10/07/2024 10/07
+     DINHEIRO                  C           2.188,62
+0159233782 0      /01    BARBARA ENGEL GUTTERRES           0001 10/07/2024 10/07
+     DINHEIRO                  C           2.277,05 C    41             1,13  D
+0159233863 0      /01    BARBARA GERHARDT SOEIRO DE SOUZA  0033 10/07/2024 10/07
+     DINHEIRO                  C             782,02 C    41             0,55  D
+0159234029 0      /01    BEATRICE HAFFNER SILVA            0001 10/07/2024 10/07
+     DINHEIRO                  C           1.359,54 C    41             1,13  D
+0159234444 0      /01    BELA LIBERMAN                     0237 10/07/2024 10/07
+     DINHEIRO                  C           2.138,52 C    41             1,13  D
+0159234606 0      /01    BERNARDO BLUMEL GENEROSI          0001 10/07/2024 10/07
+     DINHEIRO                  C           1.971,69 C    41             1,13  D
+0159234770 0      /01    BERNARDO MEDEIROS                 0260 10/07/2024 10/07
+     DINHEIRO                  C           1.040,40 C    41             0,55  D
+0159235270 0      /01    BIBIANA VITAL MENEGAZ SILVEIRA    0033 10/07/2024 10/07
+     DINHEIRO                  C             754,97 C    41             0,55  D
+0159235351 0      /01    BRUNA CHARAK JANY                 0341 10/07/2024 10/07
+     DINHEIRO                  C           1.718,40 C    41             0,55  D
+0159235920 0      /01    CAMILA PIVETA                     0748 10/07/2024 10/07
+     DINHEIRO                  C             681,58 C    41             1,13  D
+0159236188 0      /01    CAMILA SCHMIDT                    0260 10/07/2024 10/07
+     DINHEIRO                  C             731,92 C    41             1,13  D
+0159236269 0      /01    CANDIDA DE CASTRO PORTELA DAMASI  0010 10/07/2024 10/07
+     DINHEIRO                  C           1.243,63
+0159236358 0      /01    CARINE BARCELLOS DUARTE           0260 10/07/2024 10/07
+     DINHEIRO                  C             971,91 C    41             1,13  D
+0159236595 0      /01    CARLA SCHUSTER                    0748 10/07/2024 10/07
+     DINHEIRO                  C           1.818,80 C    41             1,13  D
+6634990362 0      /01    CARLOS ALBERTO FRANZEN            0010 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52
+0159236676 0      /01    CARLOS ARMANDO GASPARY            0001 10/07/2024 10/07
+     DINHEIRO                  C           2.975,89 C    41             1,13  D
+0159236838 0      /01    CARLOS ERNESTO TELLES ESMERALDIN  0077 10/07/2024 10/07
+     DINHEIRO                  C           2.978,76 C    41             1,13  D
+0159236919 0      /01    CAROLINA BRAGA OLIVEIRA           0104 10/07/2024 10/07
+     DINHEIRO                  C             934,91 C    41             1,13  D
+0159237095 0      /01    CAROLINA CUNHA POLI               0010 10/07/2024 10/07
+     DINHEIRO                  C             478,22
+0159237419 0      /01    CAROLINA THORMANN                 0033 10/07/2024 10/07
+     DINHEIRO                  C           1.343,83 C    41             1,13  D
+0159237583 0      /01    CAROLINE BARBOSA DENARDI          0001 10/07/2024 10/07
+     DINHEIRO                  C             731,92 C    41             1,13  D
+0159237826 0      /01    CAROLINE FAUSTINI LOEFF           0341 10/07/2024 10/07
+     DINHEIRO                  C           1.017,57 C    41             0,55  D
+0159238245 0      /01    CASSIA REGINA VICENTIM            0033 10/07/2024 10/07
+     DINHEIRO                  C           1.127,57 C    41             1,13  D
+0159238326 0      /01    CASSIANO FRANCISCO SCHERNER DE O  0001 10/07/2024 10/07
+     DINHEIRO                  C           1.137,94 C    41             1,13  D
+0159238407 0      /01    CATIANE BURGHAUSEN CARDOSO        0260 10/07/2024 10/07
+     DINHEIRO                  C             982,42 C    41             1,13  D
+0159239071 0      /01    CHRISTINE VIEIRA BECK             0001 10/07/2024 10/07
+     DINHEIRO                  C             990,30 C    41             0,55  D
+0159239152 0      /01    CIBELE SANGOI KLUSENER            0001 10/07/2024 10/07
+     DINHEIRO                  C             967,47 C    41             1,13  D
+0159239233 0      /01    CICERO ALVAREZ                    0260 10/07/2024 10/07
+     DINHEIRO                  C             668,39 C    41             0,55  D
+0159239314 0      /01    CINTIA ALVES AGUIAR               0033 10/07/2024 10/07
+     DINHEIRO                  C           1.211,78 C    41             1,13  D
+0159239640 0      /01    CINTIA DOS SANTOS DUARTE          0001 10/07/2024 10/07
+     DINHEIRO                  C             958,57 C    41             1,13  D
+0159240045 0      /01    CLAUDETE TERESINHA GUBERT ZAFFAR  0341 10/07/2024 10/07
+     DINHEIRO                  C             991,78 C    41             0,55  D
+0159240207 0      /01    CLAUDIA BARBOSA DE SOUZA          0748 10/07/2024 10/07
+     DINHEIRO                  C           1.215,59 C    41             1,13  D
+0159240614 0      /01    CRISTIAN MAURICIO RIVEROS ILLANE  0260 10/07/2024 10/07
+     DINHEIRO                  C           1.917,02 C    41             0,55  D
+0159240797 0      /01    CRISTIANE AVEIRO TOTTI            0341 10/07/2024 10/07
+     DINHEIRO                  C           2.561,49 C    41             1,13  D
+0159240959 0      /01    CRISTIANE LOPES DANNEBROCK        0341 10/07/2024 10/07
+     DINHEIRO                  C           1.207,50 C    41             0,55  D
+0159241033 0      /01    CRISTIANE POMINA                  0748 10/07/2024 10/07
+     DINHEIRO                  C           1.243,63 C    41             1,13  D
+0159241114 0      /01    CRISTIANI MORSCHBACHER            0104 10/07/2024 10/07
+     DINHEIRO                  C           1.243,63 C    41             1,13  D
+0159241785 0      /01    CRISTINA GONDIM                   0237 10/07/2024 10/07
+     DINHEIRO                  C           2.389,05 C    41             1,13  D
+0159241947 0      /01    DAIELI LETICIA KUNZ               0033 10/07/2024 10/07
+     DINHEIRO                  C             284,20 C    41             1,13  D
+0159242285 0      /01    DANIEL DANNI                      0237 10/07/2024 10/07
+     DINHEIRO                  C             756,97 C    41             1,13  D
+0159242692 0      /01    DANIELA KRUCHIN                   0010 10/07/2024 10/07
+     DINHEIRO                  C           1.630,01
+0159242773 0      /01    DANIELA PACHECO PIRES             0237 10/07/2024 10/07
+     DINHEIRO                  C             631,48 C    41             1,13  D
+0159242935 0      /01    DANIELA PLACIDO FROHLICH          0001 10/07/2024 10/07
+     DINHEIRO                  C             731,92 C    41             1,13  D
+0159243028 0      /01    DANIELA SALVADOR                  0756 10/07/2024 10/07
+     DINHEIRO                  C             918,57 C    41             0,55  D
+0159243192 0      /01    DANIELA SIKORA SOARES             0033 10/07/2024 10/07
+     DINHEIRO                  C           1.449,56 C    41             0,55  D
+0159243508 0      /01    DANIELLE DORNELLES GARROS         0077 10/07/2024 10/07
+     DINHEIRO                  C             731,92 C    41             0,55  D
+0159243680 0      /01    DANIELLE GUARDA                   0260 10/07/2024 10/07
+     DINHEIRO                  C           1.090,74 C    41             1,13  D
+0159243761 0      /01    DANIELLE MELO DE BARCELLOS        0748 10/07/2024 10/07
+     DINHEIRO                  C           1.293,73 C    41             0,55  D
+0159243842 0      /01    DEBORA GREGOLETTO                 0341 10/07/2024 10/07
+     DINHEIRO                  C           1.199,38 C    41             0,55  D
+0159244008 0      /01    DEISE AUGUSTA PACHECO             0001 10/07/2024 10/07
+     DINHEIRO                  C           2.819,16 C    41             1,13  D
+0159244180 0      /01    DEISE CRISTINA ANTUNES PADILHA    0001 10/07/2024 10/07
+     DINHEIRO                  C             731,92 C    41             1,13  D
+0159244261 0      /01    DEMETRIUS JUNG GONZALEZ           0081 10/07/2024 10/07
+     DINHEIRO                  C             763,67 C    41             0,55  D
+0159244423 0      /01    DENISE NERVO CUNHA                0341 10/07/2024 10/07
+     DINHEIRO                  C           2.138,52 C    41             0,55  D
+0159244598 0      /01    DENISE STEIN                      0341 10/07/2024 10/07
+     DINHEIRO                  C           1.293,73 C    41             1,13  D
+0159244679 0      /01    DEODATO JOAO DA SILVA             0341 10/07/2024 10/07
+     DINHEIRO                  C             907,57 C    41             1,13  D
+0159244830 0      /01    DIELY VALIM DOS SANTOS            0104 10/07/2024 10/07
+     DINHEIRO                  C           1.652,51 C    41             0,55  D
+0159244911 0      /01    DORA LUCIA ANDRADE PEIXOTO        0001 10/07/2024 10/07
+     DINHEIRO                  C           2.138,52 C    41             1,13  D
+0159245179 0      /01    DOUGLAS GENEHR                    0748 10/07/2024 10/07
+     DINHEIRO                  C             714,14 C    41             1,13  D
+0159245268 0      /01    EDMUNDO BORDA THOME FRANCISCO     0341 10/07/2024 10/07
+     DINHEIRO                  C           1.248,17 C    41             1,13  D
+0159245667 0      /01    EDUARDO HOMEM BARRIONUEVO         0033 10/07/2024 10/07
+     DINHEIRO                  C           2.398,34 C    41             1,13  D
+0159245829 0      /01    EDUARDO NISCHESPOIS SCORSATTO     0748 10/07/2024 10/07
+     DINHEIRO                  C             599,75 C    41             1,13  D
+0159246248 0      /01    ELENARA STEIN LEITAO              0001 10/07/2024 10/07
+     DINHEIRO                  C           1.419,27 C    41             0,55  D
+0159246418 0      /01    ELIANA HERTZOG CASTILHOS          0341 10/07/2024 10/07
+     DINHEIRO                  C           1.602,45 C    41             1,13  D
+0159246655 0      /01    ELIANE RITA ORLANDINI BARBOSA     0010 10/07/2024 10/07
+     DINHEIRO                  C           1.760,67
+0159246736 0      /01    ELINORA COPSTEIN SOIREFMANN       0260 10/07/2024 10/07
+     DINHEIRO                  C           3.073,00 C    41             0,55  D
+6634991199 0      /01    ELISABETE BREITMAN                0010 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52
+0159246817 0      /01    ELISABETH ORTIZ GRINGS            0341 10/07/2024 10/07
+     DINHEIRO                  C           2.834,68 C    41             1,13  D
+0159247074 0      /01    ELIZABETE VUELMA BOFF             0033 10/07/2024 10/07
+     DINHEIRO                  C           3.019,17 C    41             1,13  D
+0159247406 0      /01    ESMERINA PLACIDO FROHLICH         0001 10/07/2024 10/07
+     DINHEIRO                  C           2.205,72 C    41             1,13  D
+0159247562 0      /01    EUNICE BARROS CASSAL              0033 10/07/2024 10/07
+     DINHEIRO                  C           1.083,29 C    41             0,55  D
+0159248062 0      /01    FABIANA LEMOS SIQUEIRA            0104 10/07/2024 10/07
+     DINHEIRO                  C             719,30 C    41             0,55  D
+0159248488 0      /01    FABIO DE CASTRO PORTELA           0010 10/07/2024 10/07
+     DINHEIRO                  C             884,81
+0159248550 0      /01    FABIO SIBEMBERG                   0001 10/07/2024 10/07
+     DINHEIRO                  C             546,57 C    41             1,13  D
+0159248631 0      /01    FAUSTO BUGATTI ISOLAN             0001 10/07/2024 10/07
+     DINHEIRO                  C             884,81 C    41             0,55  D
+0159248712 0      /01    FELIPE ALTERMANN                  0001 10/07/2024 10/07
+     DINHEIRO                  C             882,22 C    41             0,55  D
+0159249395 0      /01    FERNANDA ALCALDE VIEIRA PINHEIRO  0260 10/07/2024 10/07
+     DINHEIRO                  C           1.558,20 C    41             0,55  D
+0159249638 0      /01    FERNANDA DE SENA PEREIRA          0001 10/07/2024 10/07
+     DINHEIRO                  C           2.174,68 C    41             0,55  D
+0159249700 0      /01    FERNANDA GABRIELA HENCKEL DE LIM  0341 10/07/2024 10/07
+     DINHEIRO                  C           1.971,69 C    41             1,13  D
+0159250199 0      /01    FERNANDA RODRIGUES DE AZEVEDO     0237 10/07/2024 10/07
+     DINHEIRO                  C             388,38 C    41             1,13  D
+0159250288 0      /01    FERNANDA SEBRAO BARRERA           0237 10/07/2024 10/07
+     DINHEIRO                  C           1.040,40 C    41             1,13  D
+0159250350 0      /01    FERNANDA THEISEN                  0001 10/07/2024 10/07
+     DINHEIRO                  C           1.090,74 C    41             0,55  D
+0159250504 0      /01    FERNANDO FELIPE TEN CATEN NETO    0001 10/07/2024 10/07
+     DINHEIRO                  C             632,07 C    41             1,13  D
+0159250768 0      /01    FLAVIA BONI LICHT                 0010 10/07/2024 10/07
+     DINHEIRO                  C           1.452,27
+0159251187 0      /01    FLAVIA SCORTEGAGNA MARITAN        0341 10/07/2024 10/07
+     DINHEIRO                  C           1.549,76 C    41             1,13  D
+0158876078 0      /00    FLAVIO STEIN                      0033 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52 C    41             1,13  D
+0159251438 0      /01    FRANCIELLE ANDRADE DE OLIVEIRA    0001 10/07/2024 10/07
+     DINHEIRO                  C           1.108,87 C    41             1,13  D
+0159251594 0      /01    FRANCISCO LEAL DE LIMA            0341 10/07/2024 10/07
+     DINHEIRO                  C           1.606,51 C    41             1,13  D
+0159251756 0      /01    FRANTHESCO SPAUTZ                 0001 10/07/2024 10/07
+     DINHEIRO                  C           1.934,43 C    41             1,13  D
+0159251837 0      /01    GABRIELA CASTRO DOS SANTOS        0001 10/07/2024 10/07
+     DINHEIRO                  C             631,48 C    41             1,13  D
+0159252175 0      /01    GABRIELA FREEZE MIGUEL            0260 10/07/2024 10/07
+     DINHEIRO                  C             474,65 C    41             0,55  D
+0159252256 0      /01    GABRIELA FREIRE DE CAMPOS         0260 10/07/2024 10/07
+     DINHEIRO                  C           1.057,34 C    41             1,13  D
+0159252663 0      /01    GABRIELA RIGO BECCON              0033 10/07/2024 10/07
+     DINHEIRO                  C           1.040,40 C    41             0,55  D
+0159252744 0      /01    GABRIELA STEIN                    0237 10/07/2024 10/07
+     DINHEIRO                  C           1.123,06 C    41             0,55  D
+0159252825 0      /01    GABRIELA VALADAO ZANIN            0260 10/07/2024 10/07
+     DINHEIRO                  C             599,75 C    41             1,13  D
+0159253082 0      /01    GERALDO KRUCHIN                   0260 10/07/2024 10/07
+     DINHEIRO                  C           1.565,03 C    41             0,55  D
+0159253163 0      /01    GERMANO ALFREDO SERAU             0001 10/07/2024 10/07
+     DINHEIRO                  C           1.653,95 C    41             1,13  D
+0159253325 0      /01    GESSI FRAGA PEREGRINA             0010 10/07/2024 10/07
+     DINHEIRO                  C           2.138,52
+0159253570 0      /01    GILBERTO AUGUSTO COTTENS MAURMAN  0748 10/07/2024 10/07
+     DINHEIRO                  C             631,48 C    41             0,55  D
+0159253651 0      /01    GILBERTO CARNOS                   0010 10/07/2024 10/07
+     DINHEIRO                  C           2.701,03
+0159253732 0      /01    GILDO FELIPE MUNER                0104 10/07/2024 10/07
+     DINHEIRO                  C             918,57 C    41             1,13  D
+0159253996 0      /01    GIOVANNA COPSTEIN COSTA           0260 10/07/2024 10/07
+     DINHEIRO                  C             599,75 C    41             1,13  D
+0159254232 0      /01    GLADIS MARISA HAAS                0033 10/07/2024 10/07
+     DINHEIRO                  C           2.651,05 C    41             0,55  D
+0159254496 0      /01    GRACIELLA LEUS TOME               0341 10/07/2024 10/07
+     DINHEIRO                  C           1.530,64 C    41             0,55  D
+0159254658 0      /01    GRAZIELA AGLIARDI                 0104 10/07/2024 10/07
+     DINHEIRO                  C             631,48 C    41             0,55  D
+0159254720 0      /01    GUADALUPE MEDEIROS MAGNUS         0237 10/07/2024 10/07
+     DINHEIRO                  C             315,86 C    41             0,55  D
+0159254801 0      /01    GUILHERME ALVES DIOGO DA SILVA    0010 10/07/2024 10/07
+     DINHEIRO                  C             731,92
+0159254984 0      /01    GUILHERME CASAGRANDE DURANTI      0104 10/07/2024 10/07
+     DINHEIRO                  C             442,93 C    41             0,55  D
+0159255158 0      /01    GUILHERME ZAMBONI FERREIRA        0001 10/07/2024 10/07
+     DINHEIRO                  C             581,97 C    41             1,13  D
+0159255301 0      /01    GUSTAVO DIAZ BREGOLIN             0341 10/07/2024 10/07
+     DINHEIRO                  C             549,65 C    41             0,55  D
+0159255557 0      /01    GUSTAVO JAQUET RIBEIRO            0001 10/07/2024 10/07
+     DINHEIRO                  C           1.971,69 C    41             1,13  D
+0159255719 0      /01    HELENA BEATRIZ DE BERNARDI SCHNE  0341 10/07/2024 10/07
+     DINHEIRO                  C           1.419,27 C    41             1,13  D
+0159256219 0      /01    HUMBERTO VIDAL WILDNER            0104 10/07/2024 10/07
+     DINHEIRO                  C           1.514,93 C    41             1,13  D
+0159256391 0      /01    IARA REGINA GOMES DE VASCONCELLO  0104 10/07/2024 10/07
+     DINHEIRO                  C             932,57 C    41             0,55  D
+0158877147 0      /00    ILANA STEIN                       0033 10/07/2024 10/07
+     DINHEIRO                  C           1.149,28 C    41             1,13  D
+0159256545 0      /01    INA KELLER                        0021 10/07/2024 10/07
+     DINHEIRO                  C           1.486,27 C    41             1,13  D
+0159256707 0      /01    INGEBORG KOCH MELATTE             0033 10/07/2024 10/07
+     DINHEIRO                  C           1.634,30 C    41             1,13  D
+0159256960 0      /01    ISABEL CRISTINA GUIMARAES HAIFUC  0010 10/07/2024 10/07
+     DINHEIRO                  C           1.376,24
+0159257878 0      /01    JEAN GRIVOT AVANCINI              0033 10/07/2024 10/07
+     DINHEIRO                  C             731,92 C    41             1,13  D
+0159258114 0      /01    JESSICA ALVES BARBISAN            0001 10/07/2024 10/07
+     DINHEIRO                  C           2.076,94 C    41             1,13  D
+0159258297 0      /01    JESSICA NEVES MARCANEIRO          0633 10/07/2024 10/07
+     DINHEIRO                  C             508,65 C    41             1,13  D
+0159258459 0      /01    JOAO FELIPE FALKEMBERG STANGARLI  0010 10/07/2024 10/07
+     DINHEIRO                  C           1.514,93
+0159258521 0      /01    JOAO HEINECK KRUSE                0001 10/07/2024 10/07
+     DINHEIRO                  C           1.190,94 C    41             1,13  D
+0159258602 0      /01    JOAO PAULO SILVEIRA BARBIERO      0010 10/07/2024 10/07
+     DINHEIRO                  C             549,65
+0159258947 0      /01    JORGE ALBERTO SEDREZ POLYDORO     0010 10/07/2024 10/07
+     DINHEIRO                  C           2.221,18
+0159259021 0      /01    JORGE GUILLERMO NEBEL ROMERO      0001 10/07/2024 10/07
+     DINHEIRO                  C           4.307,38 C    41             0,55  D
+0159259102 0      /01    JORGE LUIZ PAIVA SEVERO           0001 10/07/2024 10/07
+     DINHEIRO                  C           2.879,05 C    41             1,13  D
+0159259285 0      /01    JOSANA GABRIELE BOLZAN WESZ       0001 10/07/2024 10/07
+     DINHEIRO                  C             731,92 C    41             1,13  D
+0159259366 0      /01    JOSE ALEXANDRE ZACHIA FILHO       0010 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52
+0159259447 0      /01    JOSE FABRICIO CARVALHO            0748 10/07/2024 10/07
+     DINHEIRO                  C             907,57 C    41             1,13  D
+0159259692 0      /01    JOSE ROBERTO WEBER SALVI          0341 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52 C    41             0,55  D
+0159259935 0      /01    JOSY DE SOUZA NASCIMENTO          0001 10/07/2024 10/07
+     DINHEIRO                  C           1.449,56 C    41             1,13  D
+0159260097 0      /01    JUAREZ ANTONIO BITENCOURT FONSEC  0237 10/07/2024 10/07
+     DINHEIRO                  C           4.257,28 C    41             0,55  D
+0159260410 0      /01    JULIA FAZENDA VIEBRANTZ           0001 10/07/2024 10/07
+     DINHEIRO                  C             599,75 C    41             1,13  D
+0159260585 0      /01    JULIA GUATIMOSIM MACIEL           0212 10/07/2024 10/07
+     DINHEIRO                  C             483,35 C    41             0,55  D
+0159260747 0      /01    JULIANA COSTA SCHNOR              0010 10/07/2024 10/07
+     DINHEIRO                  C           1.140,84
+6634990516 0      /01    JULIANA PASQUETTI COMELLI         0001 10/07/2024 10/07
+     DINHEIRO                  C             581,97 C    41             1,13  D
+0159261085 0      /01    JULIANA UGHINI NEDEL              0001 10/07/2024 10/07
+     DINHEIRO                  C           1.544,90 C    41             1,13  D
+0159261247 0      /01    JULIANE PINTO PEREIRA             0237 10/07/2024 10/07
+     DINHEIRO                  C             515,22 C    41             1,13  D
+0159261328 0      /01    JULIO CESAR MACHADO RABELO        0237 10/07/2024 10/07
+     DINHEIRO                  C           1.553,39 C    41             1,13  D
+0159261735 0      /01    KAREN WIENER WALDMAN              0077 10/07/2024 10/07
+     DINHEIRO                  C           1.090,74 C    41             0,55  D
+0159262073 0      /01    KATIA JOCASTA ORTIZ GRINGS        0010 10/07/2024 10/07
+     DINHEIRO                  C             631,48
+0159262499 0      /01    LAURA GUIMARAES BLACHER           0010 10/07/2024 10/07
+     DINHEIRO                  C           1.173,95
+0159262804 0      /01    LEANDRO CAVALHEIRO DA SILVA       0001 10/07/2024 10/07
+     DINHEIRO                  C           1.129,00 C    41             0,55  D
+0159263223 0      /01    LETICIA MOREIRA SANTANA           0077 10/07/2024 10/07
+     DINHEIRO                  C             668,48 C    41             0,55  D
+0159263487 0      /01    LIA TOLPOLARU                     0341 10/07/2024 10/07
+     DINHEIRO                  C           2.192,62 C    41             0,55  D
+0159263630 0      /01    LIGIA ARAUJO AZEVEDO              0001 10/07/2024 10/07
+     DINHEIRO                  C           1.243,63 C    41             1,13  D
+0159264068 0      /01    LILIAN HOFART GUZZO               0010 10/07/2024 10/07
+     DINHEIRO                  C           1.160,67
+0159264211 0      /01    LISIANE DA SILVA                  0748 10/07/2024 10/07
+     DINHEIRO                  C           2.680,08 C    41             0,55  D
+0159264475 0      /01    LIVIA CASELANI VIEIRA             0001 10/07/2024 10/07
+     DINHEIRO                  C             581,97 C    41             1,13  D
+0159264548 0      /01    LIVIA DA CUNHA STUMPF             0010 10/07/2024 10/07
+     DINHEIRO                  C             295,45
+0159265129 0      /01    LUCAS REZENDE BUSATO              0260 10/07/2024 10/07
+     DINHEIRO                  C             483,35 C    41             0,55  D
+0159265218 0      /01    LUCAS SALVI DA ROCHA              0260 10/07/2024 10/07
+     DINHEIRO                  C           2.177,62 C    41             1,13  D
+0159265382 0      /01    LUCIA DE BORBA MACIEL             0001 10/07/2024 10/07
+     DINHEIRO                  C           2.801,74 C    41             0,55  D
+0159265463 0      /01    LUCIANA DORFMAN                   0001 10/07/2024 10/07
+     DINHEIRO                  C             617,80 C    41             1,13  D
+0159265536 0      /01    LUCIANA PROBST DE CASTRO          0260 10/07/2024 10/07
+     DINHEIRO                  C           1.316,25 C    41             0,55  D
+0159265951 0      /01    LUCIANO DO COUTO FUNARI           0260 10/07/2024 10/07
+     DINHEIRO                  C             670,71 C    41             0,55  D
+0159266036 0      /01    LUDWIG FARIAS LARRE               0001 10/07/2024 10/07
+     DINHEIRO                  C             907,57 C    41             1,13  D
+0159266370 0      /01    LUIZ HERON PONSI PORTELA          0010 10/07/2024 10/07
+     DINHEIRO                  C           4.257,28
+0159266451 0      /01    LUIZA ALVES  DIOGO DA SILVA       0001 10/07/2024 10/07
+     DINHEIRO                  C           1.040,40 C    41             1,13  D
+0159266958 0      /01    MADIA SANTOS BORGES               0104 10/07/2024 10/07
+     DINHEIRO                  C           1.927,58 C    41             1,13  D
+0159267105 0      /01    MAIRA DIOGO DA SILVA              0748 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52 C    41             0,55  D
+0159267695 0      /01    MARA TEREZINHA SELHANE PEREZ      0341 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52 C    41             0,55  D
+0159267857 0      /01    MARCEL GREGORY TRESCASTRO         0260 10/07/2024 10/07
+     DINHEIRO                  C           1.642,08 C    41             0,55  D
+0159268012 0      /01    MARCELINO ANTONIO DOS SANTOS      0104 10/07/2024 10/07
+     DINHEIRO                  C           1.453,27 C    41             1,13  D
+0159268357 0      /01    MARCELO FRIEDRICH FRUET           0001 10/07/2024 10/07
+     DINHEIRO                  C           1.382,11 C    41             1,13  D
+0159268438 0      /01    MARCELO NEBEL CAVALHEIRO          0237 10/07/2024 10/07
+     DINHEIRO                  C           1.510,08 C    41             1,13  D
+0159268764 0      /01    MARCIA BREITMAN                   0237 10/07/2024 10/07
+     DINHEIRO                  C           1.514,93 C    41             1,13  D
+0159269000 0      /01    MARCIA FRIDMAN                    0341 10/07/2024 10/07
+     DINHEIRO                  C           2.155,52 C    41             0,55  D
+0159269264 0      /01    MARCIO THIAGO PORTAL              0104 10/07/2024 10/07
+     DINHEIRO                  C             371,57 C    41             1,13  D
+0159269426 0      /01    MARCOS FURTADO                    0260 10/07/2024 10/07
+     DINHEIRO                  C           2.310,64 C    41             1,13  D
+0159269590 0      /01    MARCOS LUIZ PEREIRA DA SILVA      0001 10/07/2024 10/07
+     DINHEIRO                  C             962,94 C    41             1,13  D
+0159269671 0      /01    MARGARETH OHANA                   0001 10/07/2024 10/07
+     DINHEIRO                  C           3.003,02 C    41             0,55  D
+0159269833 0      /01    MARIA CELIA FARIA GUASPARI        0033 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52 C    41             0,55  D
+0159270076 0      /01    MARIA DOROTI OLIVEIRA DE BITENCO  0077 10/07/2024 10/07
+     DINHEIRO                  C             907,57 C    41             0,55  D
+0159270238 0      /01    MARIA ELIZABETH GUIMARAES BLACHE  0341 10/07/2024 10/07
+     DINHEIRO                  C           3.461,52 C    41             0,55  D
+0159270319 0      /01    MARIA FERNANDA COSTA MORAES       0001 10/07/2024 10/07
+     DINHEIRO                  C           1.276,63 C    41             1,13  D
+0159270645 0      /01    MARIA HELENA MATTOS DA ROCHA      0341 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52 C    41             0,55  D
+0159270726 0      /01    MARIA INES GRIN                   0748 10/07/2024 10/07
+     DINHEIRO                  C           1.463,64 C    41             1,13  D
+0159270998 0      /01    MARIA LUCIA SALVADORI ZACHIA      0010 10/07/2024 10/07
+     DINHEIRO                  C           1.432,87
+0159271064 0      /01    MARIA LUIZA RIGON BORSA           0010 10/07/2024 10/07
+     DINHEIRO                  C             549,65
+0159271145 0      /01    MARIA PAULA PAPALEO BERWANOER     0237 10/07/2024 10/07
+     DINHEIRO                  C             768,92 C    41             1,13  D
+0159271226 0      /01    MARIANA BOEIRA RUSCHEL            0341 10/07/2024 10/07
+     DINHEIRO                  C           2.594,98 C    41             1,13  D
+0159271498 0      /01    MARIANA CASTRO DE ANDRADE         0001 10/07/2024 10/07
+     DINHEIRO                  C             563,33 C    41             1,13  D
+0159271552 0      /01    MARIANA DA SILVA GAZEN            0001 10/07/2024 10/07
+     DINHEIRO                  C           1.499,66 C    41             0,55  D
+0159271633 0      /01    MARIANA FERREIRA BORTOLINI        0748 10/07/2024 10/07
+     DINHEIRO                  C           2.683,80 C    41             1,13  D
+0159271978 0      /01    MARIANA MEIRA MOSER               0001 10/07/2024 10/07
+     DINHEIRO                  C           1.241,04 C    41             1,13  D
+0159272621 0      /01    MARILIA MONTEIRO ROSSATO          0033 10/07/2024 10/07
+     DINHEIRO                  C             461,59 C    41             1,13  D
+0159272966 0      /01    MARINA GOMES NORENBERG            0001 10/07/2024 10/07
+     DINHEIRO                  C             515,22 C    41             1,13  D
+0159273040 0      /01    MARINA MACHADO CARDOSO            0237 10/07/2024 10/07
+     DINHEIRO                  C             586,65 C    41             1,13  D
+0159273121 0      /01    MARINA MILANI SANT ANA            0001 10/07/2024 10/07
+     DINHEIRO                  C             894,21 C    41             1,13  D
+0159273466 0      /01    MARLISE TERESINHA HASELOF BARBIE  0010 10/07/2024 10/07
+     DINHEIRO                  C           2.138,52
+0159273628 0      /01    MARLY NOIA DA ROSA                0237 10/07/2024 10/07
+     DINHEIRO                  C             922,57 C    41             1,13  D
+0159273792 0      /01    MARTA BIAVASCHI FELIZARDO         0001 10/07/2024 10/07
+     DINHEIRO                  C           1.863,42 C    41             1,13  D
+0159273954 0      /01    MATHEUS FERES CIARLINI            0208 10/07/2024 10/07
+     DINHEIRO                  C             551,98 C    41             0,55  D
+0159274039 0      /01    MATHEUS LEMOS OLIVEIRA            0001 10/07/2024 10/07
+     DINHEIRO                  C             284,20 C    41             1,13  D
+0159274454 0      /01    MAUREN CARVALHO WALDMAN           0010 10/07/2024 10/07
+     DINHEIRO                  C             631,48
+0159274527 0      /01    MAURICIO FORTES DA ROCHA          0001 10/07/2024 10/07
+     DINHEIRO                  C             768,92 C    41             1,13  D
+0159274780 0      /01    MAURICIO SANTOS DA SILVA          0001 10/07/2024 10/07
+     DINHEIRO                  C             782,02 C    41             1,13  D
+0159274861 0      /01    MICHELE CHIAMULERA                0237 10/07/2024 10/07
+     DINHEIRO                  C             713,31 C    41             1,13  D
+6634990699 0      /01    MIREILLE COELHO SANSON            0104 10/07/2024 10/07
+     DINHEIRO                  C           1.164,74 C    41             1,13  D
+0159275515 0      /01    MIRIAM RUNGE                      0237 10/07/2024 10/07
+     DINHEIRO                  C             918,57 C    41             0,55  D
+0159275698 0      /01    MIRIAM VIEIRA CASARIN             0010 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52
+0159275868 0      /01    MONICA BITENCOURT FAMER           0001 10/07/2024 10/07
+     DINHEIRO                  C             832,12 C    41             1,13  D
+0159275930 0      /01    NAIRA MARCIA PINTO COTTENS        0748 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52 C    41             0,55  D
+0159276198 0      /01    NARIMA COPAT                      0033 10/07/2024 10/07
+     DINHEIRO                  C           1.549,76 C    41             1,13  D
+0159276279 0      /01    NATACHE NUNES ERHARDT             0341 10/07/2024 10/07
+     DINHEIRO                  C             962,84 C    41             1,13  D
+0159276368 0      /01    NATALIA BORTOLOSSI                0260 10/07/2024 10/07
+     DINHEIRO                  C           1.121,55 C    41             1,13  D
+0159276503 0      /01    NATALIA SERRES DOS SANTOSS        0341 10/07/2024 10/07
+     DINHEIRO                  C             515,22 C    41             0,55  D
+0159276686 0      /01    NATHALIA FRANCO SCHNEIDER         0001 10/07/2024 10/07
+     DINHEIRO                  C           1.499,66 C    41             0,55  D
+0159276929 0      /01    NICOLE CARRION COGO               0104 10/07/2024 10/07
+     DINHEIRO                  C             631,48 C    41             0,55  D
+0159277186 0      /01    NIVALDO FAGUNDES                  0010 10/07/2024 10/07
+     DINHEIRO                  C           1.673,00
+0159277429 0      /01    NORTON NEDEFF KAPPEL              0341 10/07/2024 10/07
+     DINHEIRO                  C           3.666,69 C    41             0,55  D
+0159277755 0      /01    PATRICIA COIMBRA CADEMARTORI      0010 10/07/2024 10/07
+     DINHEIRO                  C           1.686,03
+0159278174 0      /01    PATRICIA OLIVEIRA VIEIRA DA CUNH  0001 10/07/2024 10/07
+     DINHEIRO                  C           1.602,45 C    41             0,55  D
+0159278255 0      /01    PATRICIA REICHERT STEIGLEDER      0104 10/07/2024 10/07
+     DINHEIRO                  C           1.083,29 C    41             1,13  D
+0159278662 0      /01    PAULA PINTO SPANHOLI              0001 10/07/2024 10/07
+     DINHEIRO                  C             483,35 C    41             0,55  D
+0159278743 0      /01    PAULA SILVA GAMBIM                0077 10/07/2024 10/07
+     DINHEIRO                  C           1.160,08 C    41             1,13  D
+0159279324 0      /01    PERCY UHR                         0001 10/07/2024 10/07
+     DINHEIRO                  C           4.273,18 C    41             1,13  D
+0159279405 0      /01    PRISCILA BITENCOURT FAMER         0077 10/07/2024 10/07
+     DINHEIRO                  C             768,92 C    41             1,13  D
+0159279731 0      /01    RAFAEL SULZBACH GUIMARAES         0341 10/07/2024 10/07
+     DINHEIRO                  C           1.035,24 C    41             0,55  D
+0159279812 0      /01    RAFAEL XAVIER DA COSTA            0341 10/07/2024 10/07
+     DINHEIRO                  C           2.330,51 C    41             0,55  D
+0159280055 0      /01    RALF LISBOA DAUDT                 0001 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52 C    41             0,55  D
+0159280306 0      /01    RAQUEL HAGEN                      0260 10/07/2024 10/07
+     DINHEIRO                  C           1.904,34 C    41             1,13  D
+0159280470 0      /01    REGINA PEIXOTO VIDAL              0010 10/07/2024 10/07
+     DINHEIRO                  C           2.843,05
+0159280543 0      /01    REJANE SIROTSKY GERSHENSON        0341 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52 C    41             1,13  D
+0159280624 0      /01    RENATA BERENSTEIN NUNES           0260 10/07/2024 10/07
+     DINHEIRO                  C           1.062,60 C    41             0,55  D
+0159280705 0      /01    RENATA DA SILVA TAVARES BASTOS    0104 10/07/2024 10/07
+     DINHEIRO                  C             848,88 C    41             0,55  D
+0159280888 0      /01    RENATA DE AZEVEDO SANTANNA        0077 10/07/2024 10/07
+     DINHEIRO                  C           2.302,33 C    41             1,13  D
+0159281043 0      /01    RENATA HAAG MARTINS               0237 10/07/2024 10/07
+     DINHEIRO                  C           1.017,57 C    41             1,13  D
+0159281388 0      /01    RENATA SAFFER                     0341 10/07/2024 10/07
+     DINHEIRO                  C           1.639,28 C    41             1,13  D
+0159281469 0      /01    RENATO CARNOS                     0010 10/07/2024 10/07
+     DINHEIRO                  C           1.514,93
+0159281531 0      /01    RENATO DIOGO DA SILVA             0748 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52 C    41             0,55  D
+0159282031 0      /01    ROBERTO GOTTSCHALD                0237 10/07/2024 10/07
+     DINHEIRO                  C             731,92 C    41             1,13  D
+0159282600 0      /01    RODRIGO ISRAEL MACHADO GUIMARAES  0237 10/07/2024 10/07
+     DINHEIRO                  C           4.616,10 C    41             0,55  D
+0159282783 0      /01    RODRIGO KLASSMANN DAUDT           0341 10/07/2024 10/07
+     DINHEIRO                  C           3.162,64 C    41             0,55  D
+0159282945 0      /01    ROGERIO SILVA CEZAR FILHO         0001 10/07/2024 10/07
+     DINHEIRO                  C           1.040,40 C    41             1,13  D
+0159283038 0      /01    RONICE GIACOMET BORGES            0010 10/07/2024 10/07
+     DINHEIRO                  C           1.419,27
+0159283445 0      /01    ROSANE MARIA AUBIN                0001 10/07/2024 10/07
+     DINHEIRO                  C             950,98 C    41             1,13  D
+0159283518 0      /01    ROSANE SARAIVA CASTANHO DAGANI    0341 10/07/2024 10/07
+     DINHEIRO                  C             925,98 C    41             1,13  D
+0159283690 0      /01    ROSELI PANTALEAO GESSINGER        0001 10/07/2024 10/07
+     DINHEIRO                  C              50,10 C    41             1,13  D
+0159283852 0      /01    ROSSANA DE OLIVEIRA               0748 10/07/2024 10/07
+     DINHEIRO                  C             586,65 C    41             0,55  D
+0159284190 0      /01    SABRINA ANDRIOTTI PELLIN          0033 10/07/2024 10/07
+     DINHEIRO                  C             731,92 C    41             0,55  D
+0159284433 0      /01    SAIONARA CONCEICAO SARAIVA CAMAR  0010 10/07/2024 10/07
+     DINHEIRO                  C             907,57
+0159284506 0      /01    SAIONIRA DA ROCHA SARAIVA         0010 10/07/2024 10/07
+     DINHEIRO                  C             907,57
+0159284689 0      /01    SAMANTHA HARTMANN POETA           0010 10/07/2024 10/07
+     DINHEIRO                  C             631,48
+0159284778 0      /01    SANDRA AVILA DA COSTA             0748 10/07/2024 10/07
+     DINHEIRO                  C           1.638,64 C    41             0,55  D
+0159284921 0      /01    SANDRO ADRIANO CARBONE ZANINI     0260 10/07/2024 10/07
+     DINHEIRO                  C             687,80 C    41             1,13  D
+0159285006 0      /01    SAUL PAULO DE SOUZA               0001 10/07/2024 10/07
+     DINHEIRO                  C           3.163,36 C    41             1,13  D
+0159285189 0      /01    SERGIO AUGUSTO RUCK BUENO         0010 10/07/2024 10/07
+     DINHEIRO                  C           2.384,16
+6634990443 0      /01    SERGIO LORENSI                    0001 10/07/2024 10/07
+     DINHEIRO                  C           1.453,27 C    41             1,13  D
+0159285278 0      /01    SERGIO LUIS FREIBERG              0341 10/07/2024 10/07
+     DINHEIRO                  C           1.818,32 C    41             0,55  D
+0159285340 0      /01    SERGIO POHLMANN                   0001 10/07/2024 10/07
+     DINHEIRO                  C           1.419,27 C    41             1,13  D
+0159285421 0      /01    SIDNEI DE OLIVEIRA MACIEL         0237 10/07/2024 10/07
+     DINHEIRO                  C             962,94 C    41             1,13  D
+0159285677 0      /01    SILVANA CELIA PALMA               0010 10/07/2024 10/07
+     DINHEIRO                  C           1.608,30
+0159285928 0      /01    SILVIO LUIS PEIXOTO FERREIRA      0001 10/07/2024 10/07
+     DINHEIRO                  C             907,57 C    41             1,13  D
+0159286096 0      /01    SIMONE BACK PROCHNOW              0341 10/07/2024 10/07
+     DINHEIRO                  C           1.989,29 C    41             0,55  D
+0159286177 0      /01    SIMONE DOS SANTOS FERNANDES       0001 10/07/2024 10/07
+     DINHEIRO                  C           1.785,03 C    41             1,13  D
+0159286258 0      /01    SIMONE ELAINE BERTUZZO            0136 10/07/2024 10/07
+     DINHEIRO                  C           1.548,07 C    41             0,55  D
+0159286428 0      /01    SIMONE PRETTO RUSCHEL             0001 10/07/2024 10/07
+     DINHEIRO                  C           1.243,63 C    41             1,13  D
+0159286746 0      /01    SOLON SOIREFMANN                  0341 10/07/2024 10/07
+     DINHEIRO                  C           2.142,52 C    41             1,13  D
+0159287165 0      /01    SUELI CRISTINA VICENTIM           0033 10/07/2024 10/07
+     DINHEIRO                  C             712,76 C    41             1,13  D
+0159287327 0      /01    SULA ROCHA GARCIA                 0001 10/07/2024 10/07
+     DINHEIRO                  C           2.890,96 C    41             0,55  D
+0159287408 0      /01    SUZANA DAS NEVES CAETANO          0001 10/07/2024 10/07
+     DINHEIRO                  C             791,59 C    41             1,13  D
+0159287572 0      /01    TABARA VARISSA PETRY              0077 10/07/2024 10/07
+     DINHEIRO                  C             718,58 C    41             1,13  D
+0159287998 0      /01    TALY ABREVAYA WERNICK SIMON       0033 10/07/2024 10/07
+     DINHEIRO                  C           1.634,69 C    41             1,13  D
+0159288803 0      /01    THAIS FALAVIGNA BAGATINI          0001 10/07/2024 10/07
+     DINHEIRO                  C             649,85 C    41             1,13  D
+0159289141 0      /01    TIAGO HOLZMANN DA SILVA           0001 10/07/2024 10/07
+     DINHEIRO                  C           1.508,10 C    41             1,13  D
+0159289559 0      /01    VANERLEI MOZAQUATRO ROSSO         0001 10/07/2024 10/07
+     DINHEIRO                  C           3.720,76 C    41             1,13  D
+0159289710 0      /01    VANESSA FREITAS HECK              0077 10/07/2024 10/07
+     DINHEIRO                  C             884,81 C    41             0,55  D
+0159289893 0      /01    VANESSA GOMES SIEFERT             0033 10/07/2024 10/07
+     DINHEIRO                  C           1.053,87 C    41             0,55  D
+0159289974 0      /01    VANESSA GROSS SCHEIN              0010 10/07/2024 10/07
+     DINHEIRO                  C             629,77
+0159290034 0      /01    VANESSA GUERTZENSTEIN             0237 10/07/2024 10/07
+     DINHEIRO                  C           4.026,73 C    41             1,13  D
+0159290379 0      /01    VANESSA SOLDATELLI                0341 10/07/2024 10/07
+     DINHEIRO                  C           1.343,83 C    41             0,55  D
+0159290468 0      /01    VERONICA FANTON ZANUZZI           0033 10/07/2024 10/07
+     DINHEIRO                  C           1.629,79 C    41             0,55  D
+0159290867 0      /01    VINICIUS BELLOTTO GOMES           0260 10/07/2024 10/07
+     DINHEIRO                  C             751,14 C    41             0,55  D
+0159290948 0      /01    VINICIUS MAIA TROLEZE             0010 10/07/2024 10/07
+     DINHEIRO                  C             731,92
+0159291022 0      /01    VINICIUS PAHIM FIEDLER            0033 10/07/2024 10/07
+     DINHEIRO                  C             714,14 C    41             0,55  D
+0159291448 0      /01    VIVIANE AVILA PAIVA               0422 10/07/2024 10/07
+     DINHEIRO                  C           1.041,01 C    41             1,13  D
+0159291510 0      /01    VIVIANE FRANKE LEMOS              0033 10/07/2024 10/07
+     DINHEIRO                  C           2.586,54 C    41             1,13  D
+0159291936 0      /01    WALTER FLORES                     0237 10/07/2024 10/07
+     DINHEIRO                  C           2.105,52 C    41             1,13  D
+0159292010 0      /01    WU DAY YI                         0341 10/07/2024 10/07
+     DINHEIRO                  C             731,92 C    41             1,13  D
+0159292274 0      /01    YURI CARNEIRO STRACCIONI          0260 10/07/2024 10/07
+     DINHEIRO                  C             432,75 C    41             0,55  D
+================================================================================
+(R) > 8050 - COBRANCA SIMPLES                                                  <
+RESUMO DA OPERACAO ........... C         450.750,03
+    (ACRESCIMOS OU DEDUCOES)
+ 41 - RESSARCIMENTO TARIFA INTERBANCARIA.....             41            250,43 D
+    VALOR LIQUIDO DA OPERACAO  C         450.499,60 C
+(M) > 8050 - COBRANCA SIMPLES                                                  <
+--------------------------------------------------------------------------------
+NOSSO NUM. SEU NUMERO    NOME DO SACADO/EMITENTE           COBR DT VENCTO  DT-OP
+     MOEDA                     OP   VALOR DO TITULO TB   COD   DEDUZ/ACRESCE D/C
+--------------------------------------------------------------------------------
+0159268683 0      /01    MARCELO TORRES CANARIM            0839 10/07/2024 12/07
+                               D             907,57 4
+================================================================================
+(R) > 8050 - COBRANCA SIMPLES                                                  <
+RESUMO DA OPERACAO ........... D             907,57
+    VALOR LIQUIDO DA OPERACAO  D               0,00 C
+--------------------------------------------------------------------------------
+CONTA CORRENTE :  06.854216.1.6   LIQUIDO LANCADO (A CREDITO ):       450.499,60
+VENCIDOS ATE NESTA DATA:       114.013,55
+ATE: 31/07/2024:              0,00            ATE : 31/08/2024:         7.328,14
+ATE: 30/09/2024:          7.328,14            APOS: 30/09/2024:        22.171,04
+--------------------------------------------------------------------------------
+SALDO ANTERIOR:       602.498,47                   ENTRADAS   :             0,00
+SAIDAS        :       451.657,60                   SALDO ATUAL:       150.840,87
+================================================================================
+BDL-CARTEIRA LETRAS0839854216155120720241307202401.48.36*****FIM

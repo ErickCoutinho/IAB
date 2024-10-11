@@ -1,0 +1,188 @@
+
+BANCO DO ESTADO DO RIO GRANDE DO SUL, S.A.        DATA-HORA: 16/05/2024 01.47.17
+BDL - CARTEIRA LETRAS        **** AVISO DE MOVIMENTACAO DE COBRANCA ****
+AGENCIA: 0839.17 DUQUE DE CAXIAS                      POSICAO DO DIA: 15/05/2024
+CEDENTE: 0839.8542161.55 - INST DE ARQUITETOS DO BRASIL RS
+(M) > 8050 - COBRANCA SIMPLES                                                  <
+--------------------------------------------------------------------------------
+NOSSO NUM. SEU NUMERO    NOME DO SACADO/EMITENTE           COBR DT VENCTO  DT-OP
+     MOEDA                     OP   VALOR DO TITULO TB   COD   DEDUZ/ACRESCE D/C
+--------------------------------------------------------------------------------
+0159087425 0      /01    ADRIANA MISSEL DIDONE             0001 10/05/2024 13/05
+     DINHEIRO                  C           2.803,82 C    07            58,86  C
+                                                         41             0,55  D
+0159088901 0      /01    ALEXANDRE ROGELIN PRASS           0001 10/05/2024 13/05
+     DINHEIRO                  C             483,35 C    07            10,14  C
+                                                         41             1,13  D
+0159089576 0      /01    ALINE DA SILVA FREITAS            0001 10/05/2024 13/05
+     DINHEIRO                  C             631,48 C    07            13,25  C
+                                                         41             1,13  D
+0159089657 0      /01    ALINE DAL PIZZOL HEIT             0237 10/05/2024 13/05
+     DINHEIRO                  C           1.243,63 C    07            26,10  C
+                                                         41             0,55  D
+0159092372 0      /01    ANANDA MACIEL OLIVEIRA            0033 10/05/2024 13/05
+     DINHEIRO                  C             487,30 C    07            10,22  C
+                                                         41             1,13  D
+0159092607 0      /01    ANDIARA GOMES LINS PASTL          0010 10/05/2024 13/05
+     DINHEIRO                  C           1.514,93      07            31,79  C
+0159093514 0      /01    ANDREIA BOCIAN                    0077 10/05/2024 13/05
+     DINHEIRO                  C           1.367,93 C    07            28,73  C
+                                                         41             0,55  D
+0159093778 0      /01    ANDREIA SZARBLEWSKI IENCZAK       0033 10/05/2024 13/05
+     DINHEIRO                  C           1.113,57 C    07            23,38  C
+                                                         41             1,13  D
+0159094766 0      /01    ANTONIA HEMESATH GODINHO          0237 10/05/2024 13/05
+     DINHEIRO                  C           1.726,38 C    07            36,26  C
+                                                         41             1,13  D
+0159095347 0      /01    ATHOS ANDRE DO AMARAL ROCHA       0001 10/05/2024 13/05
+     DINHEIRO                  C           1.086,07 C    07            22,80  C
+                                                         41             0,55  D
+0159095428 0      /01    AUDREY BELLO RAMOS                0001 10/05/2024 13/05
+     DINHEIRO                  C           2.448,31 C    07            51,42  C
+                                                         41             0,55  D
+0159096580 0      /01    BENO PEREIRA AYRES                0010 10/05/2024 13/05
+     DINHEIRO                  C           3.001,77      07            63,03  C
+0159097242 0      /01    BIBIANA VITAL MENEGAZ SILVEIRA    0033 10/05/2024 13/05
+     DINHEIRO                  C             998,26 C    07            20,95  C
+                                                         41             0,55  D
+0159097579 0      /01    BRUNO DE AZEVEDO CARNEIRO         0260 10/05/2024 13/05
+     DINHEIRO                  C             511,35 C    07            10,73  C
+                                                         41             1,13  D
+0159098567 0      /01    CARLA SCHUSTER                    0748 10/05/2024 13/05
+     DINHEIRO                  C           1.868,90 C    07            39,23  C
+                                                         41             1,13  D
+0159099806 0      /01    CAROLINE FAUSTINI LOEFF           0341 10/05/2024 13/05
+     DINHEIRO                  C             985,01 C    07            20,69  C
+                                                         41             0,55  D
+0159101029 0      /01    CHRISTINE VIEIRA BECK             0001 10/05/2024 13/05
+     DINHEIRO                  C           1.083,29 C    07            22,74  C
+                                                         41             0,55  D
+0159104338 0      /01    DANIEL CANDELORO FERRARI          0001 10/05/2024 13/05
+     DINHEIRO                  C             442,93 C    07             9,30  C
+                                                         41             0,55  D
+0159104583 0      /01    DANIEL TOMBINI KASPRZAK           0104 10/05/2024 13/05
+     DINHEIRO                  C           2.583,56 C    07            54,25  C
+                                                         41             1,13  D
+0159104745 0      /01    DANIELA GIOVANA CORSO             0001 10/05/2024 13/05
+     DINHEIRO                  C             581,97 C    07            12,20  C
+                                                         41             1,13  D
+0159108139 0      /01    EDUARDO NISCHESPOIS SCORSATTO     0748 10/05/2024 13/05
+     DINHEIRO                  C             743,74 C    07            15,62  C
+                                                         41             1,13  D
+0159109208 0      /01    ELISE CHRISTMANN                  0001 10/05/2024 13/05
+     DINHEIRO                  C             731,92 C    07            15,35  C
+                                                         41             1,13  D
+0159110192 0      /01    EVANDRO DAMASCENO MORAIS          0077 10/05/2024 13/05
+     DINHEIRO                  C             455,05 C    07             9,55  C
+                                                         41             1,13  D
+0159110273 0      /01    FABIANA DONATTI                   0104 10/05/2024 13/05
+     DINHEIRO                  C             443,13 C    07             9,31  C
+                                                         41             1,13  D
+0159110435 0      /01    FABIANA SILVEIRA COURAS           0077 10/05/2024 13/05
+     DINHEIRO                  C             921,81 C    07            19,36  C
+                                                         41             0,55  D
+0159111180 0      /01    FELIPE DUDKO LORENCENA            0104 10/05/2024 13/05
+     DINHEIRO                  C             832,12 C    07            17,48  C
+                                                         41             1,13  D
+0159111342 0      /01    FELIPE LOPES DE VASCONCELOS       0104 10/05/2024 13/05
+     DINHEIRO                  C           1.090,74 C    07            22,89  C
+                                                         41             1,13  D
+0159112268 0      /01    FERNANDA LANZARIN                 0748 10/05/2024 13/05
+     DINHEIRO                  C             626,34 C    07            13,15  C
+                                                         41             0,55  D
+0159114643 0      /01    GABRIELA FREEZE MIGUEL            0260 10/05/2024 13/05
+     DINHEIRO                  C             474,65 C    07             9,97  C
+                                                         41             0,55  D
+0159115305 0      /01    GABRIELA VALADAO ZANIN            0260 10/05/2024 13/05
+     DINHEIRO                  C             549,65 C    07            11,53  C
+                                                         41             1,13  D
+0159116638 0      /01    GIULIANA XAVIER BARBIERI          0077 10/05/2024 13/05
+     DINHEIRO                  C           1.998,84 C    07            41,98  C
+                                                         41             1,13  D
+0159119025 0      /01    INA KELLER                        0104 10/05/2024 13/05
+     DINHEIRO                  C           1.749,95 C    07            36,73  C
+                                                         41             1,13  D
+0159119378 0      /01    IRONITA QUIM FAGUNDES             0237 10/05/2024 13/05
+     DINHEIRO                  C           4.615,01 C    07            96,92  C
+                                                         41             1,13  D
+0159120821 0      /01    JOAO DIOGO DE FIGUEIREDO DIAS CO  0001 10/05/2024 13/05
+     DINHEIRO                  C           2.062,09 C    07            43,31  C
+                                                         41             1,13  D
+0159121321 0      /01    JORDANA EYMAEL POKORSKI           0260 10/05/2024 13/05
+     DINHEIRO                  C             442,93 C    07             9,30  C
+                                                         41             0,55  D
+0159121992 0      /01    JOSE FABRICIO CARVALHO            0748 10/05/2024 13/05
+     DINHEIRO                  C             922,57 C    07            19,38  C
+                                                         41             1,13  D
+0159122158 0      /01    JOSE ROBERTO WEBER SALVI          0341 10/05/2024 13/05
+     DINHEIRO                  C           2.105,52 C    07            44,21  C
+                                                         41             0,55  D
+0159123065 0      /01    JULIA GUATIMOSIM MACIEL           0001 10/05/2024 13/05
+     DINHEIRO                  C             483,35 C    07            10,14  C
+                                                         41             0,55  D
+0159123979 0      /01    JULIO HUMBERTO DA SILVA COELHO    0077 10/05/2024 13/05
+     DINHEIRO                  C             814,58 C    07            17,10  C
+                                                         41             0,55  D
+0159124053 0      /01    KAREN ARAUJO GRABIN               0001 10/05/2024 13/05
+     DINHEIRO                  C             483,35 C    07            10,14  C
+                                                         41             1,13  D
+0159125955 0      /01    LIA TOLPOLARU                     0341 10/05/2024 13/05
+     DINHEIRO                  C           2.192,62 C    07            46,04  C
+                                                         41             0,55  D
+0159127699 0      /01    LUCAS REZENDE BUSATO              0260 10/05/2024 13/05
+     DINHEIRO                  C             559,63 C    07            11,76  C
+                                                         41             0,55  D
+0159129268 0      /01    LUIZA NOGUEIRA ROSA BURCK         0033 10/05/2024 13/05
+     DINHEIRO                  C             631,48 C    07            13,25  C
+                                                         41             1,13  D
+0159132625 0      /01    MARIA DOROTI OLIVEIRA DE BITENCO  0341 10/05/2024 13/05
+     DINHEIRO                  C             907,57 C    07            19,05  C
+                                                         41             0,55  D
+0159135365 0      /01    MARILIA UTINGUASSU ESCOSTEGUY     0136 10/05/2024 13/05
+     DINHEIRO                  C           1.452,21 C    07            30,48  C
+                                                         41             1,13  D
+0159139573 0      /01    NICOLE PICHECO SCHILLING          0104 10/05/2024 13/05
+     DINHEIRO                  C             478,22 C    07            10,04  C
+                                                         41             0,55  D
+0159141616 0      /01    PAULO JUAREZ ALANO DA SILVA       0010 10/05/2024 13/05
+     DINHEIRO                  C           2.834,68      07            59,51  C
+0159148319 0      /01    SIDNEI DE OLIVEIRA MACIEL         0033 10/05/2024 13/05
+     DINHEIRO                  C             962,94 C    07            20,21  C
+                                                         41             1,13  D
+0159149307 0      /01    SIMONE PRETTO RUSCHEL             0104 10/05/2024 13/05
+     DINHEIRO                  C           1.293,73 C    07            27,16  C
+                                                         41             1,13  D
+0159149633 0      /01    SOLON SOIREFMANN                  0341 10/05/2024 13/05
+     DINHEIRO                  C           2.142,52 C    07            44,98  C
+                                                         41             1,13  D
+0159149897 0      /01    STELLA BATISTA LONGONI POLLI      0341 10/05/2024 13/05
+     DINHEIRO                  C           1.177,27 C    07            24,71  C
+                                                         41             0,55  D
+0159150852 0      /01    TALY ABREVAYA WERNICK SIMON       0033 10/05/2024 13/05
+     DINHEIRO                  C           1.623,76 C    07            34,09  C
+                                                         41             1,13  D
+0159152278 0      /01    THYAGO FERREIRA RAUPP             0001 10/05/2024 13/05
+     DINHEIRO                  C             732,51 C    07            15,37  C
+                                                         41             1,13  D
+0159152340 0      /01    TIAGO HOLZMANN DA SILVA           0001 10/05/2024 13/05
+     DINHEIRO                  C           1.558,20 C    07            32,72  C
+                               C           1.558,20      41             1,13  D
+0159155234 0      /01    YOSEF GARCEZ IBRAHIM              0010 10/05/2024 13/05
+     DINHEIRO                  C             884,81      07            18,56  C
+================================================================================
+(R) > 8050 - COBRANCA SIMPLES                                                  <
+RESUMO DA OPERACAO ........... C          68.943,30
+    (ACRESCIMOS OU DEDUCOES)
+ 07 - JUROS + CORRECAO MONETARIA DE MORA.....             07          1.447,42 C
+ 41 - RESSARCIMENTO TARIFA INTERBANCARIA.....             41             45,45 D
+    VALOR LIQUIDO DA OPERACAO  C          70.345,27 C
+--------------------------------------------------------------------------------
+CONTA CORRENTE :  06.854216.1.6   LIQUIDO LANCADO (A CREDITO ):        70.345,27
+VENCIDOS ATE NESTA DATA:        97.299,12
+ATE: 31/05/2024:              0,00            ATE : 30/06/2024:         7.485,77
+ATE: 31/07/2024:          7.328,14            APOS: 31/07/2024:        36.827,32
+--------------------------------------------------------------------------------
+SALDO ANTERIOR:       217.883,65                   ENTRADAS   :             0,00
+SAIDAS        :        68.943,30                   SALDO ATUAL:       148.940,35
+================================================================================
+BDL-CARTEIRA LETRAS0839854216155150520241605202401.47.17*****FIM
