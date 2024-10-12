@@ -1,9 +1,11 @@
 import pandas as pd
 from tkinter import filedialog, messagebox
 from src.final_returns.returns_names import filtrar_nomes_finais
+from openpyxl import load_workbook
+from interface.interface_auxiliary.loading import fechar_loading
 
-# Função para carregar o arquivo TXT
-# Função para carregar o arquivo txt, processar os dados e retornar o dicionário filtrado
+
+
 def carregar_arquivo_txt():
     file_path = filedialog.askopenfilename(title="Selecione o arquivo .txt", filetypes=[("Arquivo TXT", "*.txt")])
     if file_path:
@@ -39,26 +41,66 @@ def carregar_arquivo_excel(combobox_aba):
 
 
 def processar_dados(excel_file, aba_selecionada, dicionario_nomes_valores):
+    """
+    ESSA É A FUNÇÃO PRINCIPAL DO PROJETO
+    Função PRINCIPAL para processar os dados no arquivo Excel, comparando os nomes na coluna "Conveniado"
+    com os nomes de um dicionário e atualizando a coluna "Total fatura titular" com os valores correspondentes.
+
+    Parâmetros:
+    - excel_file: Caminho do arquivo Excel a ser processado.
+    - aba_selecionada: Nome da aba no Excel onde o processamento será feito.
+    - dicionario_nomes_valores: Dicionário contendo os nomes e os valores a serem comparados e inseridos no Excel.
+
+    Fluxo da função:
+    1. Carregar o arquivo Excel e a aba especificada mantendo a formatação existente.
+    2. Identificar as colunas "Conveniado" e "Total fatura titular" dinamicamente.
+    3. Comparar os nomes da coluna "Conveniado" com os nomes do dicionário.
+    4. Atualizar a coluna "Total fatura titular" com os valores do dicionário quando houver correspondência.
+    5. Exibir os nomes encontrados e atualizados.
+    6. Salvar o arquivo Excel atualizado.
+
+    Exceções:
+    - Erros ao carregar ou salvar o arquivo Excel.
+    - Erros ao processar os dados (ex.: colunas não encontradas).
+    """
     try:
-        df = pd.read_excel(excel_file, sheet_name=aba_selecionada)
-
-        # Filtrar e atualizar a coluna "Total fatura titular"
+        workbook = load_workbook(excel_file)
+        worksheet = workbook[aba_selecionada]
+        # Encontrar as colunas 'Conveniado' e 'Total fatura titular'
+        col_conveniado = None
+        col_total_fatura = None
+        for col in worksheet.iter_cols(1, worksheet.max_column):
+            header_value = col[0].value
+            if header_value:
+                if 'Conveniado' in header_value:
+                    col_conveniado = col[0].column_letter
+                elif 'Total fatura titular' in header_value:
+                    col_total_fatura = col[0].column_letter
+            if col_conveniado and col_total_fatura:
+                break
+        if not col_conveniado:
+            messagebox.showerror("Erro", "A coluna 'Conveniado' não foi encontrada.")
+            return
+        if not col_total_fatura:
+            messagebox.showerror("Erro", "A coluna 'Total fatura titular' não foi encontrada.")
+            return
+        nomes_encontrados = []
         for nome, valor in dicionario_nomes_valores.items():
-            # Buscar o nome na coluna "Conveniado" (não case-sensitive)
-            df['Conveniado'] = df['Conveniado'].str.upper()  # Para evitar problemas com maiúsculas/minúsculas
-            mask = df['Conveniado'].str.contains(nome.upper(), na=False)
-            if mask.any():
-                df.loc[mask, 'Total fatura titular'] = valor
-
-        # Mostrar mensagem de sucesso
-        messagebox.showinfo("Sucesso", "Dados processados com sucesso!")
-        print("Processamento concluído.")
-
-        # Salvar o arquivo processado
+            for row in range(2, worksheet.max_row + 1):  # Ignorar o cabeçalho
+                conveniado = worksheet[f'{col_conveniado}{row}'].value
+                if conveniado and nome.upper() in conveniado.upper():
+                    worksheet[f'{col_total_fatura}{row}'] = valor
+                    nomes_encontrados.append(nome)
+        if nomes_encontrados:
+            messagebox.showinfo("Nomes Encontrados", f"Nomes encontrados: {', '.join(nomes_encontrados)}")
+        else:
+            messagebox.showinfo("Nenhum Nome Encontrado", "Nenhum nome do dicionário foi encontrado no arquivo Excel.")
         save_path = filedialog.asksaveasfilename(defaultextension=".xlsx", filetypes=[("Arquivo Excel", "*.xlsx")])
         if save_path:
-            df.to_excel(save_path, index=False)
+            workbook.save(save_path)
             messagebox.showinfo("Arquivo Salvo", f"Arquivo salvo em {save_path}")
 
     except Exception as e:
         messagebox.showerror("Erro", f"Erro ao processar os dados: {str(e)}")
+    finally:
+        fechar_loading()
