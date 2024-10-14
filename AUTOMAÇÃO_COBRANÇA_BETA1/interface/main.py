@@ -2,7 +2,6 @@ import threading
 import tkinter as tk
 from tkinter import ttk, messagebox
 from interface.interface_auxiliary.results import ResultadosInterface
-from src.final_returns.returns_names import filtrar_nomes_atrasados
 from utils.file_processing.functions import carregar_arquivo_txt, carregar_arquivo_excel, processar_dados
 from interface.interface_auxiliary.loading import fechar_loading, mostrar_loading
 
@@ -18,6 +17,7 @@ class InterfaceApp(tk.Tk):
         self.excel_file = None
         self.dicionario_nomes_valores = None
         self.dicionario_atrasados = None
+        self.dicionario_cartorio = None
 
 
         # Widgets
@@ -40,7 +40,7 @@ class InterfaceApp(tk.Tk):
         self.button_processar.pack(pady=20)
 
     def carregar_txt(self):
-        self.dicionario_nomes_valores, self.dicionario_atrasados = carregar_arquivo_txt()  # Atualize aqui
+        self.dicionario_nomes_valores, self.dicionario_atrasados, self.dicionario_cartorio = carregar_arquivo_txt()
         if self.dicionario_nomes_valores:  # Verifica se o dicionário não está vazio
             print("Dicionário de nomes e valores carregado com sucesso.")
 
@@ -68,8 +68,9 @@ class InterfaceApp(tk.Tk):
             # Aqui você deve obter os nomes processados do dicionário
             nomes_atrasados = list(self.dicionario_atrasados.keys())
             nomes_processados = list(self.dicionario_nomes_valores.keys())
+            nomes_cartorio = list(self.dicionario_cartorio.keys())
             # Chama a nova interface com os nomes processados e atrasados
-            ResultadosInterface(nomes_processados, nomes_atrasados)
+            ResultadosInterface(nomes_processados, nomes_atrasados, nomes_cartorio)
             self.after(0, lambda: messagebox.showinfo("Sucesso", "Processamento concluído com sucesso!"))
         except Exception as e:
             self.after(0, self.mostrar_erro, e)

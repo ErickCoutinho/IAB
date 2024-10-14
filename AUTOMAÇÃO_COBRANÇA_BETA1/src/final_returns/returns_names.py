@@ -1,5 +1,6 @@
 from datetime import datetime
-from utils.association.association import associar_nomes_valores_pagos, associar_nomes_datas_vencimento
+from utils.association.association import associar_nomes_valores_pagos, associar_nomes_datas_vencimento, \
+    associar_nomes_valores_cartorio
 from utils.extract.extract_objects import extrair_data_posicao, ler_arquivo
 
 file_path = "../../documents/txts/12_07Resumo_Contabil_20240717.txt"
@@ -78,5 +79,33 @@ def filtrar_nomes_atrasados(file_path):
         print(f"Erro ao filtrar nomes por mês de vencimento: {str(e)}")
         return {}
 
+
+def filtrar_nomes_cartorio(file_path):
+    """
+    Filtra os nomes cujos valores estão relacionados ao cartório.
+    Esses nomes são considerados para algum processamento ou relatório adicional.
+
+    :param file_path: Caminho para o arquivo.
+    :return: Dicionário filtrado com nomes e valores associados ao cartório.
+    """
+    try:
+        content = ler_arquivo(file_path)
+
+        # Associar nomes e valores pagos (associando também os valores do cartório)
+        valores_cartorio_dict = associar_nomes_valores_cartorio(file_path)  # Função que retorna valores do cartório
+
+        # Dicionário para armazenar nomes relacionados ao cartório
+        nomes_filtrados = {}
+
+        # Iterar sobre os valores do cartório e adicionar ao dicionário filtrado
+        for nome, valor in valores_cartorio_dict.items():
+            if valor > 0:  # Condição para filtrar apenas valores positivos (ou outra lógica conforme necessário)
+                nomes_filtrados[nome] = valor
+
+        return nomes_filtrados
+
+    except Exception as e:
+        print(f"Erro ao filtrar nomes relacionados ao cartório: {str(e)}")
+        return {}
 
 

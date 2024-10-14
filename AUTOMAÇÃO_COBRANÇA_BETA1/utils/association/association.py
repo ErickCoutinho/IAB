@@ -39,8 +39,6 @@ def associar_nomes_valores_pagos(file_path):
         return {}
 
 
-
-
 def associar_nomes_juros(file_path):
     try:
         content = ler_arquivo(file_path)
@@ -87,4 +85,27 @@ def associar_nomes_datas_vencimento(file_path):
         print(f"Erro ao associar nomes e datas de vencimento: {str(e)}")
         return {}
 
+
+def associar_nomes_valores_cartorio(file_path):
+    try:
+        content = ler_arquivo(file_path)
+        # Extrair nomes e seus índices (como um dicionário: {linha: nome})
+        nomes_dict = extrair_nomes(content)
+        # Extrair valores 'J' (assumindo que a função extrair_valores agora retorna valores_j)
+        _, _, valores_j, _ = extrair_valores(content)
+        # Dicionário para armazenar a associação entre nome e o valor somado (J)
+        associacoes = {}
+        # Iterar sobre o dicionário de nomes (linha: nome)
+        for linha, nome in nomes_dict.items():
+            indice_valor = linha + 1  # Ajustar o índice do valor (é 1 a mais que o índice do nome)
+            # Verificar se há valor 'J' para o índice correspondente
+            valor_j = valores_j.get(indice_valor, '0')  # Pegar o valor 'J', ou '0' se não existir
+            # Limpar e converter o valor para float usando o método separado
+            valor_total = limpar_valor(valor_j)
+            # Associar o nome ao valor total no dicionário
+            associacoes[nome] = valor_total
+        return associacoes  # Retorna o dicionário de associações entre nome e valor 'J'
+    except Exception as e:
+        print(f"Erro ao associar nomes e valores jurados: {str(e)}")
+        return {}
 
