@@ -3,7 +3,6 @@ from tkinter import filedialog, messagebox
 from src.final_returns.returns_names import filtrar_nomes_finais, filtrar_nomes_atrasados, filtrar_nomes_cartorio
 from openpyxl import load_workbook
 from interface.interface_auxiliary.loading import fechar_loading
-from utils.extract.extract_objects import ler_arquivo
 
 
 def carregar_arquivo_txt():
@@ -61,6 +60,7 @@ def processar_dados(excel_file, aba_selecionada, dicionario_nomes_valores):
     - Erros ao carregar ou salvar o arquivo Excel.
     - Erros ao processar os dados (ex.: colunas não encontradas).
     """
+    dicionario_nomes_correspondetes = {}
     try:
         workbook = load_workbook(excel_file)
         worksheet = workbook[aba_selecionada]
@@ -83,12 +83,15 @@ def processar_dados(excel_file, aba_selecionada, dicionario_nomes_valores):
             messagebox.showerror("Erro", "A coluna 'Total fatura titular' não foi encontrada.")
             return
         nomes_encontrados = []
+
         for nome, valor in dicionario_nomes_valores.items():
             for row in range(2, worksheet.max_row + 1):  # Ignorar o cabeçalho
                 conveniado = worksheet[f'{col_conveniado}{row}'].value
                 if conveniado and nome.upper() in conveniado.upper():
                     worksheet[f'{col_total_fatura}{row}'] = valor
                     nomes_encontrados.append(nome)
+                    dicionario_nomes_correspondetes[nome] = valor
+
         if nomes_encontrados:
             messagebox.showinfo("Nomes Encontrados", f"Nomes encontrados: {', '.join(nomes_encontrados)}")
         else:
@@ -102,3 +105,6 @@ def processar_dados(excel_file, aba_selecionada, dicionario_nomes_valores):
         messagebox.showerror("Erro", f"Erro ao processar os dados: {str(e)}")
     finally:
         fechar_loading()
+
+    return dicionario_nomes_correspondetes
+

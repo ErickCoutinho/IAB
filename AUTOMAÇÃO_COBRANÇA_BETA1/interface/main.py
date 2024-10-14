@@ -64,13 +64,17 @@ class InterfaceApp(tk.Tk):
 
     def processar(self, aba_selecionada):
         try:
-            processar_dados(self.excel_file, aba_selecionada, self.dicionario_nomes_valores)
-            # Aqui você deve obter os nomes processados do dicionário
+            dicionario_correspondencias = processar_dados(self.excel_file, aba_selecionada,
+                                                          self.dicionario_nomes_valores)
+
+            # Obtém os nomes
             nomes_atrasados = list(self.dicionario_atrasados.keys())
             nomes_processados = list(self.dicionario_nomes_valores.keys())
             nomes_cartorio = list(self.dicionario_cartorio.keys())
-            # Chama a nova interface com os nomes processados e atrasados
-            ResultadosInterface(nomes_processados, nomes_atrasados, nomes_cartorio)
+
+            # Passa o dicionário de correspondências para a interface de resultados
+            ResultadosInterface(nomes_processados, nomes_atrasados, nomes_cartorio, dicionario_correspondencias)
+
             self.after(0, lambda: messagebox.showinfo("Sucesso", "Processamento concluído com sucesso!"))
         except Exception as e:
             self.after(0, self.mostrar_erro, e)
