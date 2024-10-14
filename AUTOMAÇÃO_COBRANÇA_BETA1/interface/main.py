@@ -1,6 +1,8 @@
 import threading
 import tkinter as tk
 from tkinter import ttk, messagebox
+from interface.interface_auxiliary.results import ResultadosInterface
+from src.final_returns.returns_names import filtrar_nomes_atrasados
 from utils.file_processing.functions import carregar_arquivo_txt, carregar_arquivo_excel, processar_dados
 from interface.interface_auxiliary.loading import fechar_loading, mostrar_loading
 
@@ -15,6 +17,8 @@ class InterfaceApp(tk.Tk):
         # Variáveis de controle
         self.excel_file = None
         self.dicionario_nomes_valores = None
+        self.dicionario_atrasados = None
+
 
         # Widgets
         self.label_arquivo_txt = tk.Label(self, text="Selecione o arquivo TXT:")
@@ -36,9 +40,9 @@ class InterfaceApp(tk.Tk):
         self.button_processar.pack(pady=20)
 
     def carregar_txt(self):
-        content = carregar_arquivo_txt()
-        if content:
-            self.dicionario_nomes_valores = content
+        self.dicionario_nomes_valores, self.dicionario_atrasados = carregar_arquivo_txt()  # Atualize aqui
+        if self.dicionario_nomes_valores:  # Verifica se o dicionário não está vazio
+            print("Dicionário de nomes e valores carregado com sucesso.")
 
     def carregar_excel(self):
         self.excel_file = carregar_arquivo_excel(self.combobox_aba)
@@ -59,14 +63,15 @@ class InterfaceApp(tk.Tk):
             messagebox.showwarning("Aviso", "Por favor, carregue o arquivo TXT e Excel antes de processar.")
 
     def processar(self, aba_selecionada):
-        """
-        Método de processamento que será rodado em um thread separado.
-        """
         try:
             processar_dados(self.excel_file, aba_selecionada, self.dicionario_nomes_valores)
+            # Aqui você deve obter os nomes processados do dicionário
+            nomes_atrasados = list(self.dicionario_atrasados.keys())
+            nomes_processados = list(self.dicionario_nomes_valores.keys())
+            # Chama a nova interface com os nomes processados e atrasados
+            ResultadosInterface(nomes_processados, nomes_atrasados)
             self.after(0, lambda: messagebox.showinfo("Sucesso", "Processamento concluído com sucesso!"))
         except Exception as e:
-            # Capturar a exceção e exibir na thread principal
             self.after(0, self.mostrar_erro, e)
         finally:
             self.after(0, fechar_loading)

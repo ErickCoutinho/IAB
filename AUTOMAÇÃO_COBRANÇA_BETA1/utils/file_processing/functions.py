@@ -1,6 +1,6 @@
 import pandas as pd
 from tkinter import filedialog, messagebox
-from src.final_returns.returns_names import filtrar_nomes_finais
+from src.final_returns.returns_names import filtrar_nomes_finais, filtrar_nomes_atrasados
 from openpyxl import load_workbook
 from interface.interface_auxiliary.loading import fechar_loading
 
@@ -12,12 +12,16 @@ def carregar_arquivo_txt():
         try:
             # Chama a função filtrar_nomes_finais para processar o arquivo TXT e obter o dicionário filtrado
             dicionario_nomes_valores = filtrar_nomes_finais(file_path)
+            dicionario_atrasados = filtrar_nomes_atrasados(file_path)
             if not dicionario_nomes_valores:
+                messagebox.showerror("Erro", "Nenhum nome válido encontrado no arquivo TXT.")
+                return None
+            if not dicionario_atrasados:
                 messagebox.showerror("Erro", "Nenhum nome válido encontrado no arquivo TXT.")
                 return None
 
             print("Arquivo TXT carregado e processado com sucesso.")
-            return dicionario_nomes_valores
+            return dicionario_nomes_valores, dicionario_atrasados
         except Exception as e:
             messagebox.showerror("Erro", f"Erro ao carregar o arquivo TXT: {str(e)}")
     return None
