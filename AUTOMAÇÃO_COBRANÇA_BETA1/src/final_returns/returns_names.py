@@ -78,7 +78,5 @@ def filtrar_nomes_atrasados(file_path):
         print(f"Erro ao filtrar nomes por mês de vencimento: {str(e)}")
         return {}
 
-r = filtrar_nomes_atrasados(file_path)
-print(r)
 
 

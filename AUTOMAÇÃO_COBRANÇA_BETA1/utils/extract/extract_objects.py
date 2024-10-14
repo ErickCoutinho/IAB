@@ -156,5 +156,3 @@ def extrair_data_vencimento(content):
     return datas_vencimento
 
 
-e = extrair_nomes(ler_arquivo(file_path))
-r = extrair_data_vencimento(ler_arquivo(file_path))
