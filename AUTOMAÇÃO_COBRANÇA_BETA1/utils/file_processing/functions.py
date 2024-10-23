@@ -1,6 +1,7 @@
 import pandas as pd
 from tkinter import filedialog, messagebox
-from src.final_returns.returns_names import filtrar_nomes_finais, filtrar_nomes_atrasados, filtrar_nomes_cartorio
+from src.final_returns.returns_names import (filtrar_nomes_finais, filtrar_nomes_atrasados, filtrar_nomes_cartorio,
+                                             filtrar_nomes_devolvido, filtrar_nomes_tarifas)
 from openpyxl import load_workbook
 from interface.interface_auxiliary.loading import fechar_loading
 
@@ -13,8 +14,10 @@ def carregar_arquivo_txt():
             dicionario_nomes_valores = filtrar_nomes_finais(file_path)
             dicionario_atrasados = filtrar_nomes_atrasados(file_path)
             dicionario_cartorio = filtrar_nomes_cartorio(file_path)
+            dicionario_devolvido = filtrar_nomes_devolvido(file_path)
+            dicionario_tarifas = filtrar_nomes_tarifas(file_path)
             print("Arquivo TXT carregado e processado com sucesso.")
-            return dicionario_nomes_valores, dicionario_atrasados, dicionario_cartorio  # Retornar os três dicionários
+            return dicionario_nomes_valores, dicionario_atrasados, dicionario_cartorio, dicionario_devolvido, dicionario_tarifas
         except Exception as e:
             messagebox.showerror("Erro", f"Erro ao carregar o arquivo TXT: {str(e)}")
         return None
@@ -83,19 +86,22 @@ def processar_dados(excel_file, aba_selecionada, dicionario_nomes_valores):
             messagebox.showerror("Erro", "A coluna 'Total fatura titular' não foi encontrada.")
             return
         nomes_encontrados = []
+        nomes_com_valor_zero = []  # Lista para armazenar nomes com valor igual a zero
 
         for nome, valor in dicionario_nomes_valores.items():
-            for row in range(2, worksheet.max_row + 1):  # Ignorar o cabeçalho
+            for row in range(2, worksheet.max_row + 1):
                 conveniado = worksheet[f'{col_conveniado}{row}'].value
                 if conveniado and nome.upper() in conveniado.upper():
                     worksheet[f'{col_total_fatura}{row}'] = valor
                     nomes_encontrados.append(nome)
                     dicionario_nomes_correspondetes[nome] = valor
+                    if valor == 0:
+                        nomes_com_valor_zero.append(nome)
 
-        if nomes_encontrados:
-            messagebox.showinfo("Nomes Encontrados", f"Nomes encontrados: {', '.join(nomes_encontrados)}")
-        else:
-            messagebox.showinfo("Nenhum Nome Encontrado", "Nenhum nome do dicionário foi encontrado no arquivo Excel.")
+        # Remover a mensagem de nomes encontrados
+        if nomes_com_valor_zero:
+            messagebox.showinfo("ATENÇÃO",
+                                f"Verificar seguintes nomes no TXT: {', '.join(nomes_com_valor_zero)}")
         save_path = filedialog.asksaveasfilename(defaultextension=".xlsx", filetypes=[("Arquivo Excel", "*.xlsx")])
         if save_path:
             workbook.save(save_path)

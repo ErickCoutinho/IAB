@@ -38,45 +38,46 @@ def extrair_nomes(content):
 
 def extrair_valores(content):
     try:
-        valores_c = {}  # Dicionário para valores com 'C' (Título liquidado/cobrado)
-        valores_g = {}  # Dicionário para valores com 'G' (Tarifas)
-        valores_j = {}  # Dicionário para valores com 'J' (Cartório)
-        valores_d = {}  # Dicionário para valores com 'D' (Devolvido)
+        valores_c = {}
+        valores_g = {}
+        valores_j = {}
+        valores_d = {}
 
         for i, line in enumerate(content):
             if '/01' in line or '/00' in line:
                 try:
                     next_line_index = i + 1
                     if next_line_index < len(content):
-                        next_line = content[next_line_index].strip()  # Remove espaços em branco no início e no fim
+                        next_line = content[next_line_index].strip()
                         try:
-                            # Verifica cada letra e se não há outra letra em sequência
-                            if 'C' in next_line:
-                                index_c = next_line.index('C')
-                                if next_line[index_c + 1].isspace() or next_line[index_c + 1].isdigit():  # Condição para garantir que não haja outra letra após 'C'
+                            # Limitar a busca entre os caracteres 14 e 40
+                            substring = next_line[11:35]
+                            if 'C' in substring:
+                                index_c = substring.index('C') + 14  # Corrige o índice para o próximo uso
+                                if next_line[index_c + 1].isspace() or next_line[index_c + 1].isdigit():
                                     valor_c = next_line[index_c + 1:].strip().split()[0].replace(',', '.')
-                                    valores_c[next_line_index + 1] = valor_c  # Armazena o valor no dicionário de valores 'C'
-                            if 'G' in next_line:
-                                index_g = next_line.index('G')
-                                if next_line[index_g + 1].isspace() or next_line[index_g + 1].isdigit():  # Condição para garantir que não haja outra letra após 'G'
+                                    valores_c[next_line_index + 1] = valor_c
+                            if 'G' in substring:
+                                index_g = substring.index('G') + 14
+                                if next_line[index_g + 1].isspace() or next_line[index_g + 1].isdigit():
                                     valor_g = next_line[index_g + 1:].strip().split()[0].replace(',', '.')
-                                    valores_g[next_line_index + 1] = valor_g  # Armazena o valor no dicionário de valores 'G'
-                            if 'J' in next_line:
-                                index_j = next_line.index('J')
-                                if next_line[index_j + 1].isspace() or next_line[index_j + 1].isdigit():  # Condição para garantir que não haja outra letra após 'J'
+                                    valores_g[next_line_index + 1] = valor_g
+                            if 'J' in substring:
+                                index_j = substring.index('J') + 14
+                                if next_line[index_j + 1].isspace() or next_line[index_j + 1].isdigit():
                                     valor_j = next_line[index_j + 1:].strip().split()[0].replace(',', '.')
-                                    valores_j[next_line_index + 1] = valor_j  # Armazena o valor no dicionário de valores 'J'
-                            if 'D' in next_line:
-                                index_d = next_line.index('D')
-                                if next_line[index_d + 1].isspace() or next_line[index_d + 1].isdigit():  # Condição para garantir que não haja outra letra após 'D'
+                                    valores_j[next_line_index + 1] = valor_j
+                            if 'D' in substring:
+                                index_d = substring.index('D') + 14
+                                if next_line[index_d + 1].isspace() or next_line[index_d + 1].isdigit():
                                     valor_d = next_line[index_d + 1:].strip().split()[0].replace(',', '.')
-                                    valores_d[next_line_index + 1] = valor_d  # Armazena o valor no dicionário de valores 'D'
+                                    valores_d[next_line_index + 1] = valor_d
                         except (ValueError, IndexError):
                             continue
                 except Exception as e:
                     print(f"Erro ao extrair valores: {str(e)}")
                     continue
-        return valores_c, valores_g, valores_j, valores_d  # Retorna os dicionários com valores e suas linhas correspondentes
+        return valores_c, valores_g, valores_j, valores_d
     except Exception as e:
         print(f"Erro ao extrair valores do arquivo: {str(e)}")
         return {}, {}, {}, {}

@@ -18,6 +18,8 @@ class InterfaceApp(tk.Tk):
         self.dicionario_nomes_valores = None
         self.dicionario_atrasados = None
         self.dicionario_cartorio = None
+        self.dicionario_devolvido = None
+        self.dicionario_tarifas = None
 
 
         # Widgets
@@ -40,8 +42,9 @@ class InterfaceApp(tk.Tk):
         self.button_processar.pack(pady=20)
 
     def carregar_txt(self):
-        self.dicionario_nomes_valores, self.dicionario_atrasados, self.dicionario_cartorio = carregar_arquivo_txt()
-        if self.dicionario_nomes_valores:  # Verifica se o dicionário não está vazio
+        (self.dicionario_nomes_valores, self.dicionario_atrasados, self.dicionario_cartorio, self.dicionario_devolvido,
+         self.dicionario_tarifas) = carregar_arquivo_txt()
+        if self.dicionario_nomes_valores:
             print("Dicionário de nomes e valores carregado com sucesso.")
 
     def carregar_excel(self):
@@ -71,9 +74,12 @@ class InterfaceApp(tk.Tk):
             nomes_atrasados = list(self.dicionario_atrasados.keys())
             nomes_processados = list(self.dicionario_nomes_valores.keys())
             nomes_cartorio = list(self.dicionario_cartorio.keys())
+            nomes_devolvidos = list(self.dicionario_devolvido.keys())
+            nomes_tarifas = list(self.dicionario_tarifas)
 
             # Passa o dicionário de correspondências para a interface de resultados
-            ResultadosInterface(nomes_processados, nomes_atrasados, nomes_cartorio, dicionario_correspondencias)
+            ResultadosInterface(nomes_processados, nomes_atrasados, nomes_cartorio, dicionario_correspondencias,
+                                nomes_devolvidos, nomes_tarifas)
 
             self.after(0, lambda: messagebox.showinfo("Sucesso", "Processamento concluído com sucesso!"))
         except Exception as e:

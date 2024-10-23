@@ -91,7 +91,7 @@ def associar_nomes_valores_cartorio(file_path):
         content = ler_arquivo(file_path)
         # Extrair nomes e seus índices (como um dicionário: {linha: nome})
         nomes_dict = extrair_nomes(content)
-        # Extrair valores 'J' (assumindo que a função extrair_valores agora retorna valores_j)
+        # Extrair valores 'J'
         _, _, valores_j, _ = extrair_valores(content)
         # Dicionário para armazenar a associação entre nome e o valor somado (J)
         associacoes = {}
@@ -109,3 +109,67 @@ def associar_nomes_valores_cartorio(file_path):
         print(f"Erro ao associar nomes e valores jurados: {str(e)}")
         return {}
 
+
+def associar_nomes_valores_devolvido(file_path):
+    try:
+        content = ler_arquivo(file_path)
+        # Extrair nomes e seus índices (como um dicionário: {linha: nome})
+        nomes_dict = extrair_nomes(content)
+        # Extrair valores 'D'
+        _, _, _, valores_d = extrair_valores(content)
+        # Dicionário para armazenar a associação entre nome e o valor somado (D)
+        associacoes = {}
+        # Iterar sobre o dicionário de nomes (linha: nome)
+        for linha, nome in nomes_dict.items():
+            indice_valor = linha + 1  # Ajustar o índice do valor (é 1 a mais que o índice do nome)
+            # Verificar se há valor 'J' para o índice correspondente
+            valor_d = valores_d.get(indice_valor, '0')  # Pegar o valor 'D', ou '0' se não existir
+            # Limpar e converter o valor para float usando o método separado
+            valor_total = limpar_valor(valor_d)
+            # Associar o nome ao valor total no dicionário
+            associacoes[nome] = valor_total
+        return associacoes  # Retorna o dicionário de associações entre nome e valor 'D'
+    except Exception as e:
+        print(f"Erro ao associar nomes e valores jurados: {str(e)}")
+        return {}
+
+
+def identificar_nomes_sem_valores(file_path):
+    """
+    Identifica os nomes que não possuem valores associados ou cujo valor associado é igual a zero.
+
+    :param file_path: Caminho para o arquivo.
+    :return: Lista de nomes sem valores associados ou cujo valor é zero.
+    """
+    try:
+        content = ler_arquivo(file_path)
+        nomes_dict = extrair_nomes(content)
+        valores_pagos_dict = associar_nomes_valores_pagos(file_path)
+        nomes_sem_valores_ou_zero = []
+        for linha, nome in nomes_dict.items():
+            valor = valores_pagos_dict.get(nome, None)  # Obtém o valor ou None se não existir
+            if valor is None or valor == 0:  # Adiciona o nome se o valor for None ou zero
+                nomes_sem_valores_ou_zero.append(nome)
+
+        return nomes_sem_valores_ou_zero
+
+    except Exception as e:
+        print(f"Erro ao identificar nomes sem valores ou com valor zero: {str(e)}")
+        return []
+
+
+def associar_nomes_valores_tarifas(file_path):
+    try:
+        content = ler_arquivo(file_path)
+        nomes_dict = extrair_nomes(content)
+        _, valores_g, _, _ = extrair_valores(content)
+        associacoes = {}
+        for linha, nome in nomes_dict.items():
+            indice_valor = linha + 1
+            valor_g = valores_g.get(indice_valor, '0')
+            valor_total = limpar_valor(valor_g)
+            associacoes[nome] = valor_total
+        return associacoes
+    except Exception as e:
+        print(f"Erro ao associar nomes e valores jurados: {str(e)}")
+        return {}
