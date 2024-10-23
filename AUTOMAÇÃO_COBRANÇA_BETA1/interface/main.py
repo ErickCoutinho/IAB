@@ -1,17 +1,19 @@
 import threading
+import ttkbootstrap as ttk  # Adiciona ttkbootstrap para usar temas
+from ttkbootstrap.constants import *
 import tkinter as tk
-from tkinter import ttk, messagebox
+from tkinter import messagebox
 from interface.interface_auxiliary.results import ResultadosInterface
 from utils.file_processing.functions import carregar_arquivo_txt, carregar_arquivo_excel, processar_dados
 from interface.interface_auxiliary.loading import fechar_loading, mostrar_loading
 
 
-class InterfaceApp(tk.Tk):
+class InterfaceApp(ttk.Window):
     def __init__(self):
-        super().__init__()
+        super().__init__(themename="superhero")
 
         self.title("Processamento de Arquivos Excel e TXT")
-        self.geometry("500x300")
+        self.geometry("550x350")
 
         # Variáveis de controle
         self.excel_file = None
@@ -20,7 +22,6 @@ class InterfaceApp(tk.Tk):
         self.dicionario_cartorio = None
         self.dicionario_devolvido = None
         self.dicionario_tarifas = None
-
 
         # Widgets
         self.label_arquivo_txt = tk.Label(self, text="Selecione o arquivo TXT:")

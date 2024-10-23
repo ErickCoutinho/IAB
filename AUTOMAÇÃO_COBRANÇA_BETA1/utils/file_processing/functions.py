@@ -42,7 +42,6 @@ def carregar_arquivo_excel(combobox_aba):
 
 def processar_dados(excel_file, aba_selecionada, dicionario_nomes_valores):
     """
-    ESSA É A FUNÇÃO PRINCIPAL DO PROJETO
     Função PRINCIPAL para processar os dados no arquivo Excel, comparando os nomes na coluna "Conveniado"
     com os nomes de um dicionário e atualizando a coluna "Total fatura titular" com os valores correspondentes.
 
@@ -57,17 +56,15 @@ def processar_dados(excel_file, aba_selecionada, dicionario_nomes_valores):
     3. Comparar os nomes da coluna "Conveniado" com os nomes do dicionário.
     4. Atualizar a coluna "Total fatura titular" com os valores do dicionário quando houver correspondência.
     5. Exibir os nomes encontrados e atualizados.
-    6. Salvar o arquivo Excel atualizado.
-
-    Exceções:
-    - Erros ao carregar ou salvar o arquivo Excel.
-    - Erros ao processar os dados (ex.: colunas não encontradas).
+    6. Salvar o arquivo Excel atualizado, sobrescrevendo o original.
     """
     dicionario_nomes_correspondetes = {}
     try:
+        # Carregar o workbook existente
         workbook = load_workbook(excel_file)
         worksheet = workbook[aba_selecionada]
-        # Encontrar as colunas 'Conveniado' e 'Total fatura titular'
+
+        # Identificar colunas "Conveniado" e "Total fatura titular"
         col_conveniado = None
         col_total_fatura = None
         for col in worksheet.iter_cols(1, worksheet.max_column):
@@ -79,15 +76,18 @@ def processar_dados(excel_file, aba_selecionada, dicionario_nomes_valores):
                     col_total_fatura = col[0].column_letter
             if col_conveniado and col_total_fatura:
                 break
+
+        # Verificar se as colunas foram encontradas
         if not col_conveniado:
             messagebox.showerror("Erro", "A coluna 'Conveniado' não foi encontrada.")
             return
         if not col_total_fatura:
             messagebox.showerror("Erro", "A coluna 'Total fatura titular' não foi encontrada.")
             return
+
+        # Processar os dados e atualizar a planilha
         nomes_encontrados = []
         nomes_com_valor_zero = []  # Lista para armazenar nomes com valor igual a zero
-
         for nome, valor in dicionario_nomes_valores.items():
             for row in range(2, worksheet.max_row + 1):
                 conveniado = worksheet[f'{col_conveniado}{row}'].value
@@ -98,14 +98,14 @@ def processar_dados(excel_file, aba_selecionada, dicionario_nomes_valores):
                     if valor == 0:
                         nomes_com_valor_zero.append(nome)
 
-        # Remover a mensagem de nomes encontrados
+        # Alerta se houver nomes com valor igual a zero
         if nomes_com_valor_zero:
             messagebox.showinfo("ATENÇÃO",
                                 f"Verificar seguintes nomes no TXT: {', '.join(nomes_com_valor_zero)}")
-        save_path = filedialog.asksaveasfilename(defaultextension=".xlsx", filetypes=[("Arquivo Excel", "*.xlsx")])
-        if save_path:
-            workbook.save(save_path)
-            messagebox.showinfo("Arquivo Salvo", f"Arquivo salvo em {save_path}")
+
+        # Sobrescrever o arquivo Excel original
+        workbook.save(excel_file)
+        messagebox.showinfo("Arquivo Salvo", f"Arquivo sobrescrito em {excel_file}")
 
     except Exception as e:
         messagebox.showerror("Erro", f"Erro ao processar os dados: {str(e)}")
@@ -113,4 +113,5 @@ def processar_dados(excel_file, aba_selecionada, dicionario_nomes_valores):
         fechar_loading()
 
     return dicionario_nomes_correspondetes
+
 
