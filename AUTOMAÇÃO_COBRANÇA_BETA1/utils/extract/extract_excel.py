@@ -12,9 +12,8 @@ def ler_nomes_excel(excel_file, aba_selecionada):
     try:
         # Carregar a aba especificada no Excel
         worksheet = pd.read_excel(excel_file, sheet_name=aba_selecionada)
-
         # Ler os nomes da coluna 'Conveniado' e remover valores nulos
-        nomes_excel = worksheet['Conveniado'].dropna().tolist()
+        nomes_excel = worksheet['Conveniado'].tolist()
         return nomes_excel
     except KeyError:
         print("Erro: A coluna 'Conveniado' não foi encontrada.")

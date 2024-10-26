@@ -1,6 +1,7 @@
 from datetime import datetime
 from utils.association.association import associar_nomes_valores_pagos, associar_nomes_datas_vencimento, \
     associar_nomes_valores_cartorio, associar_nomes_valores_devolvido, associar_nomes_valores_tarifas
+from utils.extract.extract_excel import ler_nomes_excel
 from utils.extract.extract_objects import extrair_data_posicao, ler_arquivo, extrair_nomes
 
 file_path = "../../documents/txts/12_07Resumo_Contabil_20240717.txt"
@@ -176,3 +177,25 @@ def filtrar_nomes_sem_valores(file_path):
         print(f"Erro ao filtrar nomes sem valores: {str(e)}")
         return {}
 
+
+def filtrar_nomes_nao_encontrados(file_path, nomes_excel):
+    try:
+        content = ler_arquivo(file_path)
+        nomes_txt_dict = extrair_nomes(content)
+        # Extrair apenas os nomes do dicionário do TXT
+        nomes_txt = {nome.strip() for nome in nomes_txt_dict.values() if isinstance(nome, str)}
+        # Normalizar os nomes do Excel (somente strip, sem lower)
+        nomes_excel_normalizados = {str(nome).strip() for nome in nomes_excel if isinstance(nome, str)}
+        # Filtrar os nomes que estão no TXT mas não no Excel
+        nomes_nao_encontrados = nomes_txt - nomes_excel_normalizados
+        return list(nomes_nao_encontrados)  # Converte o conjunto para lista
+    except Exception as e:
+        print(f"Erro ao filtrar nomes não encontrados: {str(e)}")
+        return []
+
+
+
+
+r = filtrar_nomes_nao_encontrados(file_path, ler_nomes_excel("../../documents/Excel cobrança 2024 OFC.xlsx/",
+                                                             "outubro 2024 - Teste"))
+print(r)

@@ -2,7 +2,8 @@ import tkinter as tk
 import ttkbootstrap as ttk  # Adiciona ttkbootstrap para usar temas
 
 class ResultadosInterface(ttk.Toplevel):
-    def __init__(self, nomes_processados, nomes_atrasados, nomes_cartorio, dicionario_correspondencias, nomes_devolvidos, nomes_tarifas):
+    def __init__(self, nomes_processados, nomes_atrasados, nomes_cartorio, dicionario_correspondencias, nomes_devolvidos,
+                 nomes_tarifas, dicionario_nao_encontrados):
         super().__init__()
 
         self.title("Resultados do Processamento")
@@ -36,6 +37,9 @@ class ResultadosInterface(ttk.Toplevel):
         label_quantidade_correspondentes = ttk.Label(scrollable_frame, text=f"Nomes Correspondentes: {len(dicionario_correspondencias)}", font=("Arial", 12), bootstyle="primary")
         label_quantidade_correspondentes.pack(pady=5)
 
+        label_quantidade_correspondentes = ttk.Label(scrollable_frame, text=f"Nomes Não Encontrados: {len(dicionario_nao_encontrados)}", font=("Arial", 12), bootstyle="primary")
+        label_quantidade_correspondentes.pack(pady=5)
+
         label_quantidade_atrasados = ttk.Label(scrollable_frame, text=f"Nomes Atrasados: {len(nomes_atrasados)}", font=("Arial", 12), bootstyle="primary")
         label_quantidade_atrasados.pack(pady=5)
 
@@ -54,6 +58,9 @@ class ResultadosInterface(ttk.Toplevel):
         self.frames_listas[-1].pack(fill="both", expand=True, padx=10, pady=5)
 
         self.frames_listas.append(self.create_frame(scrollable_frame, "Nomes Correspondentes", dicionario_correspondencias))
+        self.frames_listas[-1].pack(fill="both", expand=True, padx=10, pady=5)
+
+        self.frames_listas.append(self.create_frame(scrollable_frame, "Nomes Não Encontrados", dicionario_nao_encontrados))
         self.frames_listas[-1].pack(fill="both", expand=True, padx=10, pady=5)
 
         self.frames_listas.append(self.create_frame(scrollable_frame, "Nomes Atrasados", nomes_atrasados))

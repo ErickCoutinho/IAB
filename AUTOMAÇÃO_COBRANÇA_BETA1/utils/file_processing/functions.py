@@ -1,12 +1,14 @@
 import pandas as pd
 from tkinter import filedialog, messagebox
 from src.final_returns.returns_names import (filtrar_nomes_finais, filtrar_nomes_atrasados, filtrar_nomes_cartorio,
-                                             filtrar_nomes_devolvido, filtrar_nomes_tarifas)
+                                             filtrar_nomes_devolvido, filtrar_nomes_tarifas,
+                                             filtrar_nomes_nao_encontrados)
 from openpyxl import load_workbook
 from interface.interface_auxiliary.loading import fechar_loading
+from utils.extract.extract_excel import ler_nomes_excel
 
 
-def carregar_arquivo_txt():
+def carregar_arquivo_txt(excel_file=None, aba_selecionada=None):
     file_path = filedialog.askopenfilename(title="Selecione o arquivo .txt", filetypes=[("Arquivo TXT", "*.txt")])
     if file_path:
         try:
@@ -16,12 +18,14 @@ def carregar_arquivo_txt():
             dicionario_cartorio = filtrar_nomes_cartorio(file_path)
             dicionario_devolvido = filtrar_nomes_devolvido(file_path)
             dicionario_tarifas = filtrar_nomes_tarifas(file_path)
+            dicionario_nao_encontrados = filtrar_nomes_nao_encontrados(file_path,
+                                                                       ler_nomes_excel(excel_file, aba_selecionada))
             print("Arquivo TXT carregado e processado com sucesso.")
-            return dicionario_nomes_valores, dicionario_atrasados, dicionario_cartorio, dicionario_devolvido, dicionario_tarifas
+            return (dicionario_nomes_valores, dicionario_atrasados, dicionario_cartorio, dicionario_devolvido,
+                    dicionario_tarifas, dicionario_nao_encontrados)
         except Exception as e:
             messagebox.showerror("Erro", f"Erro ao carregar o arquivo TXT: {str(e)}")
         return None
-
 
 
 # Função para carregar o arquivo Excel e escolher a aba
@@ -113,5 +117,3 @@ def processar_dados(excel_file, aba_selecionada, dicionario_nomes_valores):
         fechar_loading()
 
     return dicionario_nomes_correspondetes
-
-

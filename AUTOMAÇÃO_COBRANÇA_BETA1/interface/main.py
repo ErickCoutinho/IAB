@@ -21,12 +21,9 @@ class InterfaceApp(ttk.Window):
         self.dicionario_cartorio = None
         self.dicionario_devolvido = None
         self.dicionario_tarifas = None
+        self.dicionario_nao_encontrados = None
 
         # Widgets
-        self.label_arquivo_txt = tk.Label(self, text="Selecione o arquivo TXT:")
-        self.label_arquivo_txt.pack(pady=10)
-        self.button_arquivo_txt = tk.Button(self, text="Carregar Arquivo TXT", command=self.carregar_txt)
-        self.button_arquivo_txt.pack(pady=5)
 
         self.label_arquivo_excel = tk.Label(self, text="Selecione o arquivo Excel:")
         self.label_arquivo_excel.pack(pady=10)
@@ -38,14 +35,32 @@ class InterfaceApp(ttk.Window):
         self.combobox_aba = ttk.Combobox(self)
         self.combobox_aba.pack(pady=5)
 
+        self.label_arquivo_txt = tk.Label(self, text="Selecione o arquivo TXT:")
+        self.label_arquivo_txt.pack(pady=10)
+        self.button_arquivo_txt = tk.Button(self, text="Carregar Arquivo TXT", command=self.carregar_txt)
+        self.button_arquivo_txt.pack(pady=5)
+
         self.button_processar = tk.Button(self, text="Processar Dados", command=self.iniciar_processamento)
         self.button_processar.pack(pady=20)
 
     def carregar_txt(self):
+        if not self.excel_file:
+            messagebox.showwarning("Aviso", "Por favor, carregue o arquivo Excel antes de continuar.")
+            return
+
+        aba_selecionada = self.combobox_aba.get()
+        if not aba_selecionada:
+            messagebox.showwarning("Aviso", "Por favor, selecione uma aba antes de continuar.")
+            return
+
+        # Carregar o arquivo TXT e passar o excel_file e aba_selecionada corretamente
         (self.dicionario_nomes_valores, self.dicionario_atrasados, self.dicionario_cartorio, self.dicionario_devolvido,
-         self.dicionario_tarifas) = carregar_arquivo_txt()
+         self.dicionario_tarifas, self.dicionario_nao_encontrados) = carregar_arquivo_txt(excel_file=self.excel_file,
+                                                                                          aba_selecionada=aba_selecionada)
         if self.dicionario_nomes_valores:
             print("Dicionário de nomes e valores carregado com sucesso.")
+        else:
+            print("Erro ao carregar o arquivo TXT.")
 
     def carregar_excel(self):
         self.excel_file = carregar_arquivo_excel(self.combobox_aba)
@@ -76,10 +91,11 @@ class InterfaceApp(ttk.Window):
             nomes_cartorio = list(self.dicionario_cartorio.keys())
             nomes_devolvidos = list(self.dicionario_devolvido.keys())
             nomes_tarifas = list(self.dicionario_tarifas)
+            nomes_nao_encontrados = list(self.dicionario_nao_encontrados)
 
             # Passa o dicionário de correspondências para a interface de resultados
             ResultadosInterface(nomes_processados, nomes_atrasados, nomes_cartorio, dicionario_correspondencias,
-                                nomes_devolvidos, nomes_tarifas)
+                                nomes_devolvidos, nomes_tarifas, nomes_nao_encontrados)
 
             self.after(0, lambda: messagebox.showinfo("Sucesso", "Processamento concluído com sucesso!"))
         except Exception as e:
