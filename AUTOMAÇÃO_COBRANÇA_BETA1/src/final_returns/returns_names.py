@@ -176,5 +176,3 @@ def filtrar_nomes_sem_valores(file_path):
         print(f"Erro ao filtrar nomes sem valores: {str(e)}")
         return {}
 
-r = filtrar_nomes_sem_valores(file_path)
-print(r)

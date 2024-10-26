@@ -29,11 +29,6 @@ class ResultadosInterface(ttk.Toplevel):
         titulo = ttk.Label(scrollable_frame, text="Resultados do Processamento", font=("Arial", 16), bootstyle="info")
         titulo.pack(pady=10)
 
-        # Trackbar Geral para ajustar todas as caixas
-        self.trackbar_geral = tk.Scale(scrollable_frame, from_=1, to=20, orient=tk.HORIZONTAL, label="Ajuste Geral das Listas")
-        self.trackbar_geral.pack(fill="x", padx=10, pady=10)
-        self.trackbar_geral.bind("<Motion>", self.adjust_all_lists)
-
         # Labels para quantidade de nomes
         label_quantidade_processados = ttk.Label(scrollable_frame, text=f"Nomes Extraidos do TXT: {len(nomes_processados)}", font=("Arial", 12), bootstyle="primary")
         label_quantidade_processados.pack(pady=5)
@@ -107,9 +102,3 @@ class ResultadosInterface(ttk.Toplevel):
     def adjust_list(self, lista, trackbar):
         """Ajusta o tamanho de um Listbox individual."""
         lista.config(height=trackbar.get())
-
-    def adjust_all_lists(self, event):
-        """Ajusta o tamanho de todos os Listboxes com a Trackbar Geral."""
-        for frame in self.frames_listas:
-            listbox = frame.winfo_children()[0].winfo_children()[0]  # Obtém o Listbox dentro do frame
-            listbox.config(height=self.trackbar_geral.get())

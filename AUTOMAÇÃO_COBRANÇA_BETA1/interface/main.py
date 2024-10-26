@@ -1,6 +1,5 @@
 import threading
-import ttkbootstrap as ttk  # Adiciona ttkbootstrap para usar temas
-from ttkbootstrap.constants import *
+import ttkbootstrap as ttk
 import tkinter as tk
 from tkinter import messagebox
 from interface.interface_auxiliary.results import ResultadosInterface
@@ -10,7 +9,7 @@ from interface.interface_auxiliary.loading import fechar_loading, mostrar_loadin
 
 class InterfaceApp(ttk.Window):
     def __init__(self):
-        super().__init__(themename="superhero")
+        super().__init__(themename="simplex")
 
         self.title("Processamento de Arquivos Excel e TXT")
         self.geometry("550x350")
