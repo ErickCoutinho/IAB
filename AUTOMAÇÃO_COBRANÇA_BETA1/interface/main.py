@@ -32,16 +32,32 @@ class InterfaceApp(ttk.Window):
 
         self.label_aba = tk.Label(self, text="Selecione a aba:")
         self.label_aba.pack(pady=10)
-        self.combobox_aba = ttk.Combobox(self)
+        self.combobox_aba = ttk.Combobox(self, state='disabled')  # Desabilitado inicialmente
         self.combobox_aba.pack(pady=5)
 
         self.label_arquivo_txt = tk.Label(self, text="Selecione o arquivo TXT:")
         self.label_arquivo_txt.pack(pady=10)
-        self.button_arquivo_txt = tk.Button(self, text="Carregar Arquivo TXT", command=self.carregar_txt)
+        self.button_arquivo_txt = tk.Button(self, text="Carregar Arquivo TXT", command=self.carregar_txt,
+                                            state='disabled')  # Desabilitado inicialmente
         self.button_arquivo_txt.pack(pady=5)
 
         self.button_processar = tk.Button(self, text="Processar Dados", command=self.iniciar_processamento)
         self.button_processar.pack(pady=20)
+
+    def carregar_excel(self):
+        # Carrega o arquivo Excel e habilita o combobox de abas
+        self.excel_file = carregar_arquivo_excel(self.combobox_aba)
+
+        if self.excel_file:
+            self.combobox_aba['state'] = 'readonly'  # Habilita a seleção de abas
+            self.combobox_aba['values'] = self.excel_file.sheet_names  # Popula o combobox com as abas
+            self.combobox_aba.current(0)  # Seleciona a primeira aba por padrão
+            self.combobox_aba.bind("<<ComboboxSelected>>",
+                                   self.habilitar_selecao_txt)  # Liga o evento de seleção da aba
+
+    def habilitar_selecao_txt(self, event):
+        # Habilita a seleção do arquivo TXT após selecionar a aba do Excel
+        self.button_arquivo_txt['state'] = 'normal'
 
     def carregar_txt(self):
         if not self.excel_file:
@@ -61,9 +77,6 @@ class InterfaceApp(ttk.Window):
             print("Dicionário de nomes e valores carregado com sucesso.")
         else:
             print("Erro ao carregar o arquivo TXT.")
-
-    def carregar_excel(self):
-        self.excel_file = carregar_arquivo_excel(self.combobox_aba)
 
     def iniciar_processamento(self):
         """
