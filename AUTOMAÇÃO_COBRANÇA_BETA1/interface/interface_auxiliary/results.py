@@ -27,7 +27,7 @@ class ResultadosInterface(ttk.Toplevel):
         canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
 
         # Título
-        titulo = ttk.Label(scrollable_frame, text="Resultados do Processamento", font=("Arial", 16), bootstyle="info")
+        titulo = ttk.Label(scrollable_frame, text="Resultados do Processamento", font=("Arial", 16), bootstyle="primary")
         titulo.pack(pady=10)
 
         # Labels para quantidade de nomes
@@ -76,11 +76,11 @@ class ResultadosInterface(ttk.Toplevel):
         self.frames_listas[-1].pack(fill="both", expand=True, padx=10, pady=5)
 
         # Botão para fechar a janela
-        fechar_button = ttk.Button(scrollable_frame, text="Fechar", command=self.destroy, bootstyle="danger")
+        fechar_button = ttk.Button(scrollable_frame, text="Fechar", command=self.destroy)
         fechar_button.pack(pady=10)
 
     def create_frame(self, parent, title, nomes):
-        frame = ttk.LabelFrame(parent, text=title, padding=10, bootstyle="info")
+        frame = ttk.LabelFrame(parent, text=title, padding=10, bootstyle="primary")
 
         # Frame interno para lista e trackbar
         list_frame = ttk.Frame(frame)

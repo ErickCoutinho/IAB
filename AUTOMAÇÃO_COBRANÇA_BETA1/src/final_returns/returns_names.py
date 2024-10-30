@@ -196,6 +196,3 @@ def filtrar_nomes_nao_encontrados(file_path, nomes_excel):
 
 
 
-r = filtrar_nomes_nao_encontrados(file_path, ler_nomes_excel("../../documents/Excel cobrança 2024 OFC.xlsx/",
-                                                             "outubro 2024 - Teste"))
-print(r)
