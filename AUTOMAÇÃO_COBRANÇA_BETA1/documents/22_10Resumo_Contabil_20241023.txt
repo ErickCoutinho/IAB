@@ -1,0 +1,91 @@
+
+BANCO DO ESTADO DO RIO GRANDE DO SUL, S.A.        DATA-HORA: 23/10/2024 01.44.29
+BDL - CARTEIRA LETRAS        **** AVISO DE MOVIMENTACAO DE COBRANCA ****
+AGENCIA: 0839.17 DUQUE DE CAXIAS                      POSICAO DO DIA: 22/10/2024
+CEDENTE: 0839.8542161.55 - INST DE ARQUITETOS DO BRASIL RS
+(M) > 8050 - COBRANCA SIMPLES                                                  <
+--------------------------------------------------------------------------------
+NOSSO NUM. SEU NUMERO    NOME DO SACADO/EMITENTE           COBR DT VENCTO  DT-OP
+     MOEDA                     OP   VALOR DO TITULO TB   COD   DEDUZ/ACRESCE D/C
+--------------------------------------------------------------------------------
+0159428818 0      /01    ALBERTO LUIZ ZAMEL                0104 10/10/2024 18/10
+     DINHEIRO                  C           2.433,16 C    07            55,14  C
+                                                         41             1,13  D
+0159447626 0      /01    DEODATO JOAO DA SILVA             0081 10/10/2024 18/10
+     DINHEIRO                  C           1.026,65 C    07            23,25  C
+                                                         41             1,13  D
+0159455386 0      /01    GABRIELA JACOBSEN                 0010 10/10/2024 18/10
+     DINHEIRO                  C           1.717,05      07            38,90  C
+0159484580 0      /01    ROBERTA TOGNI PEREIRA             0077 10/10/2024 18/10
+     DINHEIRO                  C             851,94 C    07            19,27  C
+                                                         41             0,55  D
+================================================================================
+(R) > 8050 - COBRANCA SIMPLES                                                  <
+RESUMO DA OPERACAO ........... C           6.028,80
+    (ACRESCIMOS OU DEDUCOES)
+ 07 - JUROS + CORRECAO MONETARIA DE MORA.....             07            136,56 C
+ 41 - RESSARCIMENTO TARIFA INTERBANCARIA.....             41              2,81 D
+    VALOR LIQUIDO DA OPERACAO  C           6.162,55 C
+(M) > 8050 - COBRANCA SIMPLES                                                  <
+--------------------------------------------------------------------------------
+NOSSO NUM. SEU NUMERO    NOME DO SACADO/EMITENTE           COBR DT VENCTO  DT-OP
+     MOEDA                     OP   VALOR DO TITULO TB   COD   DEDUZ/ACRESCE D/C
+--------------------------------------------------------------------------------
+0159464377 0      /01    KAREN PREUSSER TIEDE              0839 10/10/2024 22/10
+                               D             668,39 4
+================================================================================
+(R) > 8050 - COBRANCA SIMPLES                                                  <
+RESUMO DA OPERACAO ........... D             668,39
+    VALOR LIQUIDO DA OPERACAO  D               0,00 C
+(M) > 8050 - COBRANCA SIMPLES                                                  <
+--------------------------------------------------------------------------------
+NOSSO NUM. SEU NUMERO    NOME DO SACADO/EMITENTE           COBR DT VENCTO  DT-OP
+     MOEDA                     OP   VALOR DO TITULO TB   COD   DEDUZ/ACRESCE D/C
+--------------------------------------------------------------------------------
+0159431940 0      /01    ANA LORE BURLIGA MIRANDA          0940 10/10/2024 22/10
+                               J             907,57      21             9,19
+0159434427 0      /01    ANDREIA DOS SANTOS ZACHIA         0100 10/10/2024 22/10
+                               J             501,00      21             9,19
+0159436241 0      /01    AUDREY BELLO RAMOS                0100 10/10/2024 22/10
+                               J           2.499,64      21             9,19
+0159438309 0      /01    BRUNA LEGES DE ANDRADE            0670 10/10/2024 22/10
+                               J             150,30      21             9,19
+0159456048 0      /01    GERMANO ALFREDO SERAU             0670 10/10/2024 22/10
+                               J           1.907,86      21             9,19
+0159459438 0      /01    INARA MARIA FARIAS CLARO          0100 10/10/2024 22/10
+                               J           1.293,61      21             9,19
+0159460568 0      /01    JANYNE LILIANE ALVES KLAGENBERG   0100 10/10/2024 22/10
+                               J             578,42      21             9,19
+0159476820 0      /01    MATHEUS REINHEIMER SCHOPF         0944 10/10/2024 22/10
+                               J           1.321,18      21             9,19
+0159479633 0      /01    NOELI GUIMARAES XAVIER            0100 10/10/2024 22/10
+                               J           1.010,36      21             9,19
+0159485161 0      /01    RODRIGO HERSCOVITZ                0100 10/10/2024 22/10
+                               J           1.287,74      21             9,19
+0159487318 0      /01    SANDRA DALLA ROSA BEHERENS        0100 10/10/2024 22/10
+                               J           1.660,88      21             9,19
+0159490920 0      /01    TATIANA GORZIZA DE LIMA           0100 10/10/2024 22/10
+                               J             549,65      21             9,19
+0159491005 0      /01    TATIANE DA COSTA SILVA CASSOLA    0301 10/10/2024 22/10
+                               J             833,35      21             9,19
+0159494071 0      /01    VIVIANE FRANKE LEMOS              0100 10/10/2024 22/10
+                               J           3.121,19      21             9,19
+================================================================================
+(R) > 8050 - COBRANCA SIMPLES                                                  <
+RESUMO DA OPERACAO ........... J          17.622,75
+    (ACRESCIMOS OU DEDUCOES)
+ 21 - DESPESAS DE PROTESTO/APONTE............                           128,66 D
+================================================================================
+(R) > 8050 - COBRANCA SIMPLES                                                  <
+RESUMO DA OPERACAO ........... J          17.622,75
+    VALOR LIQUIDO DA OPERACAO  J             128,66 D
+--------------------------------------------------------------------------------
+CONTA CORRENTE :  06.854216.1.6   LIQUIDO LANCADO (A CREDITO ):         6.033,89
+VENCIDOS ATE NESTA DATA:        25.307,13
+ATE: 31/10/2024:              0,00            ATE : 30/11/2024:         7.514,76
+ATE: 31/12/2024:          7.328,14            APOS: 31/12/2024:             0,00
+--------------------------------------------------------------------------------
+SALDO ANTERIOR:        46.847,22                   ENTRADAS   :             0,00
+SAIDAS        :         6.697,19                   SALDO ATUAL:        40.150,03
+================================================================================
+BDL-CARTEIRA LETRAS0839854216155221020242310202401.44.29*****FIM

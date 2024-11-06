@@ -2,9 +2,9 @@ import threading
 import ttkbootstrap as ttk
 import tkinter as tk
 from tkinter import messagebox
-from interface.interface_auxiliary.results import ResultadosInterface
+from interface.results import ResultadosInterface
 from utils.file_processing.functions import carregar_arquivo_txt, carregar_arquivo_excel, processar_dados
-from interface.interface_auxiliary.loading import fechar_loading, mostrar_loading
+from interface.loading import fechar_loading, mostrar_loading
 
 
 class InterfaceApp(ttk.Window):

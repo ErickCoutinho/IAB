@@ -4,7 +4,7 @@ from src.final_returns.returns_names import (filtrar_nomes_finais, filtrar_nomes
                                              filtrar_nomes_devolvido, filtrar_nomes_tarifas,
                                              filtrar_nomes_nao_encontrados)
 from openpyxl import load_workbook
-from interface.interface_auxiliary.loading import fechar_loading
+from interface.loading import fechar_loading
 from utils.extract.extract_excel import ler_nomes_excel
 
 

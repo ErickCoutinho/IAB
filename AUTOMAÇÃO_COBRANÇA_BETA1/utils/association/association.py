@@ -2,7 +2,7 @@ from utils.extract.extract_objects import extrair_valores, extrair_nomes, ler_ar
     extrair_taxas_bancarias, extrair_data_vencimento
 from utils.auxiliary.functions import limpar_valor, buscar_taxa_bancaria, buscar_juros
 
-file_path = "../../documents/txts/12_07Resumo_Contabil_20240717.txt"
+file_path = "../../documents/22_10Resumo_Contabil_20241023.txt"
 
 
 def associar_nomes_valores_pagos(file_path):
@@ -109,6 +109,9 @@ def associar_nomes_valores_cartorio(file_path):
         print(f"Erro ao associar nomes e valores jurados: {str(e)}")
         return {}
 
+
+r = associar_nomes_valores_cartorio(file_path)
+print(r)
 
 def associar_nomes_valores_devolvido(file_path):
     try:

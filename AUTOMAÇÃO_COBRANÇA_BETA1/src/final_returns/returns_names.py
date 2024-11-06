@@ -4,7 +4,7 @@ from utils.association.association import associar_nomes_valores_pagos, associar
 from utils.extract.extract_excel import ler_nomes_excel
 from utils.extract.extract_objects import extrair_data_posicao, ler_arquivo, extrair_nomes
 
-file_path = "../../documents/txts/12_07Resumo_Contabil_20240717.txt"
+file_path = "../../documents/22_10Resumo_Contabil_20241023.txt"
 
 
 def filtrar_nomes_finais(file_path):
@@ -105,6 +105,8 @@ def filtrar_nomes_cartorio(file_path):
         print(f"Erro ao filtrar nomes relacionados ao cartório: {str(e)}")
         return {}
 
+r = filtrar_nomes_cartorio(file_path)
+print(r)
 
 def filtrar_nomes_devolvido(file_path):
     """

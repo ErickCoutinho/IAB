@@ -1,7 +1,7 @@
 import re
 from datetime import datetime
 
-file_path = '../../documents/txts/12_07Resumo_Contabil_20240717.txt'
+file_path = '../../documents/22_10Resumo_Contabil_20241023.txt'
 
 
 def ler_arquivo(file_path):
@@ -49,6 +49,7 @@ def extrair_valores(content):
                     next_line_index = i + 1
                     if next_line_index < len(content):
                         next_line = content[next_line_index].strip()
+                        print(next_line)
                         try:
                             # Limitar a busca entre os caracteres 14 e 40
                             substring = next_line[11:35]
@@ -82,6 +83,9 @@ def extrair_valores(content):
         print(f"Erro ao extrair valores do arquivo: {str(e)}")
         return {}, {}, {}, {}
 
+
+valores_c, valores_g, valores_j, valores_d = extrair_valores(ler_arquivo(file_path))
+print(valores_c)
 
 def extrair_taxas_bancarias(content):
     taxas_bancarias = {}  # Dicionário para armazenar as taxas bancárias com o número da linha como chave
